@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1213276468240788583}
   - component: {fileID: 5924786301812912919}
   - component: {fileID: 3318578525625107075}
+  - component: {fileID: -5608050021660367087}
+  - component: {fileID: 8716336114099819881}
   m_Layer: 0
   m_Name: personaje1
   m_TagString: Untagged
@@ -50,6 +52,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -87,7 +92,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &3318578525625107075
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,8 +106,59 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5608050021660367087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818472440953356866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b22f950f1f4cc641b6d516b6f2a5f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombre: A
+  estado: 0
+  dialogosPersonaje:
+  - "Soy de un pueblo cercano, vengo caminando hace tres d\xEDas por favor necesito
+    ayuda"
+  - "No me cruc\xE9 con nadie en el camino"
+  - "Ninguno adem\xE1s del agotamiento y el hambre"
+  - "Por favor no estoy infectada, me agarr\xF3 la lluvia en el camino de tierra."
+  - "Mire mi piel, no tengo ning\xFAn s\xEDntoma solo necesito una ducha."
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "No puedo realizar un diagn\xF3stico por el estado en que se encuentra."
+  - "\xBFC\xF3mo puedo saber que no me est\xE1 mintiendo?"
+  respuestaIngreso:
+  - "\xA1Gracias! Por fin voy a poder sacarme esta tierra"
+  respuestaRechazo:
+  - Entiendo... Voy a seguir caminando...
+  prefab: {fileID: 818472440953356866}
+  esAgresivo: 0
+  animator: {fileID: 0}
+--- !u!114 &8716336114099819881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818472440953356866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanelPersonaje: {fileID: 0}
+  dialoguePanelGuardia: {fileID: 0}
+  dialogueTextPersonaje: {fileID: 0}
+  dialogueTextGuardia: {fileID: 0}
