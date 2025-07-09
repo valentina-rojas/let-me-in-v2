@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-
     void Start()
     {
         strikes = 0;
@@ -49,15 +48,25 @@ public class GameManager : MonoBehaviour
         uiManager = FindFirstObjectByType<UIManager>();
         characterSpawn = FindFirstObjectByType<CharacterSpawn>();
 
-
         if (uiManager == null)
             Debug.LogError("UIManager no encontrado en la escena.");
         if (characterSpawn == null)
             Debug.LogError("CharacterSpawn no encontrado en la escena.");
 
-        IniciarSpawnDePersonajes();
-
+        // Mostrar mensaje inicio día y esperar a que termine antes de iniciar spawn
+        if (NivelActual - 1 < mensajesInicioDia.Length)
+        {
+            uiManager.PanelInicioDesactivado += IniciarSpawnDePersonajes; // Suscribirse al evento
+            uiManager.MostrarInicioDia(mensajesInicioDia[NivelActual - 1]);
+        }
+        else
+        {
+            Debug.LogWarning("No hay mensaje definido para este día.");
+            // Si no hay mensaje, arrancar spawn directo
+            IniciarSpawnDePersonajes();
+        }
     }
+
 
     public void IniciarSpawnDePersonajes()
     {
@@ -172,12 +181,52 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void FinDeNivel()
+    public void MostrarMensaje()
     {
 
+        if (enfermosIngresados == 0 && sanosRechazados == 0)
+        {
+            uiManager.mensajeReporte.text = "¡Buen trabajo!";
+
+            if (NivelActual == 1)
+            {
+                uiManager.botonSiguienteNivel.gameObject.SetActive(true);
+            }
+
+            if (NivelActual == 2)
+            {
+                uiManager.botonGanaste.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            uiManager.mensajeReporte.text = "Más cuidado la próxima vez...";
+
+            if (NivelActual == 1)
+            {
+                uiManager.botonSiguienteNivel.gameObject.SetActive(true);
+            }
+
+            if (NivelActual == 2)
+            {
+                uiManager.botonGanaste.gameObject.SetActive(true);
+            }
+        }
 
     }
 
+    public void FinDeNivel()
+    {
 
+  // Llamar a UIManager para mostrar el reporte con los datos actuales
+    if (uiManager != null)
+    {
+        uiManager.ActualizarPanelReporte(sanosIngresados, enfermosIngresados, sanosRechazados, enfermosRechazados);
+    }
+    else
+    {
+        Debug.LogError("UIManager no asignado en GameManager.");
+    }
+    }
 
 }

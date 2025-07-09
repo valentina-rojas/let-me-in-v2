@@ -161,26 +161,44 @@ public class DialogueManager : MonoBehaviour
     }
 
 
+private IEnumerator ShowLine()
+{
+    isTyping = true;
 
-    private IEnumerator ShowLine()
+    if (esDialogoRespuesta)
     {
-        isTyping = true;
+        // Siempre habla el personaje en los diálogos de respuesta
+        dialoguePanelGuardia.SetActive(false);
+        dialoguePanelPersonaje.SetActive(true);
+        dialogueTextPersonaje.text = "";
+        botonSiguientePersonaje.gameObject.SetActive(false);
 
+        foreach (char ch in dialogueLines[lineIndex])
+        {
+            dialogueTextPersonaje.text += ch;
+            yield return new WaitForSeconds(typingTime);
+        }
+
+        botonSiguientePersonaje.gameObject.SetActive(true);
+    }
+    else
+    {
         // Alternar entre guardia (par) y personaje (impar)
         bool hablaGuardia = lineIndex % 2 == 0;
 
-        // Mostrar texto en el panel correspondiente
         if (hablaGuardia)
         {
             dialoguePanelGuardia.SetActive(true);
             dialoguePanelPersonaje.SetActive(false);
             dialogueTextGuardia.text = "";
             botonSiguienteGuardia.gameObject.SetActive(false);
+
             foreach (char ch in dialogueLines[lineIndex])
             {
                 dialogueTextGuardia.text += ch;
                 yield return new WaitForSeconds(typingTime);
             }
+
             botonSiguienteGuardia.gameObject.SetActive(true);
         }
         else
@@ -189,16 +207,19 @@ public class DialogueManager : MonoBehaviour
             dialoguePanelGuardia.SetActive(false);
             dialogueTextPersonaje.text = "";
             botonSiguientePersonaje.gameObject.SetActive(false);
+
             foreach (char ch in dialogueLines[lineIndex])
             {
                 dialogueTextPersonaje.text += ch;
                 yield return new WaitForSeconds(typingTime);
             }
+
             botonSiguientePersonaje.gameObject.SetActive(true);
         }
-
-        isTyping = false;
     }
+
+    isTyping = false;
+}
 
 
     private void FinalizarDialogo()

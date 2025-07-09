@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1528108909}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: CerrarAyuda
         m_Mode: 1
@@ -3025,7 +3025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1528108909}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: AbrirSintomas
         m_Mode: 1
@@ -5010,7 +5010,6 @@ RectTransform:
   - {fileID: 1672672134}
   - {fileID: 465959481}
   - {fileID: 727137440}
-  - {fileID: 1494153716}
   - {fileID: 713921331}
   - {fileID: 1412460604}
   - {fileID: 1519422823}
@@ -6041,7 +6040,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1528108909}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: CerrarSintomas
         m_Mode: 1
@@ -8749,8 +8748,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "M\xFAsica"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
-  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8796,7 +8795,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -9108,8 +9107,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: AJUSTES VOLUMEN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
-  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9155,7 +9154,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -10310,7 +10309,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1528108909}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: AbrirAyuda
         m_Mode: 1
@@ -11792,7 +11791,8 @@ MonoBehaviour:
   personajeActual: {fileID: 0}
   uiManager: {fileID: 1709672045}
   characterManager: {fileID: 943274573}
-  mensajesInicioDia: []
+  mensajesInicioDia:
+  - Atento a als personas con sarpullido
   sanosIngresados: 0
   enfermosIngresados: 0
   sanosRechazados: 0
@@ -12110,11 +12110,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944450474}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57cf8c82554eb7d45b8929dfafadad0b, type: 3}
+  m_Script: {fileID: 11500000, guid: f23cdb4f2c1a09442b9199bbbb89b046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lupa: {fileID: 0}
+  isLupaVisible: 0
+  panelLupa: {fileID: 0}
+  areaLimite: {fileID: 0}
+  sonidoBoton: {fileID: 0}
 --- !u!1 &958300637
 GameObject:
   m_ObjectHideFlags: 0
@@ -13413,7 +13418,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1528108909}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: AbrirOpciones
         m_Mode: 1
@@ -14814,8 +14819,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dialogos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
-  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14861,7 +14866,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -16040,8 +16045,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sonidos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
-  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16087,7 +16092,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -18315,111 +18320,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493280881}
   m_CullTransparentMesh: 1
---- !u!1 &1494153715
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1494153716}
-  - component: {fileID: 1494153719}
-  - component: {fileID: 1494153718}
-  - component: {fileID: 1494153717}
-  m_Layer: 5
-  m_Name: lupa icono
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1494153716
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494153715}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 356515986}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -275.43, y: -422}
-  m_SizeDelta: {x: 147, y: 142.76}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1494153717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494153715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 944450476}
-          m_TargetAssemblyTypeName: Zoom, Assembly-CSharp
-          m_MethodName: ToggleLupa
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1494153718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494153715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 658f26acc91dd6a449416d9df21919b6, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1494153719
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494153715}
-  m_CullTransparentMesh: 1
 --- !u!1 &1495950313
 GameObject:
   m_ObjectHideFlags: 0
@@ -18891,9 +18791,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1528108907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bf5756659a5ced41a241508306e6c98, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e7237ed61f6d424589cc12bd6708b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicSlider: {fileID: 169297525}
+  sfxSlider: {fileID: 410845119}
+  voicesSlider: {fileID: 188373405}
+  audioMixer: {fileID: 24100000, guid: d877e5208d19e2e448be4224230f5ecf, type: 2}
+  panelOpciones: {fileID: 1451195207}
+  panelAyuda: {fileID: 795394666}
+  panelSintomas: {fileID: 1097351235}
+  panelSintomasNivel1: {fileID: 427448992}
+  panelSintomasNivel2: {fileID: 885837027}
+  botonOpciones: {fileID: 1066798053}
+  botonAyuda: {fileID: 795394667}
+  botonSintomas: {fileID: 212331604}
+  interactableObjects: {fileID: 1825495189}
+  zoomManager: {fileID: 944450476}
+  "desplegarpesta\xF1as": {fileID: 0}
 --- !u!1001 &1540513120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20661,6 +20576,34 @@ MonoBehaviour:
   dialogueTextGuardia: {fileID: 838351573}
   botonSiguientePersonaje: {fileID: 181519034}
   botonSiguienteGuardia: {fileID: 307729110}
+  panelInicioDia: {fileID: 1720687406}
+  textoInicioDia: {fileID: 732569429}
+  velocidadTexto: 0.1
+  duracionPanel: 1
+  intervaloCursor: 0.5
+  panelReporte: {fileID: 1493280882}
+  panelPerdiste: {fileID: 17082860}
+  mensajeReporte: {fileID: 1199752089}
+  reporteText: {fileID: 789335826}
+  indicaciones1: {fileID: 2115129266}
+  indicaciones2: {fileID: 1805619943}
+  indicaciones3: {fileID: 554177962}
+  indicaciones4: {fileID: 147224242}
+  indicaciones5: {fileID: 362093733}
+  omitirIndicaciones: {fileID: 1109009625}
+  duracionIndicaciones: 4
+  botonSiguienteNivel: {fileID: 219588691}
+  botonGanaste: {fileID: 958300639}
+  botonPerdiste: {fileID: 1089920569}
+  botonPerdisteDisturbios: {fileID: 1367562054}
+  dialogueManager: {fileID: 2085731924}
+  characterManager: {fileID: 943274573}
+  optionsManager: {fileID: 1528108909}
+  interactableObjects: {fileID: 1825495189}
+  imagenInicioDia: {fileID: 472027197}
+  imagenesNiveles:
+  - {fileID: 21300000, guid: 24a9d259e2fbb514c824368df51497d7, type: 3}
+  - {fileID: 21300000, guid: 3248f681436e29b408483fe5f676bae6, type: 3}
 --- !u!1 &1720687405
 GameObject:
   m_ObjectHideFlags: 0
@@ -21545,6 +21488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825495187}
   - component: {fileID: 1825495188}
+  - component: {fileID: 1825495189}
   m_Layer: 0
   m_Name: InteractableObjects
   m_TagString: Untagged
@@ -21579,6 +21523,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b38d9ce06cbaf48ac65df4692a1039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1825495189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825495186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ce259506f45044f90e6fe0428b38ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventTriggers: []
+  papelesAnimator: {fileID: 727137441}
+  pantallaAnimator: {fileID: 465959482}
+  sonidoPapel: {fileID: 0}
+  sonidoEstatica: {fileID: 0}
 --- !u!1 &1826664187
 GameObject:
   m_ObjectHideFlags: 0
@@ -22561,7 +22522,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 944450476}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Zoom, Assembly-CSharp
         m_MethodName: ToggleLupa
         m_Mode: 1
@@ -23433,7 +23394,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1528108909}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: CerrarOpciones
         m_Mode: 1
