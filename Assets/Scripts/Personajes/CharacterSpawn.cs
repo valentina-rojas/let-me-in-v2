@@ -7,6 +7,7 @@ public class CharacterSpawn : MonoBehaviour
 
     public Transform spawnPoint;
     public Transform destination;
+    public Transform exitPoint;
 
     private int currentIndex = 0;
     private bool interactionFinished = false;
@@ -48,7 +49,7 @@ public class CharacterSpawn : MonoBehaviour
             if (atributos != null)
             {
                 GameManager.instance.EstablecerPersonajeActual(atributos);
-              //  GameManager.instance.resultadoRecomendacion = GameManager.ResultadoRecomendacion.Ninguna;
+                //  GameManager.instance.resultadoRecomendacion = GameManager.ResultadoRecomendacion.Ninguna;
             }
             else
             {
@@ -58,8 +59,6 @@ public class CharacterSpawn : MonoBehaviour
             yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
 
             yield return new WaitUntil(() => interactionFinished);
-
-            yield return StartCoroutine(MoveCharacter(currentCharacter, spawnPoint.position));
 
             Destroy(currentCharacter);
 
@@ -104,7 +103,7 @@ public class CharacterSpawn : MonoBehaviour
 
         if (dialogueManager != null)
         {
-          //  dialogueManager.EmpezarDialogoResultado();
+            //  dialogueManager.EmpezarDialogoResultado();
             yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
         }
         else
@@ -127,12 +126,30 @@ public class CharacterSpawn : MonoBehaviour
         {
             dialogueManager.EnableDialogue();
             Debug.Log("Dialogue habilitado.");
-           
+
         }
         else
         {
             Debug.LogError("DialogueManager no encontrado al habilitar diálogo.");
         }
     }
+
+
+    public IEnumerator MoverPersonaje(GameObject personaje, Vector3 destino)
+    {
+        float duration = 2f;
+        float elapsedTime = 0f;
+        Vector3 startPosition = personaje.transform.position;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            personaje.transform.position = Vector3.Lerp(startPosition, destino, elapsedTime / duration);
+            yield return null;
+        }
+
+        personaje.transform.position = destino;
+    }
+
 }
 

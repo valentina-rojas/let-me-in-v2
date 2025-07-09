@@ -2139,7 +2139,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3589235375562402397, guid: d877e5208d19e2e448be4224230f5ecf, type: 2}
   m_audioClip: {fileID: 8300000, guid: b400494397588aa4fb25b19040e81344, type: 3}
   m_Resource: {fileID: 8300000, guid: b400494397588aa4fb25b19040e81344, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3643,7 +3643,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3589235375562402397, guid: d877e5208d19e2e448be4224230f5ecf, type: 2}
   m_audioClip: {fileID: 8300000, guid: 28097ced5bb450e4398f9f0f91e629ea, type: 3}
   m_Resource: {fileID: 8300000, guid: 28097ced5bb450e4398f9f0f91e629ea, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -7069,7 +7069,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3589235375562402397, guid: d877e5208d19e2e448be4224230f5ecf, type: 2}
   m_audioClip: {fileID: 8300000, guid: 865e3dbae9fd5944594ad29c3d5c6a47, type: 3}
   m_Resource: {fileID: 8300000, guid: 865e3dbae9fd5944594ad29c3d5c6a47, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -9668,8 +9668,8 @@ GameObject:
   - component: {fileID: 762865233}
   - component: {fileID: 762865232}
   - component: {fileID: 762865231}
-  - component: {fileID: 762865234}
   - component: {fileID: 762865235}
+  - component: {fileID: 762865236}
   m_Layer: 5
   m_Name: ' imagen palanca'
   m_TagString: Untagged
@@ -9734,18 +9734,6 @@ RectTransform:
   m_AnchoredPosition: {x: -29.3, y: 76.49}
   m_SizeDelta: {x: 285.04, y: 192.53}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &762865234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762865230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee82111aa9540ce4989bc7ee751c5977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &762865235
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -9758,6 +9746,22 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &762865236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762865230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2a313048bc9cb43a0f6d51a95671f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  palancaSprite: {fileID: 762865231}
+  palancaNeutral: {fileID: -658453586, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
+  palancaDerecha: {fileID: 1437710906, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
+  palancaIzquierda: {fileID: 619707018, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
 --- !u!1 &776866559
 GameObject:
   m_ObjectHideFlags: 0
@@ -13124,6 +13128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043990633}
   - component: {fileID: 1043990634}
+  - component: {fileID: 1043990635}
   m_Layer: 0
   m_Name: PalancaController
   m_TagString: Untagged
@@ -13158,6 +13163,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee82111aa9540ce4989bc7ee751c5977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1043990635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043990632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2a313048bc9cb43a0f6d51a95671f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  palancaSprite: {fileID: 762865231}
+  palancaNeutral: {fileID: -658453586, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
+  palancaDerecha: {fileID: 1437710906, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
+  palancaIzquierda: {fileID: 619707018, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
 --- !u!1 &1049359670
 GameObject:
   m_ObjectHideFlags: 0
@@ -18828,6 +18849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 44192256}
   destination: {fileID: 522612945}
+  exitPoint: {fileID: 2029316075}
 --- !u!1 &1528108907
 GameObject:
   m_ObjectHideFlags: 0
@@ -23670,7 +23692,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3589235375562402397, guid: d877e5208d19e2e448be4224230f5ecf, type: 2}
   m_audioClip: {fileID: 8300000, guid: 65e5213931a6a6e45af5dac17ad66593, type: 3}
   m_Resource: {fileID: 8300000, guid: 65e5213931a6a6e45af5dac17ad66593, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
