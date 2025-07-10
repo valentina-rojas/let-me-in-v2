@@ -12087,7 +12087,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 312915595}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaGanar
         m_Mode: 1
