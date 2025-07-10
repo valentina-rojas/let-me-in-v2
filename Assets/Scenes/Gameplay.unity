@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1727551768}
+      - m_Target: {fileID: 1727551770}
         m_TargetAssemblyTypeName: AggressiveNPCs, Assembly-CSharp
         m_MethodName: LlamarSeguridad
         m_Mode: 1
@@ -2411,7 +2411,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2085731922}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: PanelDialogoClick
         m_Mode: 1
@@ -4246,7 +4246,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2085731922}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: PanelRespuestasClick
         m_Mode: 1
@@ -11824,6 +11824,7 @@ MonoBehaviour:
   strikes: 0
   niveles:
   - personajesDelNivel:
+    - {fileID: 952824410394418340, guid: bbcc3f5ef642ee6468f5a6b00b22032e, type: 3}
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
@@ -12048,7 +12049,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 943274572}
-  - component: {fileID: 943274571}
   - component: {fileID: 943274573}
   m_Layer: 0
   m_Name: CharactersManager
@@ -12057,18 +12057,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &943274571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943274570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38b68578146eb6148a1a3576bde3d5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &943274572
 Transform:
   m_ObjectHideFlags: 0
@@ -20596,7 +20584,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1709672044}
-  - component: {fileID: 1709672043}
   - component: {fileID: 1709672045}
   m_Layer: 0
   m_Name: UIManager
@@ -20605,18 +20592,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1709672043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709672042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c799a9e39570e4e8defe58b21d9541, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1709672044
 Transform:
   m_ObjectHideFlags: 0
@@ -20781,7 +20756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1727551769}
-  - component: {fileID: 1727551768}
+  - component: {fileID: 1727551770}
   m_Layer: 0
   m_Name: AggresiveNpcs
   m_TagString: Untagged
@@ -20789,18 +20764,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1727551768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1727551767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2277de004d193754489e069a963e4696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1727551769
 Transform:
   m_ObjectHideFlags: 0
@@ -20816,6 +20779,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 678873980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1727551770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727551767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619e53b4d343bbd49b207968a290d8ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 96432447}
+  PanelSeguridad: {fileID: 1345418206}
+  PanelTimer: {fileID: 958506720}
+  botonSeguridad: {fileID: 5076804}
+  audioSeguridad: {fileID: 833877157}
+  pasosSeguridad: {fileID: 483689032}
+  escobaSeguridad: {fileID: 2001823987}
+  golpe: {fileID: 1148588652}
+  sonidoBoton: {fileID: 970531498}
+  characterSpawn: {fileID: 1520975433}
+  stressBar: {fileID: 1989282623}
+  doorController: {fileID: 1224337559}
+  spawnPointSeguridad: {fileID: 1317177460}
+  targetPoint: {fileID: 12685435}
+  cameraTransform: {fileID: 779819322}
+  vidriosRotos: []
+  shakeIntensity: 0.1
+  shakeDuration: 3
+  tiempoBaseTemporizador: 5
+  velocidadPersecucion: 5
+  velocidadGuardia: 7
+  distanciaSeguridadYAgresivo: 0.1
+  seguridadPrefab: {fileID: 3651874300117595769, guid: 30862105c20057b4ca752ba28962d4a4, type: 3}
 --- !u!1 &1762084634
 GameObject:
   m_ObjectHideFlags: 0
@@ -24421,7 +24419,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2085731923}
-  - component: {fileID: 2085731922}
   - component: {fileID: 2085731924}
   m_Layer: 0
   m_Name: DialogueManager
@@ -24430,18 +24427,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2085731922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085731921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595d0fad720f1454a87c30e95a20a680, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2085731923
 Transform:
   m_ObjectHideFlags: 0
@@ -24469,6 +24454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aggressiveNPCs: {fileID: 1727551770}
   dialoguePanelPersonaje: {fileID: 699868701}
   dialoguePanelGuardia: {fileID: 1412460603}
   dialogueTextPersonaje: {fileID: 1687713437}

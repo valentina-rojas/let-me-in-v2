@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     private string[] dialogueLines;
     private CharacterAttributes characterAttributes;
+    public AggressiveNPCs aggressiveNPCs;
 
     private Coroutine typingCoroutine;
     private bool isTyping = false;
@@ -34,8 +35,6 @@ public class DialogueManager : MonoBehaviour
     private void Start()
 
     {
-
-
         UIManager uiManager = FindFirstObjectByType<UIManager>();
 
         if (uiManager != null)
@@ -161,50 +160,15 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-private IEnumerator ShowLine()
-{
-    isTyping = true;
-
-    if (esDialogoRespuesta)
+    private IEnumerator ShowLine()
     {
-        // Siempre habla el personaje en los diálogos de respuesta
-        dialoguePanelGuardia.SetActive(false);
-        dialoguePanelPersonaje.SetActive(true);
-        dialogueTextPersonaje.text = "";
-        botonSiguientePersonaje.gameObject.SetActive(false);
+        isTyping = true;
 
-        foreach (char ch in dialogueLines[lineIndex])
+        if (esDialogoRespuesta)
         {
-            dialogueTextPersonaje.text += ch;
-            yield return new WaitForSeconds(typingTime);
-        }
-
-        botonSiguientePersonaje.gameObject.SetActive(true);
-    }
-    else
-    {
-        // Alternar entre guardia (par) y personaje (impar)
-        bool hablaGuardia = lineIndex % 2 == 0;
-
-        if (hablaGuardia)
-        {
-            dialoguePanelGuardia.SetActive(true);
-            dialoguePanelPersonaje.SetActive(false);
-            dialogueTextGuardia.text = "";
-            botonSiguienteGuardia.gameObject.SetActive(false);
-
-            foreach (char ch in dialogueLines[lineIndex])
-            {
-                dialogueTextGuardia.text += ch;
-                yield return new WaitForSeconds(typingTime);
-            }
-
-            botonSiguienteGuardia.gameObject.SetActive(true);
-        }
-        else
-        {
-            dialoguePanelPersonaje.SetActive(true);
+            // Siempre habla el personaje en los diálogos de respuesta
             dialoguePanelGuardia.SetActive(false);
+            dialoguePanelPersonaje.SetActive(true);
             dialogueTextPersonaje.text = "";
             botonSiguientePersonaje.gameObject.SetActive(false);
 
@@ -216,36 +180,82 @@ private IEnumerator ShowLine()
 
             botonSiguientePersonaje.gameObject.SetActive(true);
         }
+        else
+        {
+            // Alternar entre guardia (par) y personaje (impar)
+            bool hablaGuardia = lineIndex % 2 == 0;
+
+            if (hablaGuardia)
+            {
+                dialoguePanelGuardia.SetActive(true);
+                dialoguePanelPersonaje.SetActive(false);
+                dialogueTextGuardia.text = "";
+                botonSiguienteGuardia.gameObject.SetActive(false);
+
+                foreach (char ch in dialogueLines[lineIndex])
+                {
+                    dialogueTextGuardia.text += ch;
+                    yield return new WaitForSeconds(typingTime);
+                }
+
+                botonSiguienteGuardia.gameObject.SetActive(true);
+            }
+            else
+            {
+                dialoguePanelPersonaje.SetActive(true);
+                dialoguePanelGuardia.SetActive(false);
+                dialogueTextPersonaje.text = "";
+                botonSiguientePersonaje.gameObject.SetActive(false);
+
+                foreach (char ch in dialogueLines[lineIndex])
+                {
+                    dialogueTextPersonaje.text += ch;
+                    yield return new WaitForSeconds(typingTime);
+                }
+
+                botonSiguientePersonaje.gameObject.SetActive(true);
+            }
+        }
+
+        isTyping = false;
     }
 
-    isTyping = false;
-}
-
-private void FinalizarDialogo()
-{
-    didDialogueStart = false;
-    hasInteracted = true;
-
-    CharacterManager characterManager = FindObjectsByType<CharacterManager>(FindObjectsSortMode.None)[0];
-    if (characterManager != null && characterAttributes != null)
+    private void FinalizarDialogo()
     {
-        characterManager.AtenderPersonaje(characterAttributes);
+        didDialogueStart = false;
+        hasInteracted = true;
+
+        CharacterManager characterManager = FindObjectsByType<CharacterManager>(FindObjectsSortMode.None)[0];
+        if (characterManager != null && characterAttributes != null)
+        {
+            characterManager.AtenderPersonaje(characterAttributes);
+        }
+
+        // Solo actuar si es diálogo inicial (no respuesta)
+        if (!esDialogoRespuesta)
+        {
+            if (characterAttributes.esAgresivo)
+            {
+                    AggressiveNPCs.instance.MostrarComportamientoAgresivo();
+            }
+            else
+            {
+                if (LeverController.instance != null)
+                {
+                    Debug.Log("✅ Llamando a ActivarPalanca");
+                    LeverController.instance.ActivarPalanca();
+                }
+                else
+                {
+                    Debug.LogError("❌ LeverController.instance es null al finalizar diálogo");
+                }
+            }
+        }
+
+        dialoguePanelPersonaje.SetActive(false);
+        dialoguePanelGuardia.SetActive(false);
     }
 
-    // Solo activar la palanca si es el diálogo inicial
-    if (!esDialogoRespuesta && LeverController.instance != null)
-    {
-        Debug.Log("✅ Llamando a ActivarPalanca");
-        LeverController.instance.ActivarPalanca();
-    }
-    else if (!esDialogoRespuesta)
-    {
-        Debug.LogError("❌ LeverController.instance es null al finalizar diálogo");
-    }
-
-    dialoguePanelPersonaje.SetActive(false);
-    dialoguePanelGuardia.SetActive(false);
-}
 
 
     public void EnableDialogue()

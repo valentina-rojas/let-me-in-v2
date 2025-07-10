@@ -4,6 +4,7 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
     public static CharacterManager instance;
+    
     private bool yaAtendido = false;
 
     public CharacterAttributes UltimoPersonajeAtendido { get; private set; }
@@ -51,4 +52,7 @@ public class CharacterManager : MonoBehaviour
     {
         personajesAtendidos.Clear();
     }
+
+
+
 }

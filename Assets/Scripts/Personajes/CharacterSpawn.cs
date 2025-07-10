@@ -29,8 +29,8 @@ public class CharacterSpawn : MonoBehaviour
             characters[i] = personajesDelNivel[i];
         }
 
-          totalPersonajes = characters.Length;
-    personajesRestantes = totalPersonajes;
+        totalPersonajes = characters.Length;
+        personajesRestantes = totalPersonajes;
 
         GameManager.instance.uiManager.ActualizarContadorPersonas(personajesRestantes);
     }
@@ -80,7 +80,7 @@ public class CharacterSpawn : MonoBehaviour
 
             Destroy(currentCharacter);
 
-            
+
             personajeActualEnEscena = null;
 
             currentIndex++;
@@ -180,6 +180,14 @@ public class CharacterSpawn : MonoBehaviour
     {
         spawnActivo = false;
     }
+
+
+    public GameObject GetCharacterActual()
+    {
+        return personajeActualEnEscena;
+    }
+
+
 
 
 }

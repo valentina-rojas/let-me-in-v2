@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
     {
         VerificarEstadoPersonaje(true);
 
-        // personajeActual.animator.SetTrigger("reaccionIngreso");
+         personajeActual.animator.SetTrigger("reaccionIngreso");
 
         DialogueManager dialogueManager = personajeActual.GetComponent<DialogueManager>();
         dialogueManager.ComenzarDialogoRespuesta(personajeActual.respuestaIngreso);
@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
     {
         VerificarEstadoPersonaje(false);
 
-        //  personajeActual.animator.SetTrigger("reaccionRechazo");
+        personajeActual.animator.SetTrigger("reaccionRechazo");
 
         DialogueManager dialogueManager = personajeActual.GetComponent<DialogueManager>();
         dialogueManager.ComenzarDialogoRespuesta(personajeActual.respuestaRechazo);
