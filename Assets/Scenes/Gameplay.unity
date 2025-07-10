@@ -2805,7 +2805,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 341145152}
+      - m_Target: {fileID: 341145154}
         m_TargetAssemblyTypeName: CheckCondition, Assembly-CSharp
         m_MethodName: EvaluarSalud
         m_Mode: 1
@@ -4735,7 +4735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341145153}
-  - component: {fileID: 341145152}
+  - component: {fileID: 341145154}
   m_Layer: 0
   m_Name: CheckCondition
   m_TagString: Untagged
@@ -4743,18 +4743,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &341145152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341145151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bc4ce1cab1628a4eb85cdb5b9e7e7df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &341145153
 Transform:
   m_ObjectHideFlags: 0
@@ -4770,6 +4758,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 678873980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &341145154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341145151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9889cb897f26e442bceaeca3d48aa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicoPrefab: {fileID: 7027038344454737006, guid: f41e76fe8e489e3478058e9304b5fa16, type: 3}
+  cartelSanoPrefab: {fileID: 3930260844893090505, guid: 2f30e8ad844d9f84183b16356b5b7a80, type: 3}
+  cartelEnfermoPrefab: {fileID: 970538133473061702, guid: 1d1164625f4f9cd4282a75bd90aecf34, type: 3}
+  luzEscanerPrefab: {fileID: 6480975265628027710, guid: 3ad14047fd7fbf140bf6c96e5ae833cb, type: 3}
+  spawnPointMedico: {fileID: 639765274}
+  centroPantalla: {fileID: 2029294334}
+  puntoSalidaMedico: {fileID: 639765274}
+  spawnPointIngreso: {fileID: 1329731928}
+  spawnPointRechazo: {fileID: 1455437750}
+  spawnPointLuzEscaner: {fileID: 294068389}
+  dialogueManager: {fileID: 2085731924}
+  leverController: {fileID: 1043990635}
+  charactersManager: {fileID: 943274573}
+  sonidoBoton: {fileID: 1897245216}
+  brazoMecanico: {fileID: 1946152776}
+  luzEscaner: {fileID: 1385868424}
+  beepEscaner: {fileID: 970531498}
+  botonMedico: {fileID: 204005907}
 --- !u!1 &353038875
 GameObject:
   m_ObjectHideFlags: 0
@@ -6634,7 +6652,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1825495188}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: InteractableObjects, Assembly-CSharp
           m_MethodName: AnimarPantalla
           m_Mode: 1
@@ -9402,7 +9420,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1825495188}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: InteractableObjects, Assembly-CSharp
           m_MethodName: AnimarPapeles
           m_Mode: 1
@@ -11809,6 +11827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16802caf2ebb8ca4b8049884625c00d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSpawn: {fileID: 0}
   personajeActual: {fileID: 0}
   uiManager: {fileID: 1709672045}
   characterManager: {fileID: 943274573}
@@ -11816,6 +11835,7 @@ MonoBehaviour:
   strikesBar: {fileID: 340776258}
   doorController: {fileID: 1224337559}
   radioManager: {fileID: 1676709733}
+  checkCondition: {fileID: 341145154}
   mensajesInicioDia:
   - "Mantente atento a las personas con s\xEDntomas de sarpullido"
   - ojos rojooos
@@ -13146,7 +13166,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1043990633}
-  - component: {fileID: 1043990634}
   - component: {fileID: 1043990635}
   m_Layer: 0
   m_Name: PalancaController
@@ -13170,18 +13189,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 678873980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1043990634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043990632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee82111aa9540ce4989bc7ee751c5977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1043990635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21582,7 +21589,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825495187}
-  - component: {fileID: 1825495188}
   - component: {fileID: 1825495189}
   m_Layer: 0
   m_Name: InteractableObjects
@@ -21606,18 +21612,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 678873980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1825495188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825495186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b38d9ce06cbaf48ac65df4692a1039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1825495189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24474,6 +24468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  medicoUsado: 0
   aggressiveNPCs: {fileID: 1727551770}
   dialoguePanelPersonaje: {fileID: 699868701}
   dialoguePanelGuardia: {fileID: 1412460603}

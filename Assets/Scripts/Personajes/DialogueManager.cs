@@ -5,15 +5,13 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
-
     private float typingTime = 0.05f;
     private bool isMouseOver = false;
     private bool didDialogueStart;
     private int lineIndex;
     private bool hasInteracted = false;
     private bool esDialogoRespuesta = false;
-
+       public bool medicoUsado = false;
 
     private string[] dialogueLines;
     private CharacterAttributes characterAttributes;
@@ -231,12 +229,11 @@ public class DialogueManager : MonoBehaviour
             characterManager.AtenderPersonaje(characterAttributes);
         }
 
-        // Solo actuar si es diálogo inicial (no respuesta)
         if (!esDialogoRespuesta)
         {
             if (characterAttributes.esAgresivo)
             {
-                    AggressiveNPCs.instance.MostrarComportamientoAgresivo();
+                AggressiveNPCs.instance.MostrarComportamientoAgresivo();
             }
             else
             {
@@ -244,6 +241,16 @@ public class DialogueManager : MonoBehaviour
                 {
                     Debug.Log("✅ Llamando a ActivarPalanca");
                     LeverController.instance.ActivarPalanca();
+
+                    // 👇 Solo habilitamos el botón médico si no se usó aún
+                    if (!medicoUsado)
+                    {
+                        CheckCondition checkCondition = FindFirstObjectByType<CheckCondition>();
+                        if (checkCondition != null)
+                        {
+                            checkCondition.botonMedico.interactable = true;
+                        }
+                    }
                 }
                 else
                 {
@@ -251,6 +258,7 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
+
 
         dialoguePanelPersonaje.SetActive(false);
         dialoguePanelGuardia.SetActive(false);

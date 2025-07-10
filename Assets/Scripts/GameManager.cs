@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private CharacterSpawn characterSpawn;
-    private SpriteRenderer spriteRendererPersonaje;
+    public CharacterSpawn characterSpawn;
     public CharacterAttributes personajeActual;
     public UIManager uiManager;
     public CharacterManager characterManager;
@@ -15,6 +14,9 @@ public class GameManager : MonoBehaviour
     public StrikesBar strikesBar;
     public DoorController doorController;
     public RadioManager radioManager;
+    public CheckCondition checkCondition;
+
+    private SpriteRenderer spriteRendererPersonaje;
 
 
     public string[] mensajesInicioDia;
@@ -117,8 +119,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ProcesoIngreso()
     {
-        VerificarEstadoPersonaje(true);
+        checkCondition.DesactivarBotonMedico();
 
+        VerificarEstadoPersonaje(true);
         personajeActual.animator.SetTrigger("reaccionIngreso");
 
         DialogueManager dialogueManager = personajeActual.GetComponent<DialogueManager>();
@@ -150,6 +153,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ProcesoRechazo()
     {
+        checkCondition.DesactivarBotonMedico();
+
         VerificarEstadoPersonaje(false);
 
         personajeActual.animator.SetTrigger("reaccionRechazo");
