@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public CharacterManager characterManager;
     public StressBar stressBar;
     public StrikesBar strikesBar;
+    public DoorController doorController;
+
 
     public string[] mensajesInicioDia;
 
@@ -122,7 +124,14 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
 
+          // Abrir puerta
+        yield return StartCoroutine(doorController.Abrir());
+
+        // Mover personaje adentro mientras la puerta está abierta
         yield return StartCoroutine(characterSpawn.MoverPersonaje(personajeGOActual, characterSpawn.exitPoint.position));
+
+        // Cerrar puerta después de que el personaje terminó de entrar
+        yield return StartCoroutine(doorController.Cerrar());
 
 
         characterSpawn.FinalizarInteraccion();
