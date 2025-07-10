@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public RadioManager radioManager;
     public CheckCondition checkCondition;
     public CharacterSelector characterSelector;
+    public ReproducirCinematicas reproducirCinematicas;
 
     private SpriteRenderer spriteRendererPersonaje;
 
@@ -293,13 +294,12 @@ public class GameManager : MonoBehaviour
         if (NivelActual > niveles.Length)
         {
             Debug.Log("¡No hay más niveles! Fin del juego.");
-            // uiManager.ActivarPanelGanaste();
-            return; // No recargamos escena porque ya terminamos el juego
+
+            reproducirCinematicas.CinematicaGanar();
+            return;
         }
 
         // Si hay niveles, recargamos la escena para cargar el nuevo nivel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-
 }

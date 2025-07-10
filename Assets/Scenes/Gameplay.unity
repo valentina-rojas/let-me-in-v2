@@ -3503,7 +3503,7 @@ GameObject:
   - component: {fileID: 241579968}
   - component: {fileID: 241579967}
   m_Layer: 5
-  m_Name: botonPerdisteDisturbios
+  m_Name: botonPerdisteDespido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3573,7 +3573,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 312915595}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaPerdiste
         m_Mode: 1
@@ -8610,6 +8610,7 @@ Transform:
   - {fileID: 1825495187}
   - {fileID: 312915594}
   - {fileID: 1224337558}
+  - {fileID: 1135691941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &686974106 stripped
@@ -10061,7 +10062,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -11662,6 +11663,8 @@ MonoBehaviour:
   doorController: {fileID: 1224337559}
   radioManager: {fileID: 1676709733}
   checkCondition: {fileID: 341145154}
+  characterSelector: {fileID: 1135691942}
+  reproducirCinematicas: {fileID: 0}
   mensajesInicioDia:
   - "Mantente atento a las personas con s\xEDntomas de sarpullido"
   - ojos rojooos
@@ -13822,7 +13825,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 312915595}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaRenunciar
         m_Mode: 1
@@ -14369,6 +14372,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135084271}
   m_CullTransparentMesh: 1
+--- !u!1 &1135691940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1135691941}
+  - component: {fileID: 1135691942}
+  m_Layer: 0
+  m_Name: CharacterSelector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1135691941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135691940}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 678873980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1135691942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135691940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3ccb4fe8eff3b4f9585e2eee46a561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1143945138
 GameObject:
   m_ObjectHideFlags: 0
@@ -15287,7 +15334,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -17090,7 +17137,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 312915595}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaPerderDisturbios
         m_Mode: 1
