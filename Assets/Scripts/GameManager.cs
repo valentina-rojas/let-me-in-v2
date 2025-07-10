@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public CharacterAttributes personajeActual;
     public UIManager uiManager;
     public CharacterManager characterManager;
+    public StressBar stressBar;
+    public StrikesBar strikesBar;
 
     public string[] mensajesInicioDia;
 
@@ -31,6 +33,15 @@ public class GameManager : MonoBehaviour
 
     [Header("Niveles del juego")]
     public Nivel[] niveles;
+
+
+    public enum TipoDerrota
+    {
+        Estres,
+        Despido,
+        Disturbios
+    }
+
 
     private void Awake()
     {
@@ -115,6 +126,7 @@ public class GameManager : MonoBehaviour
 
 
         characterSpawn.FinalizarInteraccion();
+        stressBar.ActualizarEstres(1f);
     }
 
 
@@ -133,6 +145,7 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(characterSpawn.MoverPersonaje(personajeGOActual, characterSpawn.spawnPoint.position));
 
         characterSpawn.FinalizarInteraccion();
+        stressBar.ActualizarEstres(1f);
     }
 
 
@@ -154,6 +167,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("❌ Decisión incorrecta: personaje enfermo ingresado.");
                 enfermosIngresados++;
                 strikes++;
+                strikesBar.ActualizarBarraStrikes();
             }
         }
         else // es un rechazo
@@ -163,6 +177,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("❌ Decisión incorrecta: personaje sano rechazado.");
                 sanosRechazados++;
                 strikes++;
+                strikesBar.ActualizarBarraStrikes();
             }
             else // estado == Enfermo
             {
@@ -170,14 +185,6 @@ public class GameManager : MonoBehaviour
                 enfermosRechazados++;
             }
         }
-
-        // Podés poner lógica extra si querés que al llegar a cierto número de strikes termine el juego:
-        /*
-        if (strikes >= 3)
-        {
-            FinDeJuego();
-        }
-        */
     }
 
 
@@ -217,16 +224,31 @@ public class GameManager : MonoBehaviour
 
     public void FinDeNivel()
     {
+        // Llamar a UIManager para mostrar el reporte con los datos actuales
+        if (uiManager != null)
+        {
+            uiManager.ActualizarPanelReporte(sanosIngresados, enfermosIngresados, sanosRechazados, enfermosRechazados);
+        }
+        else
+        {
+            Debug.LogError("UIManager no asignado en GameManager.");
+        }
+    }
 
-  // Llamar a UIManager para mostrar el reporte con los datos actuales
-    if (uiManager != null)
+
+    public void GameOver(TipoDerrota tipo)
     {
-        uiManager.ActualizarPanelReporte(sanosIngresados, enfermosIngresados, sanosRechazados, enfermosRechazados);
+        characterSpawn?.DetenerSpawn();
+
+        if (personajeGOActual != null)
+        {
+            Destroy(personajeGOActual);
+            personajeGOActual = null;
+        }
+
+        uiManager?.MostrarPantallaDerrota(tipo);
     }
-    else
-    {
-        Debug.LogError("UIManager no asignado en GameManager.");
-    }
-    }
+
+
 
 }

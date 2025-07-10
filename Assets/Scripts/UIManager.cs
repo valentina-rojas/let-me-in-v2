@@ -22,47 +22,52 @@ public class UIManager : MonoBehaviour
   public Button GetBotonSiguientePersonaje() => botonSiguientePersonaje;
   public Button GetBotonSiguienteGuardia() => botonSiguienteGuardia;
 
-  [Header("Mensajes y reportes")]
+  [Header("Mensaje Inicio Nivel")]
   public RectTransform panelInicioDia;
   public TextMeshProUGUI textoInicioDia;
-  public float velocidadTexto = 0.1f;
-  public float duracionPanel = 1.0f;
-  public float intervaloCursor = 0.5f;
+  public Image imagenInicioDia;
+  public Sprite[] imagenesNiveles;
 
+  [Header("Reporte Fin Nivel")]
   public RectTransform panelReporte;
-  public RectTransform panelPerdiste;
   public TextMeshProUGUI mensajeReporte;
   public TextMeshProUGUI reporteText;
 
+  [Header("Paneles de derrota")]
+  public GameObject panelPerdisteEstres;
+  public GameObject panelPerdisteDespido;
+  public GameObject panelPerdisteDisturbios;
+
+  [Header("Indicaciones Primer Nivel")]
   public RectTransform indicaciones1;
   public RectTransform indicaciones2;
   public RectTransform indicaciones3;
   public RectTransform indicaciones4;
   public RectTransform indicaciones5;
   public TextMeshProUGUI omitirIndicaciones;
+  private Coroutine panelInicioDiaCoroutine;
 
-  public float duracionIndicaciones = 4f;
-
+  [Header("Botones de los paneles")]
   public Button botonSiguienteNivel;
   public Button botonGanaste;
   public Button botonPerdiste;
   public Button botonPerdisteDisturbios;
 
-  public event Action PanelInicioDesactivado;
-
+  [Header("Managers y sistemas")]
   public DialogueManager dialogueManager;
   public CharacterManager characterManager;
   public OptionsManager optionsManager;
   public InteractableObjects interactableObjects;
 
+  public event Action PanelInicioDesactivado;
 
-  private Coroutine panelInicioDiaCoroutine;
-  private bool cursorVisible = true;
+  public float duracionIndicaciones = 4f;
+  public float velocidadTexto = 0.1f;
+  public float duracionPanel = 1.0f;
+  public float intervaloCursor = 0.5f;
   private float tiempoUltimaActualizacion;
 
-  public Image imagenInicioDia;      // Referencia al componente Image en el panel de inicio del día
-  public Sprite[] imagenesNiveles;   // Array de imágenes para los niveles
-
+  private bool cursorVisible = true;
 
   public void MostrarInicioDia(string mensaje)
   {
@@ -192,17 +197,12 @@ public class UIManager : MonoBehaviour
 
   private IEnumerator MostrarIndicacionesSecuencia()
   {
-    optionsManager.panelAyuda.gameObject.SetActive(true);
-    yield return new WaitUntil(() => !optionsManager.panelAyuda.gameObject.activeSelf);
-
     // Iniciar el juego después de mostrar todas las indicaciones
     IniciarJuego();
     interactableObjects.ActivarEventTriggers();
 
     yield break;
   }
-
-
 
   public void ActualizarPanelReporte(int sanosIngresados, int enfermosIngresados, int sanosRechazados, int enfermosRechazados)
   {
@@ -222,14 +222,24 @@ public class UIManager : MonoBehaviour
     GameManager.instance.MostrarMensaje();
   }
 
-  public void PanelReporte()
-  {
-    //panelPerdiste.gameObject.SetActive(true);
-  }
-
-
   public void IniciarJuego()
   {
     GameManager.instance.IniciarSpawnDePersonajes();
+  }
+
+  public void MostrarPantallaDerrota(GameManager.TipoDerrota tipo)
+  {
+    switch (tipo)
+    {
+      case GameManager.TipoDerrota.Estres:
+        panelPerdisteEstres.SetActive(true);
+        break;
+      case GameManager.TipoDerrota.Despido:
+        panelPerdisteDespido.SetActive(true);
+        break;
+      case GameManager.TipoDerrota.Disturbios:
+        panelPerdisteDisturbios.SetActive(true);
+        break;
+    }
   }
 }

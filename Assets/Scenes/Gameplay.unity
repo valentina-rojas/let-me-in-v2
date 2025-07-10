@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 17082862}
   - component: {fileID: 17082861}
   m_Layer: 5
-  m_Name: Panel Perdiste
+  m_Name: Panel Perdiste Disturbios
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1528108909}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: CerrarAyuda
         m_Mode: 1
@@ -3025,7 +3025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1528108909}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: AbrirSintomas
         m_Mode: 1
@@ -4686,7 +4686,7 @@ GameObject:
   - component: {fileID: 340776257}
   - component: {fileID: 340776258}
   m_Layer: 0
-  m_Name: barraSanosManager
+  m_Name: BarraStrikesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4716,9 +4716,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 340776256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d1e96f7fb95d7247923f44286faf304, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ea9467ed0af7c443a0ca18de4d0e3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barraStrikes: {fileID: 1931219357}
+  maxStrikes: 3
+  fillBarImageStrikes: {fileID: 107516968}
+  colorVerde: {r: 0, g: 1, b: 0, a: 1}
+  colorAmarillo: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  colorRojo: {r: 1, g: 0, b: 0, a: 1}
+  loadingBar: {fileID: 0}
 --- !u!1 &341145151
 GameObject:
   m_ObjectHideFlags: 0
@@ -5505,8 +5512,8 @@ MonoBehaviour:
   m_text: "Los disturbios permitieron el ingreso de gente infectada que contamin\xF3
     el b\xFAnker.\n\nYa no es un lugar seguro.\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
-  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5552,7 +5559,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6040,7 +6047,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1528108909}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: CerrarSintomas
         m_Mode: 1
@@ -8075,7 +8082,7 @@ GameObject:
   - component: {fileID: 607860684}
   - component: {fileID: 607860683}
   m_Layer: 5
-  m_Name: Panel Perdiste (estres)
+  m_Name: Panel Perdiste Estres
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10309,7 +10316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1528108909}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: AbrirAyuda
         m_Mode: 1
@@ -11791,8 +11798,10 @@ MonoBehaviour:
   personajeActual: {fileID: 0}
   uiManager: {fileID: 1709672045}
   characterManager: {fileID: 943274573}
+  stressBar: {fileID: 1989282623}
+  strikesBar: {fileID: 340776258}
   mensajesInicioDia:
-  - Atento a als personas con sarpullido
+  - "Mantente atento a las personas con s\xEDntomas de sarpullido"
   sanosIngresados: 0
   enfermosIngresados: 0
   sanosRechazados: 0
@@ -11800,6 +11809,7 @@ MonoBehaviour:
   strikes: 0
   niveles:
   - personajesDelNivel:
+    - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
 --- !u!1 &933161978
@@ -13418,7 +13428,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1528108909}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: AbrirOpciones
         m_Mode: 1
@@ -18750,6 +18760,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 44192256}
   destination: {fileID: 522612945}
   exitPoint: {fileID: 2029316075}
+  spawnActivo: 1
 --- !u!1 &1528108907
 GameObject:
   m_ObjectHideFlags: 0
@@ -20436,8 +20447,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
-  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20483,7 +20494,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -20578,20 +20589,22 @@ MonoBehaviour:
   botonSiguienteGuardia: {fileID: 307729110}
   panelInicioDia: {fileID: 1720687406}
   textoInicioDia: {fileID: 732569429}
-  velocidadTexto: 0.1
-  duracionPanel: 1
-  intervaloCursor: 0.5
+  imagenInicioDia: {fileID: 472027197}
+  imagenesNiveles:
+  - {fileID: 21300000, guid: 24a9d259e2fbb514c824368df51497d7, type: 3}
+  - {fileID: 21300000, guid: 3248f681436e29b408483fe5f676bae6, type: 3}
   panelReporte: {fileID: 1493280882}
-  panelPerdiste: {fileID: 17082860}
   mensajeReporte: {fileID: 1199752089}
   reporteText: {fileID: 789335826}
+  panelPerdisteEstres: {fileID: 607860682}
+  panelPerdisteDespido: {fileID: 2067811275}
+  panelPerdisteDisturbios: {fileID: 17082859}
   indicaciones1: {fileID: 2115129266}
   indicaciones2: {fileID: 1805619943}
   indicaciones3: {fileID: 554177962}
   indicaciones4: {fileID: 147224242}
   indicaciones5: {fileID: 362093733}
   omitirIndicaciones: {fileID: 1109009625}
-  duracionIndicaciones: 4
   botonSiguienteNivel: {fileID: 219588691}
   botonGanaste: {fileID: 958300639}
   botonPerdiste: {fileID: 1089920569}
@@ -20600,10 +20613,10 @@ MonoBehaviour:
   characterManager: {fileID: 943274573}
   optionsManager: {fileID: 1528108909}
   interactableObjects: {fileID: 1825495189}
-  imagenInicioDia: {fileID: 472027197}
-  imagenesNiveles:
-  - {fileID: 21300000, guid: 24a9d259e2fbb514c824368df51497d7, type: 3}
-  - {fileID: 21300000, guid: 3248f681436e29b408483fe5f676bae6, type: 3}
+  duracionIndicaciones: 4
+  velocidadTexto: 0.1
+  duracionPanel: 1
+  intervaloCursor: 0.5
 --- !u!1 &1720687405
 GameObject:
   m_ObjectHideFlags: 0
@@ -22300,8 +22313,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1709672043}
-        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
+      - m_Target: {fileID: 1709672045}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: CerrarPanelInicioDia
         m_Mode: 1
         m_Arguments:
@@ -22361,7 +22374,7 @@ GameObject:
   - component: {fileID: 1931219356}
   - component: {fileID: 1931219357}
   m_Layer: 5
-  m_Name: barra sanos
+  m_Name: barra strikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23394,7 +23407,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1528108909}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: CerrarOpciones
         m_Mode: 1
@@ -23485,9 +23498,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1989282621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82ba48ad891607e40be0887a9ca1f6c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 95605ce9223847644a5d4a6fbc59c23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barraEstres: {fileID: 1776270241}
+  maxEstres: 3
+  fillBarImage: {fileID: 2143996360}
+  panelPerdiste: {fileID: 17082859}
+  colorVerdeClaro: {r: 0.1513856, g: 0.5943396, b: 0.13737096, a: 0}
+  colorVerdeOscuro: {r: 0.063704304, g: 0.31132078, b: 0.016153438, a: 0}
+  colorAmarillo: {r: 0.5471698, g: 0.41170704, b: 0.012904947, a: 0}
+  colorNaranja: {r: 0.7169812, g: 0.29063907, b: 0, a: 0}
+  colorRojo: {r: 0.6415094, g: 0.057493754, b: 0.057493754, a: 0}
+  mate: {fileID: 1006143574}
+  audioMate: {fileID: 0}
+  loadingBar: {fileID: 0}
 --- !u!1 &1992671361
 GameObject:
   m_ObjectHideFlags: 0
@@ -24245,7 +24270,7 @@ GameObject:
   - component: {fileID: 2067811278}
   - component: {fileID: 2067811277}
   m_Layer: 5
-  m_Name: Panel Perdiste BARRAS
+  m_Name: Panel Perdiste Despido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24834,8 +24859,8 @@ MonoBehaviour:
   m_text: "El estr\xE9s ha superado tus l\xEDmites. Has decidido renunciar a tu puesto.
     El destino del b\xFAnker ahora est\xE1 en manos de otros."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
-  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24881,7 +24906,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

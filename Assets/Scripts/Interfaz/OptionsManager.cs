@@ -45,7 +45,7 @@ public class OptionsManager : MonoBehaviour
 
     public void AbrirOpciones()
     {
-        desplegarpestañas.Play();
+       // desplegarpestañas.Play();
         CerrarTodosLosPaneles();
         panelOpciones.gameObject.SetActive(true);
         //  Time.timeScale = 0f;
@@ -53,7 +53,7 @@ public class OptionsManager : MonoBehaviour
 
     public void CerrarOpciones()
     {
-         desplegarpestañas.Play();
+        // desplegarpestañas.Play();
         panelOpciones.gameObject.SetActive(false);
 
         interactableObjects.ActivarEventTriggers();
@@ -80,14 +80,14 @@ public class OptionsManager : MonoBehaviour
 
     public void AbrirAyuda()
     {
-         desplegarpestañas.Play();
+       //  desplegarpestañas.Play();
         CerrarTodosLosPaneles();
         panelAyuda.gameObject.SetActive(true);
     }
 
     public void CerrarAyuda()
     {
-         desplegarpestañas.Play();
+        // desplegarpestañas.Play();
         panelAyuda.gameObject.SetActive(false);
 
         interactableObjects.ActivarEventTriggers();
@@ -96,7 +96,7 @@ public class OptionsManager : MonoBehaviour
 
     public void AbrirSintomas()
     {
-         desplegarpestañas.Play();
+        // desplegarpestañas.Play();
         CerrarTodosLosPaneles();
         panelSintomas.gameObject.SetActive(true);
 
@@ -116,7 +116,7 @@ public class OptionsManager : MonoBehaviour
 
     public void CerrarSintomas()
     {
-         desplegarpestañas.Play();
+       //  desplegarpestañas.Play();
         panelSintomas.gameObject.SetActive(false);
 
         interactableObjects.ActivarEventTriggers();
