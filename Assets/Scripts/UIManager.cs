@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
   public GameObject panelPerdisteEstres;
   public GameObject panelPerdisteDespido;
   public GameObject panelPerdisteDisturbios;
+  public GameObject panelGanaste;
 
   [Header("Indicaciones Primer Nivel")]
   public RectTransform indicaciones1;
@@ -245,12 +246,24 @@ public class UIManager : MonoBehaviour
     }
   }
 
- public void ActualizarContadorPersonas(int cantidadRestante)
-{
+  public void ActualizarContadorPersonas(int cantidadRestante)
+  {
     if (contadorPersonas != null)
     {
-        contadorPersonas.text = cantidadRestante.ToString();
+      contadorPersonas.text = cantidadRestante.ToString();
     }
-}
+  }
+
+  public void OnBotonSiguienteNivelClick()
+  {
+    panelReporte.gameObject.SetActive(false);
+    GameManager.instance.SiguienteNivel();
+  }
+
+
+  public void  ActivarPanelGanaste()
+  {
+    panelGanaste.SetActive(true);
+  }
 
 }

@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: A
-  estado: 1
+  estado: 0
   dialogosPersonaje:
   - "Soy de un pueblo cercano, vengo caminando hace tres d\xEDas por favor necesito
     ayuda"

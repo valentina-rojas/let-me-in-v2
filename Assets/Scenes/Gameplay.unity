@@ -1629,8 +1629,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
-  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3258,9 +3258,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 926031996}
-        m_TargetAssemblyTypeName: s_GameManager, Assembly-CSharp
-        m_MethodName: OnBotonSiguienteNivel
+      - m_Target: {fileID: 1709672045}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnBotonSiguienteNivelClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11815,8 +11815,10 @@ MonoBehaviour:
   stressBar: {fileID: 1989282623}
   strikesBar: {fileID: 340776258}
   doorController: {fileID: 1224337559}
+  radioManager: {fileID: 1676709733}
   mensajesInicioDia:
   - "Mantente atento a las personas con s\xEDntomas de sarpullido"
+  - ojos rojooos
   sanosIngresados: 0
   enfermosIngresados: 0
   sanosRechazados: 0
@@ -11824,9 +11826,8 @@ MonoBehaviour:
   strikes: 0
   niveles:
   - personajesDelNivel:
-    - {fileID: 952824410394418340, guid: bbcc3f5ef642ee6468f5a6b00b22032e, type: 3}
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
-    - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
+  - personajesDelNivel:
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
 --- !u!1 &933161978
 GameObject:
@@ -20131,9 +20132,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1676709731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d131e14a922734f43b255580dd02c250, type: 3}
+  m_Script: {fileID: 11500000, guid: 03bf7fbcdf2c38848b7c21980a014e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ruidosDisturbios: {fileID: 833877157}
+  audioSeguridad: {fileID: 833877157}
+  panelDialogo: {fileID: 992450829}
+  textoDialogo: {fileID: 131616579}
+  mensajesDisturbios:
+  - "Un infectado gener\xF3 disturbios, m\xE1s cuidado con quien dejas entrar."
+  - "Se reportan m\xE1s incidentes dentro del b\xFAnker, la situaci\xF3n est\xE1
+    empeorando."
+  - "Otro infectado ha causado problemas, la seguridad est\xE1 en alerta."
+  - "El n\xFAmero de infectados causando disturbios est\xE1 aumentando r\xE1pidamente."
+  - "Se detect\xF3 otro brote de violencia dentro del b\xFAnker, \xA1Estamos en estado
+    de emergencia!"
+  velocidadEscritura: 0.05
+  duracionMensaje: 5
+  radioAnimator: {fileID: 0}
+  loadingBar: {fileID: 20543994}
+  sonidoEstatica: {fileID: 1291171139}
+  characterSpawn: {fileID: 1520975433}
 --- !u!1 &1687648845
 GameObject:
   m_ObjectHideFlags: 0
@@ -20637,6 +20656,7 @@ MonoBehaviour:
   panelPerdisteEstres: {fileID: 607860682}
   panelPerdisteDespido: {fileID: 2067811275}
   panelPerdisteDisturbios: {fileID: 17082859}
+  panelGanaste: {fileID: 0}
   indicaciones1: {fileID: 2115129266}
   indicaciones2: {fileID: 1805619943}
   indicaciones3: {fileID: 554177962}

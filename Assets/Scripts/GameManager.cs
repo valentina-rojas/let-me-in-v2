@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -140,9 +141,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-             characterSpawn.FinalizarInteraccion();
+            characterSpawn.FinalizarInteraccion();
         }
-       
+
         stressBar.ActualizarEstres(1f);
     }
 
@@ -266,6 +267,24 @@ public class GameManager : MonoBehaviour
         uiManager?.MostrarPantallaDerrota(tipo);
     }
 
+    public void SiguienteNivel()
+    {
+        Debug.Log("Botón Siguiente Nivel presionado");
 
+        NivelActual++;
+        GameData.NivelActual = NivelActual;
+      //  GameData.Faltas = strikesAcumulados;
+      //  GameData.DialogosOmitidos = dialogosOmitidosTotal;
+
+        if (NivelActual > niveles.Length)
+        {
+            Debug.Log("¡No hay más niveles! Fin del juego.");
+           // uiManager.ActivarPanelGanaste();
+            return; // No recargamos escena porque ya terminamos el juego
+        }
+
+        // Si hay niveles, recargamos la escena para cargar el nuevo nivel
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 }
