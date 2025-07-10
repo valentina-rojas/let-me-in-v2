@@ -3573,7 +3573,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312915595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaPerdiste
         m_Mode: 1
@@ -4438,7 +4438,7 @@ GameObject:
   - component: {fileID: 312915594}
   - component: {fileID: 312915595}
   m_Layer: 0
-  m_Name: CerrarCinematicas
+  m_Name: ReproducirCinematicas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4468,9 +4468,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 312915593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 239fc36f8d210c1438185df12f30404d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab450e45bb881c4a9d706bfae02d7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duracionFadeOut: 2
+  pantallaNegra: {fileID: 1694324540}
+  duracionFadePantalla: 2
+  "desplegarpesta\xF1as": {fileID: 1128534294}
 --- !u!1 &324602590
 GameObject:
   m_ObjectHideFlags: 0
@@ -6621,7 +6625,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1825495189}
           m_TargetAssemblyTypeName: InteractableObjects, Assembly-CSharp
           m_MethodName: AnimarPantalla
           m_Mode: 1
@@ -7242,7 +7246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550888384}
   - component: {fileID: 550888386}
-  - component: {fileID: 550888385}
+  - component: {fileID: 550888387}
   m_Layer: 0
   m_Name: nubes1
   m_TagString: Untagged
@@ -7265,18 +7269,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 16034164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &550888385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550888383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94d52d81fc1929942a29d8413626bb5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &550888386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7332,6 +7324,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &550888387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550888383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da1834141bcb149a90fec18a7cdcc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadMovimiento: 0.5
+  capaNivel1: {fileID: 16034163}
+  capaNivel2: {fileID: 1674574909}
+  capaCorteDeLuz: {fileID: 0}
+  tiempoParpadeo: 0.2
+  duracionCorte: 3
+  frecuenciaCorte: 5
 --- !u!1 &554177961
 GameObject:
   m_ObjectHideFlags: 0
@@ -8315,7 +8326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 672337625}
   - component: {fileID: 672337627}
-  - component: {fileID: 672337626}
+  - component: {fileID: 672337628}
   m_Layer: 0
   m_Name: nubes1
   m_TagString: Untagged
@@ -8338,18 +8349,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1674574910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &672337626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672337624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94d52d81fc1929942a29d8413626bb5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &672337627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8405,6 +8404,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &672337628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672337624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da1834141bcb149a90fec18a7cdcc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadMovimiento: 0.5
+  capaNivel1: {fileID: 16034163}
+  capaNivel2: {fileID: 1674574909}
+  capaCorteDeLuz: {fileID: 0}
+  tiempoParpadeo: 0.2
+  duracionCorte: 3
+  frecuenciaCorte: 5
 --- !u!1 &672871984
 GameObject:
   m_ObjectHideFlags: 0
@@ -9228,7 +9246,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1825495189}
           m_TargetAssemblyTypeName: InteractableObjects, Assembly-CSharp
           m_MethodName: AnimarPapeles
           m_Mode: 1
@@ -12045,7 +12063,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312915595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaGanar
         m_Mode: 1
@@ -13551,7 +13569,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312915595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaPerdiste
         m_Mode: 1
@@ -13794,7 +13812,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312915595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaRenunciar
         m_Mode: 1
@@ -15410,6 +15428,7 @@ GameObject:
   - component: {fileID: 1223515960}
   - component: {fileID: 1223515962}
   - component: {fileID: 1223515961}
+  - component: {fileID: 1223515963}
   m_Layer: 0
   m_Name: nubes2
   m_TagString: Untagged
@@ -15499,6 +15518,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1223515963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223515959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da1834141bcb149a90fec18a7cdcc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadMovimiento: 0.5
+  capaNivel1: {fileID: 16034163}
+  capaNivel2: {fileID: 1674574909}
+  capaCorteDeLuz: {fileID: 0}
+  tiempoParpadeo: 0.2
+  duracionCorte: 3
+  frecuenciaCorte: 5
 --- !u!1 &1224337557
 GameObject:
   m_ObjectHideFlags: 0
@@ -17055,7 +17093,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312915595}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ReproducirCinematicas, Assembly-CSharp
         m_MethodName: CinematicaPerderDisturbios
         m_Mode: 1
@@ -21710,6 +21748,7 @@ GameObject:
   - component: {fileID: 1877490139}
   - component: {fileID: 1877490141}
   - component: {fileID: 1877490140}
+  - component: {fileID: 1877490142}
   m_Layer: 0
   m_Name: nubes2
   m_TagString: Untagged
@@ -21799,6 +21838,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1877490142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877490138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da1834141bcb149a90fec18a7cdcc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadMovimiento: 0.5
+  capaNivel1: {fileID: 16034163}
+  capaNivel2: {fileID: 1674574909}
+  capaCorteDeLuz: {fileID: 0}
+  tiempoParpadeo: 0.2
+  duracionCorte: 3
+  frecuenciaCorte: 5
 --- !u!1 &1888796263
 GameObject:
   m_ObjectHideFlags: 0
