@@ -45,7 +45,7 @@ public class OptionsManager : MonoBehaviour
 
     public void AbrirOpciones()
     {
-       // desplegarpestañas.Play();
+        // desplegarpestañas.Play();
         CerrarTodosLosPaneles();
         panelOpciones.gameObject.SetActive(true);
         //  Time.timeScale = 0f;
@@ -80,7 +80,7 @@ public class OptionsManager : MonoBehaviour
 
     public void AbrirAyuda()
     {
-       //  desplegarpestañas.Play();
+        //  desplegarpestañas.Play();
         CerrarTodosLosPaneles();
         panelAyuda.gameObject.SetActive(true);
     }
@@ -116,18 +116,18 @@ public class OptionsManager : MonoBehaviour
 
     public void CerrarSintomas()
     {
-       //  desplegarpestañas.Play();
+        //  desplegarpestañas.Play();
         panelSintomas.gameObject.SetActive(false);
 
         interactableObjects.ActivarEventTriggers();
     }
 
-    // Método para cerrar todos los paneles
     public void CerrarTodosLosPaneles()
     {
+        Debug.Log("Cerrando todos los paneles");
+
         interactableObjects.DesactivarEventTriggers();
 
-        // Desactivar la lupa si está visible
         if (zoomManager != null && zoomManager.isLupaVisible)
         {
             zoomManager.ToggleLupa();
@@ -136,6 +136,8 @@ public class OptionsManager : MonoBehaviour
         panelOpciones.gameObject.SetActive(false);
         panelAyuda.gameObject.SetActive(false);
         panelSintomas.gameObject.SetActive(false);
+
+
     }
 
     public void DesactivarBotonesVentanas()
