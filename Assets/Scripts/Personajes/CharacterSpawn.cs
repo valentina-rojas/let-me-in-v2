@@ -13,7 +13,11 @@ public class CharacterSpawn : MonoBehaviour
     private bool interactionFinished = false;
 
     public bool spawnActivo = true;
-private GameObject personajeActualEnEscena;
+    private GameObject personajeActualEnEscena;
+
+    private int totalPersonajes;
+    private int personajesRestantes;
+
 
 
     public void AsignarPersonajesDelNivel(GameObject[] personajesDelNivel)
@@ -24,6 +28,11 @@ private GameObject personajeActualEnEscena;
         {
             characters[i] = personajesDelNivel[i];
         }
+
+          totalPersonajes = characters.Length;
+    personajesRestantes = totalPersonajes;
+
+        GameManager.instance.uiManager.ActualizarContadorPersonas(personajesRestantes);
     }
 
     public void ComenzarSpawn()
@@ -32,54 +41,59 @@ private GameObject personajeActualEnEscena;
         StartCoroutine(SpawnCharacters());
     }
 
-   IEnumerator SpawnCharacters()
-{
-    while (currentIndex < characters.Length && spawnActivo)
+    IEnumerator SpawnCharacters()
     {
-        GameObject candidate = characters[currentIndex];
-
-        // ⚠️ Asegurarse de que no haya otro personaje vivo
-        if (personajeActualEnEscena != null)
+        while (currentIndex < characters.Length && spawnActivo)
         {
-            Destroy(personajeActualEnEscena);
+            GameObject candidate = characters[currentIndex];
+
+            // ⚠️ Asegurarse de que no haya otro personaje vivo
+            if (personajeActualEnEscena != null)
+            {
+                Destroy(personajeActualEnEscena);
+            }
+
+            GameObject currentCharacter = Instantiate(candidate, spawnPoint.position, Quaternion.identity);
+            personajeActualEnEscena = currentCharacter;
+
+            interactionFinished = false;
+            CharacterManager.instance.ResetearAtencion();
+
+            CharacterAttributes atributos = currentCharacter.GetComponent<CharacterAttributes>();
+            DialogueManager dialogueManager = currentCharacter.GetComponent<DialogueManager>();
+
+            if (atributos != null)
+            {
+                GameManager.instance.EstablecerPersonajeActual(atributos);
+            }
+            else
+            {
+                Debug.LogError("El personaje instanciado no tiene CharacterAttributes.");
+            }
+
+            personajesRestantes--;
+            GameManager.instance.uiManager.ActualizarContadorPersonas(personajesRestantes);
+
+            yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
+
+            yield return new WaitUntil(() => interactionFinished);
+
+            Destroy(currentCharacter);
+
+            
+            personajeActualEnEscena = null;
+
+            currentIndex++;
+
+            yield return new WaitForSeconds(2f);
         }
 
-        GameObject currentCharacter = Instantiate(candidate, spawnPoint.position, Quaternion.identity);
-        personajeActualEnEscena = currentCharacter;
-
-        interactionFinished = false;
-        CharacterManager.instance.ResetearAtencion();
-
-        CharacterAttributes atributos = currentCharacter.GetComponent<CharacterAttributes>();
-        DialogueManager dialogueManager = currentCharacter.GetComponent<DialogueManager>();
-
-        if (atributos != null)
+        if (spawnActivo)
         {
-            GameManager.instance.EstablecerPersonajeActual(atributos);
+            Debug.Log("Todos los personajes han pasado.");
+            GameManager.instance.FinDeNivel();
         }
-        else
-        {
-            Debug.LogError("El personaje instanciado no tiene CharacterAttributes.");
-        }
-
-        yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
-
-        yield return new WaitUntil(() => interactionFinished);
-
-        Destroy(currentCharacter);
-        personajeActualEnEscena = null;
-
-        currentIndex++;
-
-        yield return new WaitForSeconds(2f);
     }
-
-    if (spawnActivo)
-    {
-        Debug.Log("Todos los personajes han pasado.");
-        GameManager.instance.FinDeNivel();
-    }
-}
 
 
     IEnumerator MoveCharacter(GameObject character, Vector3 targetPosition)

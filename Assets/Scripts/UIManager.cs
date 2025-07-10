@@ -69,6 +69,8 @@ public class UIManager : MonoBehaviour
 
   private bool cursorVisible = true;
 
+  public TextMeshProUGUI contadorPersonas;
+
   public void MostrarInicioDia(string mensaje)
   {
 
@@ -242,4 +244,13 @@ public class UIManager : MonoBehaviour
         break;
     }
   }
+
+ public void ActualizarContadorPersonas(int cantidadRestante)
+{
+    if (contadorPersonas != null)
+    {
+        contadorPersonas.text = cantidadRestante.ToString();
+    }
+}
+
 }

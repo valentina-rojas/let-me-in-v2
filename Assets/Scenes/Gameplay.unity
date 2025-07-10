@@ -20617,6 +20617,7 @@ MonoBehaviour:
   velocidadTexto: 0.1
   duracionPanel: 1
   intervaloCursor: 0.5
+  contadorPersonas: {fileID: 200202053}
 --- !u!1 &1720687405
 GameObject:
   m_ObjectHideFlags: 0

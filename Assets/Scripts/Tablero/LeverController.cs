@@ -89,6 +89,8 @@ public class LeverController : MonoBehaviour, IPointerDownHandler, IDragHandler,
                     decisionMade = true; // Marca que se ha tomado una decisión
                 }
             }
+
+            DesactivarPalanca();
         }
     }
 
