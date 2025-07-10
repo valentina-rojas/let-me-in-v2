@@ -125,11 +125,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  estado: 1
+  dialogosPersonaje:
+  - "Hola \xA1Buen d\xEDa!"
+  - "De mi casa, no sal\xED para nada m\xE1s que buscar comida."
+  - No, vivo sola con mis gatos, y tampoco tengo amigos.
+  - Nada de momento.
+  - "Es mi alergia, estos cambios de clima me est\xE1n matando\u2026"
+  - "\xBFEh?\xBFQu\xE9 gatos\u2026? AH, si, eso\u2026 los deje de mi t\xEDa\u2026"
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "\xBFEntonces a qu\xE9 se deben las marcas en el cuello?"
+  - "\xBFVino hasta ac\xE1 sola?\xBFQu\xE9 pas\xF3 con sus gatos?"
+  respuestaIngreso:
+  - "\xA1Muchas gracias!"
+  respuestaRechazo:
+  - Si me enfermo y me muero bancate el cargo de conciencia...
   prefab: {fileID: 4534030318338212612}
   esAgresivo: 0
   animator: {fileID: 0}

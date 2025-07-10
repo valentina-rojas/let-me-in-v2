@@ -124,12 +124,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b22f950f1f4cc641b6d516b6f2a5f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombre: 
+  nombre: a
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - Hola, necesito ayuda
+  - "Vengo deambulando entre ciudades, me qued\xE9 varado en un pueblo donde fui
+    a tocar cuando arranc\xF3 la pandemia."
+  - No, si no fue a verme nadie, tengo una bronca.
+  - No, nada raro en la piel.
+  - "S\xED, ped\xED prestada la guitarra, no me alcanza para comprarme una. "
+  - "No, solo interactu\xE9 con mi banda, que me abandon\xF3 apenas se anunci\xF3
+    lo del virus."
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "Se ve que lo salv\xF3 su falta de talento, \xBFComparti\xF3 instrumentos con
+    otros m\xFAsicos?"
+  - "\xBFEstuvo en alg\xFAn lugar concurrido? Aparte de su recital, donde claramente
+    no lo fue a ver nadie."
+  respuestaIngreso:
+  - Gracias, prometo alegrarlos con unos temas
+  respuestaRechazo:
+  - Bueno voy a seguir buscando a mi grupo...
   prefab: {fileID: 4534030318338212612}
   esAgresivo: 0
   animator: {fileID: 0}

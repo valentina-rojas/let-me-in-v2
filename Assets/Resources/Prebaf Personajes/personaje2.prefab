@@ -124,12 +124,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b22f950f1f4cc641b6d516b6f2a5f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombre: 
+  nombre: chica acne
   estado: 1
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - Hola...
+  - "Estaba en un refugio cercano pero me echaron porque hab\xEDa escasez de comida."
+  - Solamente con la gente del refugio, estaban todos sanos.
+  - No, no, me siento perfectamente
+  - "Acn\xE9, lo tengo desde los 15 a\xF1os, ya intente de todo"
+  - "Justamente \xBFQu\xE9 pod\xE9s saber vos entonces? ya te dije que estoy sana
+    vengo de una zona segura."
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "\xBFEntonces qu\xE9 son las manchas que tiene en la cara?"
+  - "No ser\xE9 dermat\xF3logo pero esas ronchas no parecen ser acn\xE9\u2026"
+  respuestaIngreso:
+  - "\xBFEn serio? Bueno gracias..."
+  respuestaRechazo:
+  - "Ojal\xE1 te echen del laburo..."
   prefab: {fileID: 4471038150240660831}
   esAgresivo: 0
   animator: {fileID: 0}

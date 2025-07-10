@@ -126,10 +126,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - "Buen d\xEDa"
+  - "Soy de la zona, tuve que irme del barrio porque hab\xEDan muchos disturbios
+    y saqueos."
+  - "Me fui con mi grupo de amigos pero me separ\xE9 de ellos hace unas horas."
+  - Solo tengo heridas, fui muy cuidadoso.
+  - Tuve una pelea al salir del barrio.
+  - Decidieron irse de la ciudad antes de anunciaran la apertura de puertas en los
+    refugios.
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "\xBFA qu\xE9 se debe el vendaje?"
+  - "\xBFPor qu\xE9 se separ\xF3 del grupo?"
+  respuestaIngreso:
+  - Te agradezco...
+  respuestaRechazo:
+  - 'Bue... '
   prefab: {fileID: 4691758249037950082}
   esAgresivo: 0
   animator: {fileID: 0}

@@ -125,11 +125,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  estado: 1
+  dialogosPersonaje:
+  - Hola.
+  - "Desde mi casa, desde que empez\xF3 la pandemia estoy trabajando desde ah\xED."
+  - "No en persona, solo a trav\xE9s de mis compa\xF1eros por videollamada."
+  - "Nada de eso, solo tos y cansancio, debe ser por el estr\xE9s."
+  - "Una vez, para retirar unos documentos, pero entr\xE9 y sal\xED r\xE1pidamente
+    para no cruzarme con nadie."
+  - "Si, el \xFAnico que me enferma es mi jefe, no tengo ning\xFAn s\xEDntoma del
+    virus."
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "\xBFTuvo que ir a la oficina recientemente?"
+  - "\xBFEst\xE1 segura que su malestar se debe al estr\xE9s?"
+  respuestaIngreso:
+  - Por fin voy a tener una excusa para dejar de trabajar un rato...
+  respuestaRechazo:
+  - No me hagas volver a trabajar...
   prefab: {fileID: 4534030318338212612}
   esAgresivo: 0
   animator: {fileID: 0}

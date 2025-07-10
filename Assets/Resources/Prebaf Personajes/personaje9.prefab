@@ -126,10 +126,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - Hola
+  - Estaba encerrado en mi casa hasta que escuche en la radio que habilitaron la
+    entrada de civiles en los refugios.
+  - No, mi familia se fue apenas declararon la pandemia, pero yo no quise dejar la
+    casa sola.
+  - "Hasta ahora no, tom\xE9 todas las precauciones necesarias"
+  - "Me quede sin comida y agua, adem\xE1s vivo en una zona peligrosa"
+  - Si, si, no hay problema
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "\xBFPor qu\xE9 quiere entrar a este lugar en lugar de quedarse en su casa?"
+  - "\xBFPuede retirarse la bufanda para comprobar que realmente no presenta s\xEDntomas?"
+  respuestaIngreso:
+  - Gracias...
+  respuestaRechazo:
+  - Entiendo...
   prefab: {fileID: 7820086166756251426}
   esAgresivo: 0
   animator: {fileID: 0}

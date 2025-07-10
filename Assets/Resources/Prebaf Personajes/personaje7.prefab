@@ -126,10 +126,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - "Hola, escuch\xE9 que en este lugar hay mucha gente."
+  - En la plaza, no hay nadie para jugar un partido, como siempre.
+  - "No, si todos est\xE1n encerrados, parece que soy el \xFAnico que quiere moverse."
+  - "Ninguno, mi estado f\xEDsico es excelente, no como todos los que se escondieron
+    en el sill\xF3n de su casa."
+  - Ejercitando en casa, no es lo mismo que un buen partido, pero al menos me mantengo 
+    en forma
+  - "\xBFNo ve que no tengo ning\xFAn s\xEDntoma? Me saco la remera de ser necesario,
+    pero d\xE9jeme entrar por favor, \xA1necesito jugar un partido!"
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "\xBFC\xF3mo mantuvo su estado f\xEDsico si no se pod\xEDa salir?"
+  - "\xBFC\xF3mo puedo estar seguro de que no se encontr\xF3 con otra gente para
+    jugar?"
+  respuestaIngreso:
+  - Gracias loco, los voy a sacar atletas a todos...
+  respuestaRechazo:
+  - Bueno, voy a ver si alguien de la fila quiere jugar un rato...
   prefab: {fileID: 4534030318338212612}
   esAgresivo: 0
   animator: {fileID: 0}

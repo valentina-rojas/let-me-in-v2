@@ -127,6 +127,7 @@ MonoBehaviour:
   nombre: chica tierra
   estado: 0
   dialogosPersonaje:
+  - Buenas...
   - "Soy de un pueblo cercano, vengo caminando hace tres d\xEDas por favor necesito
     ayuda"
   - "No me cruc\xE9 con nadie en el camino"

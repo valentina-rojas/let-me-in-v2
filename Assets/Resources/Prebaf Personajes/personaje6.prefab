@@ -126,10 +126,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - "\xA1Buenos, buenos d\xEDas!"
+  - "De mi apartamento, estuve encerrado desde que empez\xF3 esta locura\u2026"
+  - "No veo un alma hace semanas\u2026 hasta empec\xE9 a hablar con las plantas\u2026"
+  - "Nada de eso, solo la p\xE9rdida de cordura por la falta de contacto con la gente\u2026"
+  - "Perfeccionando mis habilidades de cocina \xA1Ja! Puedo ser de utilidad ah\xED
+    dentro, ya domin\xE9 el arte de hacer una tostada sin quemarla\u2026"
+  - "\xA1Como un campe\xF3n! Mi barbijo y yo somos inseparables, hasta le puse nombre\u2026"
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "Se nota, entonces\u2026 \xBFQu\xE9 estuvo haciendo todo este tiempo?"
+  - "\xBFC\xF3mo manejo las medidas de prevenci\xF3n hasta ahora?"
+  respuestaIngreso:
+  - Si me enfermo y me muero bancate el cargo de conciencia...
+  respuestaRechazo:
+  - "Volver\xE9 a mi departamento, quiz\xE1s aprenda a tejer..."
   prefab: {fileID: 4534030318338212612}
   esAgresivo: 0
   animator: {fileID: 0}

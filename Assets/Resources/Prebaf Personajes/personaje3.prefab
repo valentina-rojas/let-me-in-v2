@@ -124,12 +124,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b22f950f1f4cc641b6d516b6f2a5f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  nombre: chica agresiva
+  estado: 1
+  dialogosPersonaje:
+  - Hola
+  - De la ciudad, haciendo un recorrido en busca de provisiones
+  - "Me cruc\xE9 con un grupo de gente, pero mantuve distancia."
+  - No, solo me duele la cabeza por estar tantas horas bajo el sol.
+  - "\xBFEs realmente necesario?"
+  - "\xA1No pienso sacarlo! \xBFQuer\xE9s que me arriesgue a contagiarme?"
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
+  - "\xBFPuede bajarse el barbijo?"
+  - Es necesario para verificar su estado de salud.
+  respuestaIngreso:
+  - Por fin...
+  respuestaRechazo:
+  - "\xBFEncima que uso el barbijo? Ahora voy a ir a toserle en la cara a los de
+    la fila"
   prefab: {fileID: 4534030318338212612}
   esAgresivo: 0
   animator: {fileID: 0}
