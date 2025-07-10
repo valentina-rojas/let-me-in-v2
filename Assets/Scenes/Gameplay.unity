@@ -11687,7 +11687,18 @@ MonoBehaviour:
     - {fileID: 2573835153199593656, guid: 0e2d77ba5fb3fab47bbefc4da5d96d79, type: 3}
     - {fileID: 952824410394418340, guid: bbcc3f5ef642ee6468f5a6b00b22032e, type: 3}
   - personajesDelNivel:
-    - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
+    - {fileID: 2573835153199593656, guid: 656587532b53f0f4595ef3a24ddb57ef, type: 3}
+    - {fileID: 2573835153199593656, guid: a7152580a841a8c43a40892441791e72, type: 3}
+    - {fileID: 2573835153199593656, guid: 6e00b6e0097661d46836bb67ad92d79c, type: 3}
+    - {fileID: 2573835153199593656, guid: 2c13e10de9ad66b4c8ef053671a158a3, type: 3}
+    - {fileID: 2573835153199593656, guid: 20a160811651f9c40ad064946cdad38c, type: 3}
+    - {fileID: 2573835153199593656, guid: 18c28f3523fa5e84c90f569167b88aff, type: 3}
+    - {fileID: 2573835153199593656, guid: b694962cb524c9648a6388ee9310d537, type: 3}
+    - {fileID: 2573835153199593656, guid: 8644957925043e84abc6ec8c7a1d6a4f, type: 3}
+    - {fileID: 2573835153199593656, guid: 3a0bb5d985a32a14280ec05499dbafed, type: 3}
+    - {fileID: 841363440324422405, guid: cfc627d5ff0e33e40a141873f5d8aed5, type: 3}
+    - {fileID: 1526593497047026833, guid: 018373af6d4e2f547816b99ce66d7b80, type: 3}
+    - {fileID: 5274696793240584207, guid: bc0bfd5922905344fae35c57f7ede332, type: 3}
 --- !u!1 &933161978
 GameObject:
   m_ObjectHideFlags: 0

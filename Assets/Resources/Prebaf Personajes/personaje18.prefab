@@ -126,10 +126,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - "Hola hermano\u2026"
+  - "Estuve en el campo haciendo meditaciones, cuando volv\xED me encontr\xE9 con
+    que hab\xEDa una pandemia."
+  - Solo mis amigos de la comunidad en el campo, estuve meditando con ellos.
+  - Ellos siguieron viajando porque no creen en el virus pero yo me asuste y me acerque
+    al primer refugio que vi.
+  dialogosGuardia:
+  - "\xBFD\xF3nde estuvo estos \xFAltimos d\xEDas?"
+  - "\xBFSe cruz\xF3 con otras personas en el camino?"
+  - "\xBFD\xF3nde est\xE1n sus amigos en este momento?"
+  respuestaIngreso:
+  - Gracias hermano... te envio buenas vibras...
+  respuestaRechazo:
+  - Bueno.. quizas es un reto del universo...
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}

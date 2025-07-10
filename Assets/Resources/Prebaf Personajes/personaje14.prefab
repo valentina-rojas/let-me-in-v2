@@ -125,11 +125,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  estado: 1
+  dialogosPersonaje:
+  - ...
+  - No, la gente tiende a evitarme y yo prefiero la soledad.
+  - Igual a mi vida normal, me gusta la oscuridad y el silencio.
+  - "No, aunque las cicatrices internas duelen m\xE1s que cualquier s\xEDntoma f\xEDsico."
+  dialogosGuardia:
+  - "\xBFHa estado en contacto con otras personas?"
+  - "\xBFC\xF3mo estuvo manejando la cuarentena?"
+  - "\xBFPresent\xF3 s\xEDntomas del virus?"
+  respuestaIngreso:
+  - ...
+  respuestaRechazo:
+  - ...
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}

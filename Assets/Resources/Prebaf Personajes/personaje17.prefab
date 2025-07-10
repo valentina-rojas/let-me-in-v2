@@ -126,10 +126,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - "Hola, \xBFc\xF3mo est\xE1s?"
+  - Ah, esto, traigo algo de comida casera para ofrecerle a todos, no se si tienen
+    alimentos en el bunker.
+  - "\xA1Por supuesto! utilice guantes, barbijo y desinfecte todo."
+  - "Porque vivo sola y no se como va a avanzar esto, prefiero estar en un lugar
+    donde haya atenci\xF3n m\xE9dica."
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene con esa bandeja?"
+  - "\xBFTom\xF3 las precauciones necesarias en su cocina?"
+  - "\xBFPor qu\xE9 decidi\xF3 venir en lugar de quedarse en su casa?"
+  respuestaIngreso:
+  - "\xA1Que Dios lo bendiga!"
+  respuestaRechazo:
+  - "Una verguenza esta atenci\xF3n... ustedes se pierden de mis tartas"
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}

@@ -125,11 +125,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  estado: 1
+  dialogosPersonaje:
+  - "Por fin \xBFno tienen un sistema m\xE1s lento? Hace media hora estoy esperando."
+  - "No, las medidas son una p\xE9rdida de tiempo porque nadie las cumple."
+  - No, tengo la calva sensible y estar esperando media hora abajo del sol no ayuda.
+  - Porque estoy cansado de tener que buscar provisiones e interactuar con gente
+    inepta.
+  dialogosGuardia:
+  - "Bueno se\xF1or, c\xE1lmese, hacemos lo que podemos \xBFTom\xF3 precauciones
+    para el virus?"
+  - "\xBFEso que tiene en la cabeza es sarpullido?"
+  - "\xBFPor qu\xE9 quiere entrar al bunker?"
+  respuestaIngreso:
+  - "Faltaria que me rechaces nom\xE1s..."
+  respuestaRechazo:
+  - Asi estamos... con este gobierno...
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}

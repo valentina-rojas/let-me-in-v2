@@ -125,11 +125,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  estado: 1
+  dialogosPersonaje:
+  - "\xBFAc\xE1 es el after?"
+  - "Vengo de la clande del chechu, vi una fila y asum\xED que ac\xE1 segu\xEDa la
+    fiesta."
+  - "No me la bajes asi\u2026 si seguro ahi adentro hay una re joda."
+  dialogosGuardia:
+  - "\xBFComo?"
+  - "Se\xF1or, esto es un refugio, hay un virus letal dando vueltas, las fiestas
+    est\xE1n prohibidas, no sea imprudente."
+  respuestaIngreso:
+  - "\xBFPuedo invitar a unos amigos? Traen escabio..."
+  respuestaRechazo:
+  - "Uh.. bueno... \xBFNo sabes donde hay un after?"
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}

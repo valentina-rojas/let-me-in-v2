@@ -126,10 +126,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  dialogosPersonaje:
+  - Hola, necesito entrar ya mismo.
+  - Si no te enteraste estamos en medio de una pandemia, estoy tomando las precauciones
+    necesarias.
+  - Para que el gobierno no me lave el cerebro con las ondas que emiten.
+  - "Yo no me lo pienso quitar \xBFacaso quiere que me contagie? Seguro est\xE1 trabajando
+    para ellos\u2026"
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene disfrazado as\xED?"
+  - "\xBFPuede explicarme por qu\xE9 los ajos y el colador?"
+  - "No puedo dejarlo ingresar con todos esos elementos\u2026 Adem\xE1s no puedo
+    ver si presenta alg\xFAn s\xEDntoma."
+  respuestaIngreso:
+  - Gracias pero no me pienso sacar nada...
+  respuestaRechazo:
+  - "\xBFY ahora donde voy a conseguir mas ajos?"
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}

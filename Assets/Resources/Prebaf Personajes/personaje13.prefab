@@ -125,11 +125,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  estado: 1
+  dialogosPersonaje:
+  - Buenas, vengo con mi hijo.
+  - De mi casa, estamos preocupados por el virus.
+  - "Yo tuve que salir para buscar comida y mi hijo se qued\xF3 en casa jugando en
+    la compu, solo tuve contacto con el kiosquero."
+  - "Mi hijo est\xE1 sano, por favor, d\xE9jenos entrar, no puedo dejarlo solo."
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde vienen?"
+  - "\xBFAlguno de los dos sali\xF3 de casa o se reuni\xF3 con otras personas?"
+  - "Usted presenta todos los s\xEDntomas visibles de un infectado, no voy a poder
+    dejarlos pasar."
+  respuestaIngreso:
+  - Gracias por darnos una oportunidad
+  respuestaRechazo:
+  - "Nadie piensa en el bienestar de los ni\xF1os..."
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}

@@ -125,11 +125,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  estado: 1
+  dialogosPersonaje:
+  - Buenas tardes.
+  - "De mi peque\xF1a biblioteca en casa, pas\xE9 los \xFAltimos d\xEDas perdido
+    en los mundos de mis libros."
+  - Apenas, mis hijos ni me llaman, mi vecino me deja las compras en la puerta.
+  - No creo en los barbijos, pero desinfecte todo con lavandina.
+  dialogosGuardia:
+  - "\xBFDe d\xF3nde viene?"
+  - "\xBFEstuvo en contacto con otras personas?"
+  - "\xBFTom\xF3 las precauciones necesarias?"
+  respuestaIngreso:
+  - Gracias, muy amable...
+  respuestaRechazo:
+  - Esta bien... igualmente me espera una novela en casa...
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}

@@ -125,11 +125,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  estado: 1
+  dialogosPersonaje:
+  - "\xA1Buenos d\xEDas!"
+  - No, estoy sola con mi gato.
+  - "Estuve aislada en mi casa, mi barrio es un caos y no quiero volver ah\xED."
+  - "Pero es mi FAMILIA, no puedo dejarlo \xA1por favor!"
+  dialogosGuardia:
+  - "\xBFEstuvo en contacto con otra gente?"
+  - "\xBFMantuvo precauciones?"
+  - "\xBFSabe que no puede ingresar con mascotas?"
+  respuestaIngreso:
+  - "\xA1Muchas gracias! Walter y yo te lo agradecemos..."
+  respuestaRechazo:
+  - Ahora solo somos Walter y yo por nuestra cuenta...
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}
