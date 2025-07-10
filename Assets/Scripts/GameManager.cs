@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public StressBar stressBar;
     public StrikesBar strikesBar;
     public DoorController doorController;
+    public RadioManager radioManager;
 
 
     public string[] mensajesInicioDia;
@@ -117,14 +118,14 @@ public class GameManager : MonoBehaviour
     {
         VerificarEstadoPersonaje(true);
 
-         personajeActual.animator.SetTrigger("reaccionIngreso");
+        personajeActual.animator.SetTrigger("reaccionIngreso");
 
         DialogueManager dialogueManager = personajeActual.GetComponent<DialogueManager>();
         dialogueManager.ComenzarDialogoRespuesta(personajeActual.respuestaIngreso);
 
         yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
 
-          // Abrir puerta
+        // Abrir puerta
         yield return StartCoroutine(doorController.Abrir());
 
         // Mover personaje adentro mientras la puerta está abierta
@@ -133,8 +134,15 @@ public class GameManager : MonoBehaviour
         // Cerrar puerta después de que el personaje terminó de entrar
         yield return StartCoroutine(doorController.Cerrar());
 
-
-        characterSpawn.FinalizarInteraccion();
+        if (personajeActual.estado == CharacterAttributes.CharacterState.Enfermo)
+        {
+            radioManager.ActivarDisturbios();
+        }
+        else
+        {
+             characterSpawn.FinalizarInteraccion();
+        }
+       
         stressBar.ActualizarEstres(1f);
     }
 

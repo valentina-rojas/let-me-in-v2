@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: A
-  estado: 0
+  estado: 1
   dialogosPersonaje:
   - "Soy de un pueblo cercano, vengo caminando hace tres d\xEDas por favor necesito
     ayuda"
@@ -158,7 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aggressiveNPCs: {fileID: 0}
   dialoguePanelPersonaje: {fileID: 0}
   dialoguePanelGuardia: {fileID: 0}
   dialogueTextPersonaje: {fileID: 0}
   dialogueTextGuardia: {fileID: 0}
+  botonSiguientePersonaje: {fileID: 0}
+  botonSiguienteGuardia: {fileID: 0}
