@@ -8,6 +8,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 6ed379769ca54cc42bccac41eab364fe
+  - enabled: 1
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: 4bd76757b9de15e459c14d4a99d388ec
+  - enabled: 1
+    path: Assets/Scenes/Cinematica.unity
+    guid: a885f3216732ca44e9c73af6eaa24250
+  - enabled: 1
+    path: Assets/Scenes/CinematicaGanar.unity
+    guid: 88b479493dd80734c9dbc0607a0a60cc
+  - enabled: 1
+    path: Assets/Scenes/CinematicaPerderDisturbios.unity
+    guid: d8ed5c6dde20e314091798a231d65cad
+  - enabled: 1
+    path: Assets/Scenes/CinematicaPerdiste.unity
+    guid: ce860ec07479a7a4a93b1dd5245beede
+  - enabled: 1
+    path: Assets/Scenes/CinematicaRenunciar.unity
+    guid: 9c579869fa774124fa2b1ddcc9a59ac0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
