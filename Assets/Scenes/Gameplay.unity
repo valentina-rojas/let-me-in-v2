@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 43230573}
   - component: {fileID: 43230571}
   - component: {fileID: 43230572}
+  - component: {fileID: 43230574}
   m_Layer: 0
   m_Name: 'Second Camera '
   m_TagString: MainCamera
@@ -767,7 +768,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 33
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 381e2fba7b5ef924cbf1d3805f42a349, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 9c4550ab118bc534f9edb7c3b5df8683, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -794,12 +795,56 @@ Transform:
   m_GameObject: {fileID: 43230570}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20013428, y: -1.4799194, z: -10800.001}
+  m_LocalPosition: {x: -0.20013404, y: -1.4799371, z: -10800.001}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1562871742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &43230574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43230570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &44192255
 GameObject:
   m_ObjectHideFlags: 0
@@ -4367,7 +4412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 381e2fba7b5ef924cbf1d3805f42a349, type: 2}
+  m_Texture: {fileID: 8400000, guid: 9c4550ab118bc534f9edb7c3b5df8683, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -18811,6 +18856,7 @@ GameObject:
   - component: {fileID: 1562871744}
   - component: {fileID: 1562871743}
   - component: {fileID: 1562871745}
+  - component: {fileID: 1562871746}
   m_Layer: 5
   m_Name: Panel lupa
   m_TagString: Untagged
@@ -18890,6 +18936,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1562871746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562871741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23cdb4f2c1a09442b9199bbbb89b046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lupa: {fileID: 1562871742}
+  isLupaVisible: 0
+  panelLupa: {fileID: 0}
+  areaLimite: {fileID: 1519422823}
+  sonidoBoton: {fileID: 1897245216}
 --- !u!1 &1565297162
 GameObject:
   m_ObjectHideFlags: 0
@@ -22348,7 +22411,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 944450476}
         m_TargetAssemblyTypeName: Zoom, Assembly-CSharp
         m_MethodName: ToggleLupa
         m_Mode: 1
