@@ -221,31 +221,32 @@ private IEnumerator ShowLine()
     isTyping = false;
 }
 
+private void FinalizarDialogo()
+{
+    didDialogueStart = false;
+    hasInteracted = true;
 
-    private void FinalizarDialogo()
+    CharacterManager characterManager = FindObjectsByType<CharacterManager>(FindObjectsSortMode.None)[0];
+    if (characterManager != null && characterAttributes != null)
     {
-        didDialogueStart = false;
-        hasInteracted = true;
-
-        CharacterManager characterManager = FindObjectsByType<CharacterManager>(FindObjectsSortMode.None)[0];
-        if (characterManager != null && characterAttributes != null)
-        {
-            characterManager.AtenderPersonaje(characterAttributes);
-        }
-
-        if (LeverController.instance != null)
-        {
-            Debug.Log("✅ Llamando a ActivarPalanca");
-            LeverController.instance.ActivarPalanca();
-        }
-        else
-        {
-            Debug.LogError("❌ LeverController.instance es null al finalizar diálogo");
-        }
-
-        dialoguePanelPersonaje.SetActive(false);
-        dialoguePanelGuardia.SetActive(false);
+        characterManager.AtenderPersonaje(characterAttributes);
     }
+
+    // Solo activar la palanca si es el diálogo inicial
+    if (!esDialogoRespuesta && LeverController.instance != null)
+    {
+        Debug.Log("✅ Llamando a ActivarPalanca");
+        LeverController.instance.ActivarPalanca();
+    }
+    else if (!esDialogoRespuesta)
+    {
+        Debug.LogError("❌ LeverController.instance es null al finalizar diálogo");
+    }
+
+    dialoguePanelPersonaje.SetActive(false);
+    dialoguePanelGuardia.SetActive(false);
+}
+
 
     public void EnableDialogue()
     {

@@ -9202,6 +9202,7 @@ GameObject:
   - component: {fileID: 713921331}
   - component: {fileID: 713921333}
   - component: {fileID: 713921332}
+  - component: {fileID: 713921334}
   m_Layer: 0
   m_Name: lupa container
   m_TagString: Untagged
@@ -9254,6 +9255,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &713921334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713921330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08e053969f54044885c167c0e4b5543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &727137439
 GameObject:
   m_ObjectHideFlags: 0
@@ -17066,7 +17079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1362462884
 RectTransform:
   m_ObjectHideFlags: 0
