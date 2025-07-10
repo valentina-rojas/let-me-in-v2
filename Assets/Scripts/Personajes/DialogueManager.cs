@@ -11,9 +11,10 @@ public class DialogueManager : MonoBehaviour
     private int lineIndex;
     private bool hasInteracted = false;
     private bool esDialogoRespuesta = false;
-       public bool medicoUsado = false;
+    public bool medicoUsado = false;
 
     private string[] dialogueLines;
+    private string currentFullLine = ""; // NUEVO
     private CharacterAttributes characterAttributes;
     public AggressiveNPCs aggressiveNPCs;
 
@@ -27,11 +28,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button botonSiguientePersonaje;
     [SerializeField] private Button botonSiguienteGuardia;
 
-
-
-
     private void Start()
-
     {
         UIManager uiManager = FindFirstObjectByType<UIManager>();
 
@@ -43,19 +40,16 @@ public class DialogueManager : MonoBehaviour
             dialogueTextGuardia = uiManager.GetDialogueTextGuardia();
             botonSiguientePersonaje = uiManager.GetBotonSiguientePersonaje();
             botonSiguienteGuardia = uiManager.GetBotonSiguienteGuardia();
-
         }
         else
         {
             Debug.LogError("UIManager no encontrado en la escena.");
         }
 
-
         characterAttributes = GetComponent<CharacterAttributes>();
 
         botonSiguienteGuardia.onClick.AddListener(NextDialogueLine);
         botonSiguientePersonaje.onClick.AddListener(NextDialogueLine);
-
     }
 
     private void StartDialogue()
@@ -65,17 +59,26 @@ public class DialogueManager : MonoBehaviour
 
         int cantidadGuardia = characterAttributes.dialogosGuardia.Count;
         int cantidadPersonaje = characterAttributes.dialogosPersonaje.Count;
-        int longitudFinal = Mathf.Min(cantidadGuardia, cantidadPersonaje) * 2;
 
-        dialogueLines = new string[longitudFinal];
-
-        for (int i = 0; i < longitudFinal / 2; i++)
+        // Validar: el personaje debe tener exactamente una línea más
+        if (cantidadPersonaje != cantidadGuardia + 1)
         {
-            dialogueLines[i * 2] = characterAttributes.dialogosGuardia[i];       // Guardia
-            dialogueLines[i * 2 + 1] = characterAttributes.dialogosPersonaje[i]; // Personaje
+            Debug.LogError($"Cantidad incorrecta de líneas: Personaje = {cantidadPersonaje}, Guardia = {cantidadGuardia}. El personaje debe tener exactamente UNA más.");
+            return;
         }
 
-        if (dialogueLines.Length == 0) return;
+        int totalLineas = cantidadPersonaje + cantidadGuardia; // Ej: 3 + 2 = 5
+        dialogueLines = new string[totalLineas];
+
+        int index = 0;
+        for (int i = 0; i < cantidadGuardia; i++)
+        {
+            dialogueLines[index++] = characterAttributes.dialogosPersonaje[i]; // personaje
+            dialogueLines[index++] = characterAttributes.dialogosGuardia[i];   // guardia
+        }
+
+        // Última línea del personaje (extra)
+        dialogueLines[index] = characterAttributes.dialogosPersonaje[cantidadPersonaje - 1];
 
         didDialogueStart = true;
         lineIndex = 0;
@@ -88,6 +91,7 @@ public class DialogueManager : MonoBehaviour
         typingCoroutine = StartCoroutine(ShowLine());
     }
 
+
     public void ComenzarDialogoRespuesta(string[] lineasRespuesta)
     {
         dialogueLines = lineasRespuesta;
@@ -96,11 +100,9 @@ public class DialogueManager : MonoBehaviour
         esDialogoRespuesta = true;
 
         dialoguePanelGuardia.SetActive(false);
-        dialoguePanelPersonaje.SetActive(true); // Asumiendo que es el personaje quien habla
-
+        dialoguePanelPersonaje.SetActive(true); // El personaje habla
         typingCoroutine = StartCoroutine(ShowLine());
     }
-
 
     private void Update()
     {
@@ -110,7 +112,7 @@ public class DialogueManager : MonoBehaviour
             {
                 NextDialogueLine();
             }
-            else if (Input.GetKeyDown(KeyCode.Return)) // Enter
+            else if (Input.GetKeyDown(KeyCode.Return))
             {
                 OmitirDialogo();
             }
@@ -124,25 +126,30 @@ public class DialogueManager : MonoBehaviour
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
+            isTyping = false;
 
             if (esDialogoRespuesta)
             {
-                dialogueTextPersonaje.text = dialogueLines[lineIndex];
+                dialogueTextPersonaje.text = currentFullLine;
                 botonSiguientePersonaje.gameObject.SetActive(true);
-            }
-            else if (lineIndex % 2 == 0)
-            {
-                dialogueTextGuardia.text = dialogueLines[lineIndex];
-                botonSiguienteGuardia.gameObject.SetActive(true);
             }
             else
             {
-                dialogueTextPersonaje.text = dialogueLines[lineIndex];
-                botonSiguientePersonaje.gameObject.SetActive(true);
+                bool hablaGuardia = lineIndex % 2 != 0; // IMPAR = guardia
+
+                if (hablaGuardia)
+                {
+                    dialogueTextGuardia.text = currentFullLine;
+                    botonSiguienteGuardia.gameObject.SetActive(true);
+                }
+                else
+                {
+                    dialogueTextPersonaje.text = currentFullLine;
+                    botonSiguientePersonaje.gameObject.SetActive(true);
+                }
             }
 
-            isTyping = false;
-            return;
+            return; // No avanzar aún
         }
 
         lineIndex++;
@@ -157,20 +164,19 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
     private IEnumerator ShowLine()
     {
         isTyping = true;
+        currentFullLine = dialogueLines[lineIndex]; // NUEVO
 
         if (esDialogoRespuesta)
         {
-            // Siempre habla el personaje en los diálogos de respuesta
             dialoguePanelGuardia.SetActive(false);
             dialoguePanelPersonaje.SetActive(true);
             dialogueTextPersonaje.text = "";
             botonSiguientePersonaje.gameObject.SetActive(false);
 
-            foreach (char ch in dialogueLines[lineIndex])
+            foreach (char ch in currentFullLine)
             {
                 dialogueTextPersonaje.text += ch;
                 yield return new WaitForSeconds(typingTime);
@@ -180,8 +186,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // Alternar entre guardia (par) y personaje (impar)
-            bool hablaGuardia = lineIndex % 2 == 0;
+            bool hablaGuardia = lineIndex % 2 != 0;
 
             if (hablaGuardia)
             {
@@ -190,7 +195,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueTextGuardia.text = "";
                 botonSiguienteGuardia.gameObject.SetActive(false);
 
-                foreach (char ch in dialogueLines[lineIndex])
+                foreach (char ch in currentFullLine)
                 {
                     dialogueTextGuardia.text += ch;
                     yield return new WaitForSeconds(typingTime);
@@ -205,7 +210,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueTextPersonaje.text = "";
                 botonSiguientePersonaje.gameObject.SetActive(false);
 
-                foreach (char ch in dialogueLines[lineIndex])
+                foreach (char ch in currentFullLine)
                 {
                     dialogueTextPersonaje.text += ch;
                     yield return new WaitForSeconds(typingTime);
@@ -239,10 +244,8 @@ public class DialogueManager : MonoBehaviour
             {
                 if (LeverController.instance != null)
                 {
-                    Debug.Log("✅ Llamando a ActivarPalanca");
                     LeverController.instance.ActivarPalanca();
 
-                    // 👇 Solo habilitamos el botón médico si no se usó aún
                     if (!medicoUsado)
                     {
                         CheckCondition checkCondition = FindFirstObjectByType<CheckCondition>();
@@ -259,12 +262,9 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-
         dialoguePanelPersonaje.SetActive(false);
         dialoguePanelGuardia.SetActive(false);
     }
-
-
 
     public void EnableDialogue()
     {
@@ -279,7 +279,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (!didDialogueStart || dialogueLines == null) return;
 
-        // Mostrar directamente la última línea del diálogo
         StopAllCoroutines();
         isTyping = false;
         lineIndex = dialogueLines.Length;
@@ -287,11 +286,8 @@ public class DialogueManager : MonoBehaviour
         FinalizarDialogo();
     }
 
-
     public bool HaTerminadoElDialogo()
     {
         return !didDialogueStart;
     }
-
-
 }

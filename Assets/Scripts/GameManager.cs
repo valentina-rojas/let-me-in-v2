@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public DoorController doorController;
     public RadioManager radioManager;
     public CheckCondition checkCondition;
+    public CharacterSelector characterSelector;
 
     private SpriteRenderer spriteRendererPersonaje;
 
@@ -84,19 +85,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void IniciarSpawnDePersonajes()
     {
-        if (NivelActual - 1 < niveles.Length)
-        {
-            characterSpawn.AsignarPersonajesDelNivel(niveles[NivelActual - 1].personajesDelNivel);
-            characterSpawn.ComenzarSpawn();
-        }
-        else
+        if (NivelActual - 1 >= niveles.Length)
         {
             Debug.LogWarning("No hay más niveles definidos.");
+            return;
         }
 
+        GameObject[] todosLosPersonajes = niveles[NivelActual - 1].personajesDelNivel;
+
+        if (todosLosPersonajes.Length < 6)
+        {
+            Debug.LogWarning("⚠ No hay suficientes personajes para seleccionar 6. Usando todos.");
+            characterSpawn.AsignarPersonajesDelNivel(todosLosPersonajes);
+            characterSpawn.ComenzarSpawn();
+            return;
+        }
+
+        GameObject[] seleccionados = characterSelector.SeleccionarPersonajesConAgresivos(todosLosPersonajes, 6, 2);
+        characterSpawn.AsignarPersonajesDelNivel(seleccionados);
+        characterSpawn.ComenzarSpawn();
     }
 
     public void EstablecerPersonajeActual(CharacterAttributes personaje)
@@ -278,18 +287,19 @@ public class GameManager : MonoBehaviour
 
         NivelActual++;
         GameData.NivelActual = NivelActual;
-      //  GameData.Faltas = strikesAcumulados;
-      //  GameData.DialogosOmitidos = dialogosOmitidosTotal;
+        //  GameData.Faltas = strikesAcumulados;
+        //  GameData.DialogosOmitidos = dialogosOmitidosTotal;
 
         if (NivelActual > niveles.Length)
         {
             Debug.Log("¡No hay más niveles! Fin del juego.");
-           // uiManager.ActivarPanelGanaste();
+            // uiManager.ActivarPanelGanaste();
             return; // No recargamos escena porque ya terminamos el juego
         }
 
         // Si hay niveles, recargamos la escena para cargar el nuevo nivel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 
 }
