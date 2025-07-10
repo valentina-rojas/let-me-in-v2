@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6081281024355814608}
   - component: {fileID: 8541826203739054154}
-  - component: {fileID: 180857288106917874}
+  - component: {fileID: 9025473587126573274}
+  - component: {fileID: 3928300330519734150}
+  - component: {fileID: 1293699912444539035}
   m_Layer: 0
   m_Name: enano
   m_TagString: Untagged
@@ -50,6 +52,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -85,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &180857288106917874
+--- !u!114 &9025473587126573274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,13 +99,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 5274696793240584207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdb703898838cc46a9cae64117bac22, type: 3}
+  m_Script: {fileID: 11500000, guid: f721f2114bb15f042b8878a5fd291cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 1275347037, guid: bdbf20ecc4f6cf547b2397286709cf15, type: 3}
   - {fileID: -77622505, guid: bdbf20ecc4f6cf547b2397286709cf15, type: 3}
   - {fileID: -1214926491, guid: bdbf20ecc4f6cf547b2397286709cf15, type: 3}
   - {fileID: -84212618, guid: bdbf20ecc4f6cf547b2397286709cf15, type: 3}
   - {fileID: 981986870, guid: bdbf20ecc4f6cf547b2397286709cf15, type: 3}
-  sonidoAtaque: {fileID: 8300000, guid: 1d4ba24240c8b8a4a8b34a99f3efc35f, type: 3}
+  sonidoAtaque: {fileID: 0}
+--- !u!114 &3928300330519734150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274696793240584207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b22f950f1f4cc641b6d516b6f2a5f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombre: enano
+  estado: 0
+  dialogosPersonaje:
+  - "D\xE9jeme pasar\u2026"
+  - "\xA1AC\xC1 ABAJO!"
+  dialogosGuardia:
+  - "\xBFEh? \xBFQui\xE9n habl\xF3?"
+  respuestaIngreso: []
+  respuestaRechazo: []
+  prefab: {fileID: 5274696793240584207}
+  esAgresivo: 1
+  animator: {fileID: 0}
+--- !u!114 &1293699912444539035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274696793240584207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicoUsado: 0
+  aggressiveNPCs: {fileID: 0}
+  dialoguePanelPersonaje: {fileID: 0}
+  dialoguePanelGuardia: {fileID: 0}
+  dialogueTextPersonaje: {fileID: 0}
+  dialogueTextGuardia: {fileID: 0}
+  botonSiguientePersonaje: {fileID: 0}
+  botonSiguienteGuardia: {fileID: 0}

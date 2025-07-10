@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b22f950f1f4cc641b6d516b6f2a5f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombre: A
+  nombre: chica tierra
   estado: 0
   dialogosPersonaje:
   - "Soy de un pueblo cercano, vengo caminando hace tres d\xEDas por favor necesito
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  medicoUsado: 0
   aggressiveNPCs: {fileID: 0}
   dialoguePanelPersonaje: {fileID: 0}
   dialoguePanelGuardia: {fileID: 0}

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 867250120952016721}
   - component: {fileID: -7999235277004019517}
   - component: {fileID: 673217065591606473}
+  - component: {fileID: 7067977713102289759}
+  - component: {fileID: 5364876087710194974}
   m_Layer: 0
   m_Name: personaje8
   m_TagString: Untagged
@@ -50,6 +52,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -87,7 +92,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &673217065591606473
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,8 +106,50 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7067977713102289759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534030318338212612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b22f950f1f4cc641b6d516b6f2a5f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombre: 
+  estado: 0
+  dialogosPersonaje: []
+  dialogosGuardia: []
+  respuestaIngreso: []
+  respuestaRechazo: []
+  prefab: {fileID: 4534030318338212612}
+  esAgresivo: 0
+  animator: {fileID: 0}
+--- !u!114 &5364876087710194974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534030318338212612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicoUsado: 0
+  aggressiveNPCs: {fileID: 0}
+  dialoguePanelPersonaje: {fileID: 0}
+  dialoguePanelGuardia: {fileID: 0}
+  dialogueTextPersonaje: {fileID: 0}
+  dialogueTextGuardia: {fileID: 0}
+  botonSiguientePersonaje: {fileID: 0}
+  botonSiguienteGuardia: {fileID: 0}
