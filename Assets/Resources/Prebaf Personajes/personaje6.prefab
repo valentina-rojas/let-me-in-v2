@@ -141,7 +141,7 @@ MonoBehaviour:
   - "Se nota, entonces\u2026 \xBFQu\xE9 estuvo haciendo todo este tiempo?"
   - "\xBFC\xF3mo manejo las medidas de prevenci\xF3n hasta ahora?"
   respuestaIngreso:
-  - Si me enfermo y me muero bancate el cargo de conciencia...
+  - "\xA1B\xE1rbaro! "
   respuestaRechazo:
   - "Volver\xE9 a mi departamento, quiz\xE1s aprenda a tejer..."
   prefab: {fileID: 4534030318338212612}
