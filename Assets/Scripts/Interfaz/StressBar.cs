@@ -47,7 +47,8 @@ public class StressBar : MonoBehaviour
         {
             barraEstres.value = nivelEstres;
             ActualizarColorBarra();
-         //   loadingBar.Play();
+
+            AudioManager.instance.sonidoLoading.Play();
         }
 
         if (nivelEstres >= maxEstres)
@@ -74,6 +75,7 @@ public class StressBar : MonoBehaviour
         {
             barraEstres.value = nivelEstres;
             ActualizarColorBarra();
+             AudioManager.instance.sonidoLoading.Play();
         }
     }
 
@@ -81,32 +83,36 @@ public class StressBar : MonoBehaviour
     public IEnumerator AnimacionMate()
     {
         mate.SetTrigger("mateSpin");
-      //  audioMate.Play();
+
+        AudioManager.instance.sonidoMateGirando.Play();
+
         yield return new WaitForSeconds(2f);
-      //  audioMate.Stop();
+
+        AudioManager.instance.sonidoMateGirando.Stop();
+
         mate.SetTrigger("mateIdle");
     }
 
 
-  private void ActualizarColorBarra()
-{
-    if (nivelEstres <= 0f)
+    private void ActualizarColorBarra()
     {
-        fillBarImage.color = colorVerdeClaro;
+        if (nivelEstres <= 0f)
+        {
+            fillBarImage.color = colorVerdeClaro;
+        }
+        else if (nivelEstres == 1f)
+        {
+            fillBarImage.color = colorVerdeOscuro;
+        }
+        else if (nivelEstres == 2f)
+        {
+            fillBarImage.color = colorAmarillo;
+        }
+        else if (nivelEstres == 3f)
+        {
+            fillBarImage.color = colorRojo;
+        }
     }
-    else if (nivelEstres == 1f)
-    {
-        fillBarImage.color = colorVerdeOscuro;
-    }
-    else if (nivelEstres == 2f)
-    {
-        fillBarImage.color = colorAmarillo;
-    }
-    else if (nivelEstres == 3f)
-    {
-        fillBarImage.color = colorRojo;
-    }
-}
 
 
 

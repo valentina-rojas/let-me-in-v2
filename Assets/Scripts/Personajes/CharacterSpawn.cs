@@ -166,6 +166,8 @@ public class CharacterSpawn : MonoBehaviour
         float elapsedTime = 0f;
         Vector3 startPosition = personaje.transform.position;
 
+        AudioManager.instance.sonidoPasosPersonaje.Play();
+
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
@@ -174,6 +176,8 @@ public class CharacterSpawn : MonoBehaviour
         }
 
         personaje.transform.position = destino;
+
+        AudioManager.instance.sonidoPasosPersonaje.Stop();
     }
 
     public void DetenerSpawn()

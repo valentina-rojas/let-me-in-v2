@@ -14,13 +14,6 @@ public class AggressiveNPCs : MonoBehaviour
     public GameObject PanelTimer;
     public Button botonSeguridad;
 
-    [Header("Audio")]
-    public AudioSource audioSeguridad;
-    public AudioSource pasosSeguridad;
-    public AudioSource escobaSeguridad;
-    public AudioSource golpe;
-    public AudioSource sonidoBoton;
-
     [Header("Managers & References")]
     public CharacterSpawn characterSpawn;
     public StressBar stressBar;
@@ -98,9 +91,6 @@ public class AggressiveNPCs : MonoBehaviour
     #region Inicialización y UI
     void InitializeState()
     {
-        audioSeguridad.Stop();
-        pasosSeguridad.Stop();
-        escobaSeguridad.Stop();
         botonSeguridad.interactable = false;
 
         if (cameraTransform != null)
@@ -204,7 +194,8 @@ public class AggressiveNPCs : MonoBehaviour
         while (true)
         {
             PanelSeguridad.SetActive(true);
-            audioSeguridad.Play();
+    
+            AudioManager.instance.sonidoPeligro.Play();
 
             yield return new WaitForSeconds(0.5f);
 
@@ -235,7 +226,7 @@ public class AggressiveNPCs : MonoBehaviour
             toggleCoroutine = null;
             PanelSeguridad.SetActive(false);
             PanelTimer.SetActive(false);
-            audioSeguridad.Stop();
+            AudioManager.instance.sonidoPeligro.Stop();
         }
 
         if (shakeCoroutine != null)
@@ -263,7 +254,7 @@ public class AggressiveNPCs : MonoBehaviour
     #region Seguridad y empujar agresivo
     public void LlamarSeguridad()
     {
-        sonidoBoton.Play();
+        AudioManager.instance.sonidoBotonPresionado.Play();
         DetenerPeligro();
         botonSeguridad.interactable = false;
 
@@ -292,8 +283,9 @@ public class AggressiveNPCs : MonoBehaviour
 
         seguridadInstance = Instantiate(seguridadPrefab, spawnPointSeguridad.position, Quaternion.identity);
 
-        pasosSeguridad.Play();
-        escobaSeguridad.Play();
+        AudioManager.instance.sonidoPasosGuardia.Play();
+        AudioManager.instance.sonidoEscoba.Play();
+        
 
         var personaje = characterSpawn.GetCharacterActual();
         if (personaje != null)
@@ -322,7 +314,9 @@ public class AggressiveNPCs : MonoBehaviour
         if (personaje != null)
             Destroy(personaje.gameObject);
 
-        golpe.Play();
+
+        AudioManager.instance.sonidoDisparo.Play();
+
         stressBar.ActualizarEstres(1);
 
         // Voltear seguridad para regresar
@@ -350,8 +344,8 @@ public class AggressiveNPCs : MonoBehaviour
         if (seguridadInstance != null)
             Destroy(seguridadInstance);
 
-        pasosSeguridad.Stop();
-        escobaSeguridad.Stop();
+        AudioManager.instance.sonidoPasosGuardia.Stop();
+        AudioManager.instance.sonidoEscoba.Stop();
 
         yield return new WaitForSeconds(1f);
 

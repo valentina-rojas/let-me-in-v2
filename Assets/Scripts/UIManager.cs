@@ -119,7 +119,9 @@ public class UIManager : MonoBehaviour
   public IEnumerator MostrarPanelInicioDiaCoroutine(string mensaje)
   {
     textoInicioDia.text = "";
-    //audioTecleo.Play();
+
+    AudioManager.instance.sonidoTecleo.Play();
+
     tiempoUltimaActualizacion = Time.time;
 
     // Mostrar el texto letra por letra
@@ -135,7 +137,7 @@ public class UIManager : MonoBehaviour
     // Finalizar texto
     textoInicioDia.text = mensaje;
 
-    //audioTecleo.Stop();
+    AudioManager.instance.sonidoTecleo.Stop();
 
     // Mostrar el texto completo con el cursor titilante
     while (true)
@@ -173,14 +175,15 @@ public class UIManager : MonoBehaviour
 
   public void CerrarPanelInicioDia()
   {
-    //desplegarpestañas.Play();
+    AudioManager.instance.sonidoDesplegarPestañas.Play();
+
     if (panelInicioDiaCoroutine != null)
     {
       StopCoroutine(panelInicioDiaCoroutine);
       panelInicioDiaCoroutine = null;
     }
 
-    //audioTecleo.Stop();
+    AudioManager.instance.sonidoTecleo.Stop();
     panelInicioDia.gameObject.SetActive(false);
 
     optionsManager.ActivarBotonesVentanas();
@@ -261,7 +264,7 @@ public class UIManager : MonoBehaviour
   }
 
 
-  public void  ActivarPanelGanaste()
+  public void ActivarPanelGanaste()
   {
     panelGanaste.SetActive(true);
   }

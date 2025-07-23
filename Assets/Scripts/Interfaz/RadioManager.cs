@@ -7,8 +7,6 @@ using TMPro;
 
 public class RadioManager : MonoBehaviour
 {
-    public AudioSource ruidosDisturbios;
-    public AudioSource audioSeguridad;
     public GameObject panelDialogo;
     public TextMeshProUGUI textoDialogo;
     public List<string> mensajesDisturbios = new List<string>
@@ -54,8 +52,11 @@ public class RadioManager : MonoBehaviour
         {
             Debug.LogWarning("radioAnimator es nulo");
         }
-        ruidosDisturbios.Play();
-        audioSeguridad.Play();
+
+        AudioManager.instance.sonidoDisturbios.Play();
+        
+        AudioManager.instance.vozGuardia.Play();
+
 
         panelDialogo.SetActive(true);
         StartCoroutine(EscribirTexto(mensajesDisturbios[indiceMensajeActual]));
@@ -70,11 +71,11 @@ public class RadioManager : MonoBehaviour
 
         panelDialogo.SetActive(false);
 
-        audioSeguridad.Stop();
+         AudioManager.instance.vozGuardia.Stop();
 
         yield return new WaitForSeconds(4f);
 
-        ruidosDisturbios.Stop();
+        AudioManager.instance.sonidoDisturbios.Stop();
 
 
         if (radioAnimator != null)

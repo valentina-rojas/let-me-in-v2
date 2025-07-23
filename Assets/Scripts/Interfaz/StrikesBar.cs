@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class StrikesBar : MonoBehaviour
 {
-    public Slider barraStrikes;    // La barra que representa el rechazo de sanos
-    public float maxStrikes = 3f;      // Máximo número de rechazos permitidos
-    private float strikesActuales = 0f; // Rechazos actuales
+    public Slider barraStrikes;   
+    public float maxStrikes = 3f;     
+    private float strikesActuales = 0f;
 
-    public Image fillBarImageStrikes;   // Imagen de la barra de relleno
+    public Image fillBarImageStrikes;  
 
     public Color colorVerde = Color.green;
     public Color colorAmarillo = Color.yellow;
@@ -17,7 +17,6 @@ public class StrikesBar : MonoBehaviour
 
     void Start()
     {
-        // Inicializar la barra con 0 rechazos
         if (barraStrikes != null)
         {
             barraStrikes.maxValue = maxStrikes;
@@ -25,27 +24,27 @@ public class StrikesBar : MonoBehaviour
         }
     }
 
-    // Método para actualizar la barra cuando rechazas a un personaje sano
+
     public void ActualizarBarraStrikes()
     {
-        // Obtener el valor de strikes del GameManager
+      
         strikesActuales = GameManager.instance.strikes;
 
-        // Asegurarse de no exceder el nivel máximo 
+ 
         if (strikesActuales > maxStrikes)
         {
             strikesActuales = maxStrikes;
         }
 
-        // Actualizar la barra visualmente
+
         if (barraStrikes != null)
         {
             barraStrikes.value = strikesActuales;
             ActualizarColorBarra();
-            // loadingBar.Play();
+            AudioManager.instance.sonidoLoading.Play();
         }
 
-        // Verificar condición de derrota
+
         if (strikesActuales >= maxStrikes)
         {
             Debug.Log("¡Has alcanzado el máximo de strikes! Has perdido.");
@@ -77,6 +76,5 @@ public class StrikesBar : MonoBehaviour
     {
         GameManager.instance.GameOver(GameManager.TipoDerrota.Despido);
     }
-
 
 }

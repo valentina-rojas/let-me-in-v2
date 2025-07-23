@@ -1674,8 +1674,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
+  m_sharedMaterial: {fileID: 2445440937034267188, guid: a9f54d527a6fc144ca33ce1dbc79ae4c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12515,8 +12515,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1004175586}
+  - component: {fileID: 1004175587}
   m_Layer: 0
-  m_Name: Audios
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12558,6 +12559,38 @@ Transform:
   - {fileID: 1128534293}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004175587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004175584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db0069f001784f458af2b04706b750a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidoPuerta: {fileID: 1511636031}
+  sonidoPasosGuardia: {fileID: 483689032}
+  sonidoEscoba: {fileID: 2001823987}
+  sonidoPasosPersonaje: {fileID: 865461283}
+  sonidoTecleo: {fileID: 152417382}
+  sonidoDisparo: {fileID: 1148588652}
+  sonidoPalanca: {fileID: 1188628968}
+  sonidoBotonPresionado: {fileID: 1897245216}
+  sonidoPapelesMoviendose: {fileID: 1818137310}
+  sonidoEstaticaRadio: {fileID: 1291171139}
+  sonidoMateGirando: {fileID: 1448225729}
+  sonidoLoading: {fileID: 20543994}
+  sonidoMovimientoEscaner: {fileID: 1946152776}
+  sonidoBeepEscaner: {fileID: 970531498}
+  sonidoLuzEscaner: {fileID: 1385868424}
+  "sonidoDesplegarPesta\xF1as": {fileID: 1128534294}
+  sonidoDisturbios: {fileID: 833877157}
+  sonidoPeligro: {fileID: 267658869}
+  vozGuardia: {fileID: 1396891849}
+  vozPersonaje: {fileID: 449399548}
 --- !u!1 &1005778473
 GameObject:
   m_ObjectHideFlags: 0
@@ -14557,7 +14590,7 @@ GameObject:
   - component: {fileID: 1148588653}
   - component: {fileID: 1148588652}
   m_Layer: 0
-  m_Name: golpe
+  m_Name: disparo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15636,7 +15669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7bb6ec09e8f4e42b24c6fe56d0f9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puertaAbriendose: {fileID: 0}
+  puertaAbriendose: {fileID: 1511636031}
   capaPuerta: {fileID: 292356774}
   alturaMovimiento: 7
   tiempoMovimiento: 1
@@ -20035,8 +20068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bf7fbcdf2c38848b7c21980a014e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruidosDisturbios: {fileID: 833877157}
-  audioSeguridad: {fileID: 833877157}
   panelDialogo: {fileID: 992450829}
   textoDialogo: {fileID: 131616579}
   mensajesDisturbios:
@@ -20715,11 +20746,6 @@ MonoBehaviour:
   PanelSeguridad: {fileID: 1345418206}
   PanelTimer: {fileID: 958506720}
   botonSeguridad: {fileID: 5076804}
-  audioSeguridad: {fileID: 833877157}
-  pasosSeguridad: {fileID: 483689032}
-  escobaSeguridad: {fileID: 2001823987}
-  golpe: {fileID: 1148588652}
-  sonidoBoton: {fileID: 970531498}
   characterSpawn: {fileID: 1520975433}
   stressBar: {fileID: 1989282623}
   doorController: {fileID: 1224337559}

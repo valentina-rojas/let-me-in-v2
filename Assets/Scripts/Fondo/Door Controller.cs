@@ -8,6 +8,7 @@ public class DoorController : MonoBehaviour
     public float alturaMovimiento = 2f;
     public float tiempoMovimiento = 1f;
 
+
     public IEnumerator Abrir()
     {
         if (puertaAbriendose != null) puertaAbriendose.Play();
