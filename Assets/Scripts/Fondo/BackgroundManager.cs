@@ -40,19 +40,19 @@ public class BackgroundManager : MonoBehaviour
         {
             capaNivel1.SetActive(true);
             capaNivel2.SetActive(false);
-            capaCorteDeLuz.SetActive(false); // Asegúrate de desactivar la capa de corte de luz
+          //  capaCorteDeLuz.SetActive(false); // Asegúrate de desactivar la capa de corte de luz
         }
         else if (GameData.NivelActual == 2)
         {
             capaNivel1.SetActive(false);
             capaNivel2.SetActive(true);
-            capaCorteDeLuz.SetActive(false); // Asegúrate de desactivar la capa de corte de luz
+          //  capaCorteDeLuz.SetActive(false); // Asegúrate de desactivar la capa de corte de luz
         }
         else
         {
              capaNivel1.SetActive(true);
             capaNivel2.SetActive(false);
-            capaCorteDeLuz.SetActive(false);
+          //  capaCorteDeLuz.SetActive(false);
         }
     }
 

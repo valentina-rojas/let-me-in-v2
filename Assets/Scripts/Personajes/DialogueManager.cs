@@ -125,8 +125,8 @@ public class DialogueManager : MonoBehaviour
 
         if (isTyping)
         {
-            AudioManager.instance.vozGuardia.Stop();
-            AudioManager.instance.vozPersonaje.Stop();
+           // AudioManager.instance.vozGuardia.Stop();
+            //AudioManager.instance.vozPersonaje.Stop();
 
 
             StopCoroutine(typingCoroutine);
@@ -180,7 +180,7 @@ public class DialogueManager : MonoBehaviour
             dialogueTextPersonaje.text = "";
             botonSiguientePersonaje.gameObject.SetActive(false);
 
-            AudioManager.instance.vozPersonaje.Play();
+           // AudioManager.instance.vozPersonaje.Play();
 
             foreach (char ch in currentFullLine)
             {
@@ -204,7 +204,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueTextGuardia.text = "";
                 botonSiguienteGuardia.gameObject.SetActive(false);
 
-                AudioManager.instance.vozGuardia.Play();
+               // AudioManager.instance.vozGuardia.Play();
 
                 foreach (char ch in currentFullLine)
                 {
@@ -222,7 +222,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueTextPersonaje.text = "";
                 botonSiguientePersonaje.gameObject.SetActive(false);
 
-                AudioManager.instance.vozPersonaje.Play();
+               //  AudioManager.instance.vozPersonaje.Play();
 
                 foreach (char ch in currentFullLine)
                 {
@@ -242,8 +242,8 @@ public class DialogueManager : MonoBehaviour
 
     private void FinalizarDialogo()
     {
-        AudioManager.instance.vozGuardia.Stop();
-        AudioManager.instance.vozPersonaje.Stop();
+      //  AudioManager.instance.vozGuardia.Stop();
+       //AudioManager.instance.vozPersonaje.Stop();
 
         didDialogueStart = false;
         hasInteracted = true;
