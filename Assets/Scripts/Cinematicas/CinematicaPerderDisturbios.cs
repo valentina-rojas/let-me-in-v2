@@ -103,8 +103,6 @@ public class CinematicaPerderDisturbios : MonoBehaviour
         ChangeScene("MenuPrincipal");
     }
 
-
-
     public void ChangeScene(string name)
     {
         SceneManager.LoadScene(name);

@@ -127,11 +127,6 @@ public float duracionFadePantalla = 0.3f;
         StartCoroutine(CerrarCinematicaCoroutine());
     }
 
-
-
-   
-
-
     private IEnumerator CerrarCinematicaCoroutine()
     {
         yield return StartCoroutine(FadeOutMusica());
