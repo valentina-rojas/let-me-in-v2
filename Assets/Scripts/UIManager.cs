@@ -157,18 +157,8 @@ public class UIManager : MonoBehaviour
 
       yield return null; // Esperar al siguiente frame
 
-      // Salir del bucle cuando se haga clic
-      if (Input.GetMouseButtonDown(0))
-      {
-        break;
-      }
     }
 
-    // Esperar antes de desactivar el panel
-    yield return new WaitForSeconds(duracionPanel);
-    panelInicioDia.gameObject.SetActive(false);
-
-    PanelInicioDesactivado?.Invoke();
   }
 
 
