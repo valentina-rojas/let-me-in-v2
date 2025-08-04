@@ -24,8 +24,6 @@ public class CinematicaGanar : MonoBehaviour
         StartCoroutine(Ganaste());
     }
 
-
-
     private IEnumerator Ganaste()
     {
         if (imagenesGanaste.Length != textosGanaste.Length)
