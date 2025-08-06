@@ -326,6 +326,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver(TipoDerrota tipo)
     {
+        RegisterGameOverEvent(tipo);
+
         characterSpawn?.DetenerSpawn();
 
         if (personajeGOActual != null)
@@ -336,6 +338,38 @@ public class GameManager : MonoBehaviour
 
         uiManager?.MostrarPantallaDerrota(tipo);
     }
+
+        private void RegisterGameOverEvent(TipoDerrota tipo)
+    {
+        string reason = "unknown";
+
+        switch (tipo)
+        {
+            case TipoDerrota.Despido:
+                reason = "Fired";
+                break;
+            case TipoDerrota.Estres:
+                reason = "Quit";
+                break;
+            case TipoDerrota.Disturbios:
+                reason = "Riot";
+                break;
+        }
+
+        Debug.Log($"[DEBUG] GameOver registrado - Nivel: {GameData.NivelActual}, Razón: {reason}");
+
+        GameOverEvent gameOver = new GameOverEvent();
+        gameOver.level = GameData.NivelActual;
+        gameOver.reason = reason;
+
+    #if !UNITY_EDITOR
+        AnalyticsService.Instance.RecordEvent(gameOver);
+    #else
+        Debug.Log("[ANALYTICS] Evento GameOverEvent registrado");
+    #endif
+    }
+
+
 
     public void SiguienteNivel()
     {
