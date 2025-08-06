@@ -18,8 +18,6 @@ public class CharacterSpawn : MonoBehaviour
     private int totalPersonajes;
     private int personajesRestantes;
 
-
-
     public void AsignarPersonajesDelNivel(GameObject[] personajesDelNivel)
     {
         // Clonamos la lista de prefabs para asegurarnos que no son objetos modificados
@@ -191,6 +189,10 @@ public class CharacterSpawn : MonoBehaviour
         return personajeActualEnEscena;
     }
 
+    public int GetCurrentIndex()
+    {
+        return currentIndex; // Devuelve el índice del personaje que actualmente está siendo evaluado
+    }
 
 
 

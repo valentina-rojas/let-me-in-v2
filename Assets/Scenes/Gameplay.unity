@@ -11673,6 +11673,7 @@ MonoBehaviour:
   sanosRechazados: 0
   enfermosRechazados: 0
   strikes: 0
+  dialogosOmitidos: 0
   niveles:
   - personajesDelNivel:
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
@@ -14939,6 +14940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1515895186}
   optionsManager: {fileID: 1528108909}
+  characterSpawn: {fileID: 1520975433}
 --- !u!1 &1182969594
 GameObject:
   m_ObjectHideFlags: 0
@@ -24537,6 +24539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   medicoUsado: 0
+  dialogosOmitidos: 0
   aggressiveNPCs: {fileID: 1727551770}
   dialoguePanelPersonaje: {fileID: 699868701}
   dialoguePanelGuardia: {fileID: 1412460603}

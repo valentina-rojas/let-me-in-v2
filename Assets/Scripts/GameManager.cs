@@ -392,4 +392,27 @@ public class GameManager : MonoBehaviour
         // Si hay niveles, recargamos la escena para cargar el nuevo nivel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+
+    void OnApplicationQuit()
+    {
+        RegisterQuitEvent();
+    }
+
+
+    private void RegisterQuitEvent()
+    {
+        Debug.Log($"[DEBUG] QuitEvent - Nivel: {GameData.NivelActual}, Personaje actual: {characterSpawn.GetCurrentIndex()}");
+
+        QuitEvent quitEvent = new QuitEvent();
+        quitEvent.level = GameData.NivelActual;
+        quitEvent.charIndex = characterSpawn.GetCurrentIndex();
+
+    #if !UNITY_EDITOR
+            AnalyticsService.Instance.RecordEvent(quitEvent);
+    #else
+            Debug.Log("[ANALYTICS] Evento QuitEvent registrado");
+    #endif
+    }
+
 }
