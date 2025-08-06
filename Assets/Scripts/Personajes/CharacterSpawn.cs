@@ -191,7 +191,7 @@ public class CharacterSpawn : MonoBehaviour
 
     public int GetCurrentIndex()
     {
-        return currentIndex; // Devuelve el índice del personaje que actualmente está siendo evaluado
+        return currentIndex + 1; // Devuelve el índice del personaje que actualmente está siendo evaluado
     }
 
 
