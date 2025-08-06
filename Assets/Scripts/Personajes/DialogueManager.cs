@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     private bool esDialogoRespuesta = false;
     public bool medicoUsado = false;
 
+    public int dialogosOmitidos = 0;
+
     private string[] dialogueLines;
     private string currentFullLine = ""; // NUEVO
     private CharacterAttributes characterAttributes;
@@ -299,6 +301,13 @@ public class DialogueManager : MonoBehaviour
     {
         if (!didDialogueStart || dialogueLines == null) return;
 
+            if (!esDialogoRespuesta)
+    {
+        dialogosOmitidos++;
+        GameManager.instance.dialogosOmitidos++;
+        Debug.Log("Diálogo inicial omitido");
+    }
+       
         StopAllCoroutines();
         isTyping = false;
         lineIndex = dialogueLines.Length;

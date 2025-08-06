@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "let-me-in-v2.sln"
+    "dotnet.defaultSolution": "let-me-in-2.0.sln"
 }
