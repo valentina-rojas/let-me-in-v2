@@ -4832,6 +4832,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 2085731924}
   leverController: {fileID: 1043990635}
   charactersManager: {fileID: 943274573}
+  characterSpawn: {fileID: 1520975433}
   sonidoBoton: {fileID: 1897245216}
   brazoMecanico: {fileID: 1946152776}
   luzEscaner: {fileID: 1385868424}
@@ -11667,7 +11668,7 @@ MonoBehaviour:
   reproducirCinematicas: {fileID: 0}
   mensajesInicioDia:
   - "Mantente atento a las personas con s\xEDntomas de sarpullido"
-  - ojos rojooos
+  - Mantente atento a las personas que presenten los ojos rojos
   sanosIngresados: 0
   enfermosIngresados: 0
   sanosRechazados: 0
