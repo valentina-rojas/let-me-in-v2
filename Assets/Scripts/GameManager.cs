@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Unity.Services.Analytics; 
+using static EventManager;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +23,6 @@ public class GameManager : MonoBehaviour
 
     private SpriteRenderer spriteRendererPersonaje;
 
-
     public string[] mensajesInicioDia;
 
     public int sanosIngresados;
@@ -28,6 +30,9 @@ public class GameManager : MonoBehaviour
     public int sanosRechazados;
     public int enfermosRechazados;
     public int strikes;
+
+    public int dialogosOmitidos = 0;
+    private float tiempoNivel;
 
     public int NivelActual { get; private set; }
 
@@ -62,10 +67,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         strikes = 0;
+        tiempoNivel = 0f;
+        dialogosOmitidos = GameData.DialogosOmitidos;
 
         NivelActual = GameData.NivelActual;
+
         uiManager = FindFirstObjectByType<UIManager>();
         characterSpawn = FindFirstObjectByType<CharacterSpawn>();
+
+        // Llamar al evento LevelStart
+        RegisterLevelStartEvent();
 
         if (uiManager == null)
             Debug.LogError("UIManager no encontrado en la escena.");
@@ -81,10 +92,32 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogWarning("No hay mensaje definido para este día.");
-            // Si no hay mensaje, arrancar spawn directo
             IniciarSpawnDePersonajes();
         }
     }
+
+      private void RegisterLevelStartEvent()
+    {
+        // Debug para verificar
+        Debug.Log($"LevelStart - Nivel: {GameData.NivelActual}");
+
+        // Crear y configurar el evento
+        LevelStartEvent levelStart = new LevelStartEvent();
+        levelStart.level = GameData.NivelActual;
+
+        // Grabar el evento 
+#if !UNITY_EDITOR
+        AnalyticsService.Instance.RecordEvent(levelStart);
+#else
+            Debug.Log("[ANALYTICS] Evento LevelStart registrado");
+#endif
+    }
+
+       void Update()
+    {
+        tiempoNivel += Time.deltaTime;
+    }
+
 
     public void IniciarSpawnDePersonajes()
     {
@@ -257,6 +290,9 @@ public class GameManager : MonoBehaviour
 
     public void FinDeNivel()
     {
+        RegisterLevelCompleteEvent();
+
+
         // Llamar a UIManager para mostrar el reporte con los datos actuales
         if (uiManager != null)
         {
@@ -268,9 +304,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+ private void RegisterLevelCompleteEvent()
+    {
+        // Debug para verificar
+        Debug.Log($"LevelComplete - Nivel: {GameData.NivelActual}, Tiempo: {Mathf.RoundToInt(tiempoNivel)}, Strikes: {strikes}, Diálogos Omitidos: {dialogosOmitidos}");
+
+        // Crear y configurar el evento
+        LevelCompleteEvent levelComplete = new LevelCompleteEvent();
+        levelComplete.level = GameData.NivelActual;
+        levelComplete.time = Mathf.RoundToInt(tiempoNivel);
+        levelComplete.strikes = strikes;
+        levelComplete.dlgSkipped = dialogosOmitidos;
+
+
+        // Grabar el evento 
+#if !UNITY_EDITOR
+        AnalyticsService.Instance.RecordEvent(levelComplete);
+#else
+            Debug.Log("[ANALYTICS] Evento  LevelCompleteEvent registrado");
+#endif
+    }
 
     public void GameOver(TipoDerrota tipo)
     {
+        RegisterGameOverEvent(tipo);
+
         characterSpawn?.DetenerSpawn();
 
         if (personajeGOActual != null)
@@ -281,6 +339,38 @@ public class GameManager : MonoBehaviour
 
         uiManager?.MostrarPantallaDerrota(tipo);
     }
+
+        private void RegisterGameOverEvent(TipoDerrota tipo)
+    {
+        string reason = "unknown";
+
+        switch (tipo)
+        {
+            case TipoDerrota.Despido:
+                reason = "Fired";
+                break;
+            case TipoDerrota.Estres:
+                reason = "Quit";
+                break;
+            case TipoDerrota.Disturbios:
+                reason = "Riot";
+                break;
+        }
+
+        Debug.Log($"[DEBUG] GameOver registrado - Nivel: {GameData.NivelActual}, Razón: {reason}");
+
+        GameOverEvent gameOver = new GameOverEvent();
+        gameOver.level = GameData.NivelActual;
+        gameOver.reason = reason;
+
+    #if !UNITY_EDITOR
+        AnalyticsService.Instance.RecordEvent(gameOver);
+    #else
+        Debug.Log("[ANALYTICS] Evento GameOverEvent registrado");
+    #endif
+    }
+
+
 
     public void SiguienteNivel()
     {
@@ -302,4 +392,27 @@ public class GameManager : MonoBehaviour
         // Si hay niveles, recargamos la escena para cargar el nuevo nivel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+
+    void OnApplicationQuit()
+    {
+        RegisterQuitEvent();
+    }
+
+
+    private void RegisterQuitEvent()
+    {
+        Debug.Log($"[DEBUG] QuitEvent - Nivel: {GameData.NivelActual}, Personaje actual: {characterSpawn.GetCurrentIndex()}");
+
+        QuitEvent quitEvent = new QuitEvent();
+        quitEvent.level = GameData.NivelActual;
+        quitEvent.charIndex = characterSpawn.GetCurrentIndex();
+
+    #if !UNITY_EDITOR
+            AnalyticsService.Instance.RecordEvent(quitEvent);
+    #else
+            Debug.Log("[ANALYTICS] Evento QuitEvent registrado");
+    #endif
+    }
+
 }

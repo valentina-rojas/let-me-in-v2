@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.Services.Analytics; 
+using static EventManager;
 
 public class AggressiveNPCs : MonoBehaviour
 {
@@ -254,6 +256,9 @@ public class AggressiveNPCs : MonoBehaviour
     #region Seguridad y empujar agresivo
     public void LlamarSeguridad()
     {
+
+        RegisterSEndRiotEvent();
+
         AudioManager.instance.sonidoBotonPresionado.Play();
         DetenerPeligro();
         botonSeguridad.interactable = false;
@@ -358,10 +363,29 @@ public class AggressiveNPCs : MonoBehaviour
     #endregion
 
 
-
     private void PerderJuego()
     {
         GameManager.instance.GameOver(GameManager.TipoDerrota.Disturbios);
     }
+
+
+    private void RegisterSEndRiotEvent()
+    {
+        float tiempoReaccion = Time.time - tiempoInicioAgresion;
+
+        Debug.Log($"Tiempo de reacción: {tiempoReaccion:F2}s");
+
+        // Crear y configurar el evento
+        EndRiotEvent endRiot = new EndRiotEvent();
+        endRiot.reactionTime = Mathf.RoundToInt(tiempoReaccion);
+
+        // Grabar el evento 
+        #if !UNITY_EDITOR
+            AnalyticsService.Instance.RecordEvent(endRiot);
+        #else
+            Debug.Log("[ANALYTICS] Evento EndRiotEvent registrado");
+        #endif
+    }
+
 
 }
