@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     public AggressiveNPCs aggressiveNPCs;
 
     private Coroutine typingCoroutine;
+    private Coroutine blinkCoroutine;
     private bool isTyping = false;
 
     [SerializeField] private GameObject dialoguePanelPersonaje;
@@ -121,60 +122,70 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void NextDialogueLine()
+  public void NextDialogueLine()
+{
+    if (!didDialogueStart || dialogueLines == null) return;
+
+    if (isTyping)
     {
-        if (!didDialogueStart || dialogueLines == null) return;
+        StopCoroutine(typingCoroutine);
+        isTyping = false;
 
-        if (isTyping)
+        TMP_Text activeText;
+        Button activeButton;
+
+        if (esDialogoRespuesta)
         {
-           // AudioManager.instance.vozGuardia.Stop();
-            //AudioManager.instance.vozPersonaje.Stop();
-
-
-            StopCoroutine(typingCoroutine);
-            isTyping = false;
-
-            if (esDialogoRespuesta)
-            {
-                dialogueTextPersonaje.text = currentFullLine;
-                botonSiguientePersonaje.gameObject.SetActive(true);
-            }
-            else
-            {
-                bool hablaGuardia = lineIndex % 2 != 0; // IMPAR = guardia
-
-                if (hablaGuardia)
-                {
-                    dialogueTextGuardia.text = currentFullLine;
-                    botonSiguienteGuardia.gameObject.SetActive(true);
-                }
-                else
-                {
-                    dialogueTextPersonaje.text = currentFullLine;
-                    botonSiguientePersonaje.gameObject.SetActive(true);
-                }
-            }
-
-            return; // No avanzar aún
-        }
-
-        lineIndex++;
-
-        if (lineIndex < dialogueLines.Length)
-        {
-            typingCoroutine = StartCoroutine(ShowLine());
+            activeText = dialogueTextPersonaje;
+            activeButton = botonSiguientePersonaje;
         }
         else
         {
-            FinalizarDialogo();
+            bool hablaGuardia = lineIndex % 2 != 0; // IMPAR = guardia
+            if (hablaGuardia)
+            {
+                activeText = dialogueTextGuardia;
+                activeButton = botonSiguienteGuardia;
+            }
+            else
+            {
+                activeText = dialogueTextPersonaje;
+                activeButton = botonSiguientePersonaje;
+            }
         }
+
+        // Mostrar línea completa
+        activeText.text = currentFullLine;
+        activeButton.gameObject.SetActive(true);
+
+        // 🔹 Iniciar cursor titilante incluso si se adelantó el texto
+        if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
+        blinkCoroutine = StartCoroutine(BlinkCursor(activeText, currentFullLine));
+
+        return; // No avanzar aún
     }
+
+    lineIndex++;
+
+    if (lineIndex < dialogueLines.Length)
+    {
+        typingCoroutine = StartCoroutine(ShowLine());
+    }
+    else
+    {
+        FinalizarDialogo();
+    }
+}
 
     private IEnumerator ShowLine()
     {
         isTyping = true;
-        currentFullLine = dialogueLines[lineIndex]; // NUEVO
+        currentFullLine = dialogueLines[lineIndex];
 
+        TMP_Text activeText;
+        Button activeButton;
+
+        // Determinar quién habla y qué UI usar
         if (esDialogoRespuesta)
         {
             dialoguePanelGuardia.SetActive(false);
@@ -182,18 +193,8 @@ public class DialogueManager : MonoBehaviour
             dialogueTextPersonaje.text = "";
             botonSiguientePersonaje.gameObject.SetActive(false);
 
-           // AudioManager.instance.vozPersonaje.Play();
-
-            foreach (char ch in currentFullLine)
-            {
-                dialogueTextPersonaje.text += ch;
-                yield return new WaitForSeconds(typingTime);
-            }
-
-
-            botonSiguientePersonaje.gameObject.SetActive(true);
-
-
+            activeText = dialogueTextPersonaje;
+            activeButton = botonSiguientePersonaje;
         }
         else
         {
@@ -206,16 +207,8 @@ public class DialogueManager : MonoBehaviour
                 dialogueTextGuardia.text = "";
                 botonSiguienteGuardia.gameObject.SetActive(false);
 
-               // AudioManager.instance.vozGuardia.Play();
-
-                foreach (char ch in currentFullLine)
-                {
-                    dialogueTextGuardia.text += ch;
-                    yield return new WaitForSeconds(typingTime);
-                }
-
-
-                botonSiguienteGuardia.gameObject.SetActive(true);
+                activeText = dialogueTextGuardia;
+                activeButton = botonSiguienteGuardia;
             }
             else
             {
@@ -224,28 +217,37 @@ public class DialogueManager : MonoBehaviour
                 dialogueTextPersonaje.text = "";
                 botonSiguientePersonaje.gameObject.SetActive(false);
 
-               //  AudioManager.instance.vozPersonaje.Play();
-
-                foreach (char ch in currentFullLine)
-                {
-                    dialogueTextPersonaje.text += ch;
-                    yield return new WaitForSeconds(typingTime);
-                }
-
-
-                botonSiguientePersonaje.gameObject.SetActive(true);
-
-
+                activeText = dialogueTextPersonaje;
+                activeButton = botonSiguientePersonaje;
             }
         }
 
+        // 🔹 Mostrar texto letra por letra con cursor fijo "_"
+        foreach (char ch in currentFullLine)
+        {
+            activeText.text += ch + "_"; // agregar letra + cursor
+            yield return new WaitForSeconds(typingTime);
+
+            // quitar cursor antes de siguiente letra
+            activeText.text = activeText.text.TrimEnd('_');
+        }
+
+        // Texto final completo antes del cursor titilante
+        activeText.text = currentFullLine;
+
         isTyping = false;
+        activeButton.gameObject.SetActive(true);
+
+
+        // Iniciar parpadeo
+        if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
+        blinkCoroutine = StartCoroutine(BlinkCursor(activeText, currentFullLine));
     }
 
     private void FinalizarDialogo()
     {
-      //  AudioManager.instance.vozGuardia.Stop();
-       //AudioManager.instance.vozPersonaje.Stop();
+        //  AudioManager.instance.vozGuardia.Stop();
+        //AudioManager.instance.vozPersonaje.Stop();
 
         didDialogueStart = false;
         hasInteracted = true;
@@ -288,6 +290,27 @@ public class DialogueManager : MonoBehaviour
         dialoguePanelGuardia.SetActive(false);
     }
 
+
+
+    private IEnumerator BlinkCursor(TMP_Text activeText, string fullLine)
+    {
+        bool cursorVisible = true;
+        float lastTime = Time.time;
+
+        while (didDialogueStart && lineIndex < dialogueLines.Length && !isTyping)
+        {
+            if (Time.time - lastTime >= 0.5f)
+            {
+                cursorVisible = !cursorVisible;
+                lastTime = Time.time;
+            }
+
+            activeText.text = fullLine + (cursorVisible ? "_" : "");
+            yield return null;
+        }
+    }
+
+
     public void EnableDialogue()
     {
         if (!hasInteracted)
@@ -301,13 +324,13 @@ public class DialogueManager : MonoBehaviour
     {
         if (!didDialogueStart || dialogueLines == null) return;
 
-            if (!esDialogoRespuesta)
-    {
-        dialogosOmitidos++;
-        GameManager.instance.dialogosOmitidos++;
-        Debug.Log("Diálogo inicial omitido");
-    }
-       
+        if (!esDialogoRespuesta)
+        {
+            dialogosOmitidos++;
+            GameManager.instance.dialogosOmitidos++;
+            Debug.Log("Diálogo inicial omitido");
+        }
+
         StopAllCoroutines();
         isTyping = false;
         lineIndex = dialogueLines.Length;
