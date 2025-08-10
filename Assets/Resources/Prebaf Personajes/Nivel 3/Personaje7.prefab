@@ -126,8 +126,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  dialogosPersonaje:
+  - "\xA1Amigo! \xBFSab\xEDas que aqu\xED, en medio de la pandemia, puedes hacerte
+    rico sin salir del b\xFAnker? Solo necesitas unirte a mi sistema exclusivo."
+  - "Un plan seguro, r\xE1pido y efectivo. Inviertes un poco, traes a otros, y la
+    plata se multiplica sola. \xA1Es como magia, pero sin conejos!"
+  - "\xA1Ah! Esa es la parte divertida. Mientras m\xE1s traes, m\xE1s ganas. Es un
+    c\xEDrculo virtuoso\u2026 \xA1todos ganamos! Bueno\u2026 casi todos."
+  - "Confianza, amigo. Confianza y un poco de audacia. \xBFQuer\xE9s ser parte de
+    la \xE9lite o quedarte cuidando la puerta?"
+  dialogosGuardia:
+  - "\xBFSistema exclusivo? \xBFDe qu\xE9 hablas?"
+  - "\xBFY qu\xE9 pasa si no consigo m\xE1s gente?"
+  - "\xBFY c\xF3mo s\xE9 que no es un fraude?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

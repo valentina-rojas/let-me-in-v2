@@ -126,8 +126,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  dialogosPersonaje:
+  - "Buenas\u2026 vengo con lo que tengo: este martillo. Es mi mejor amigo y lo \xFAnico
+    que s\xE9 usar."
+  - "No, para qu\xE9 complicarse. Este martillo arregla casi todo: puertas, m\xE1quinas,
+    hasta discusiones\u2026 con cuidado."
+  - "La antena del vecino y la caja de fusibles de la panader\xEDa. Con el martillo,
+    claro. Si algo no se arregla a golpes, entonces no vale la pena."
+  - "Salud de hierro, joven. Bueno, quiz\xE1s un poco de artritis, pero nada que
+    un buen martillazo no cure."
+  dialogosGuardia:
+  - "\xBFS\xF3lo un martillo? \xBFNo tiene otras herramientas?"
+  - "\xBFRepar\xF3 algo \xFAltimamente?"
+  - "\xBFEst\xE1 en buen estado de salud? \xBFAlg\xFAn s\xEDntoma?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

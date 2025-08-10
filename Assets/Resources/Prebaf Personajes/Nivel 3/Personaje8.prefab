@@ -125,9 +125,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  estado: 1
+  dialogosPersonaje:
+  - "Hola... traje los globos, pero se me escaparon todos. La fiesta se fue sin m\xED."
+  - "No recuerdo bien\u2026 creo que era para hacer re\xEDr, pero ya nadie escucha."
+  - "No... solo s\xE9 que no quiero estar afuera. La calle est\xE1 demasiado vac\xEDa...
+    y ruidosa a la vez."
+  - "Tos... un poco. Pero m\xE1s que nada, tengo fr\xEDo... y ganas de que alguien
+    me cuente un chiste."
+  dialogosGuardia:
+  - "\xBFPor qu\xE9 viene disfrazado de payaso?"
+  - "\xBFSabe a d\xF3nde va?"
+  - "\xBFTiene s\xEDntomas? Tos, fiebre, o algo raro?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

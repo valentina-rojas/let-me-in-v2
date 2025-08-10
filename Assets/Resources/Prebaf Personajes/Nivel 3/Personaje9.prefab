@@ -126,8 +126,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  dialogosPersonaje:
+  - Hey... eh... vine porque dijeron que... era obligatorio o algo...
+  - "No, estoy as\xED siempre. Es mi tono de piel. Me da alergia la luz natural...
+    y la interacci\xF3n humana."
+  - No... creo Estornudo solo cuando me obligan a salir de mi cuarto.
+  - "No quiero. Pero se cay\xF3 Internet en casa. Y tipo... si no entro, no puedo
+    terminar mi fanfic sobre vampiros."
+  dialogosGuardia:
+  - "\xBFEst\xE1s bien? Parec\xE9s... un poquito descompuesto."
+  - "\xBFTen\xE9s s\xEDntomas del virus?"
+  - "\xBFPor qu\xE9 quer\xE9s entrar al b\xFAnker?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

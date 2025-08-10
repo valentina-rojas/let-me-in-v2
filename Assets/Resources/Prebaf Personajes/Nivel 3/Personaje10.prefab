@@ -126,8 +126,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  dialogosPersonaje:
+  - "Dale, hac\xE9 lo tuyo. Preguntame. Total, ya s\xE9 que me vas a dejar afuera."
+  - "Tengo s\xEDntomas de vivir en esta sociedad podrida, \xBFeso cuenta?"
+  - "Porque afuera hay gente. Y adentro tambi\xE9n, lamentablemente. Pero al menos
+    adentro hay paredes. Y menos optimismo."
+  - "No hablo con nadie desde 2009. As\xED me mantengo sano. Y l\xFAcido."
+  dialogosGuardia:
+  - "\xBFTen\xE9s s\xEDntomas del virus?"
+  - "\xBFPor qu\xE9 quer\xE9s entrar al b\xFAnker?"
+  - "\xBFAlguien puede dar fe de tu estado de salud?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

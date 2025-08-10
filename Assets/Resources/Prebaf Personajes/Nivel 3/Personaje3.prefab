@@ -125,9 +125,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  estado: 1
+  dialogosPersonaje:
+  - "Hola\u2026 me llamo Mateo. Busco un lugar para descansar. Mi mami est\xE1 enferma
+    y no est\xE1 aca\u2026"
+  - "S\xED\u2026 pero no estoy asustado. Mi peluche me cuida, dice que soy valiente."
+  - "Un poquito de tos\u2026 pero mi peluche dice que no es contagiosa. Tambi\xE9n
+    me duele la panza a veces."
+  - "No\u2026 solo con el perro del vecino. Pero \xE9l no se enferm\xF3, dice mi
+    peluche que es fuerte como un superh\xE9roe."
+  dialogosGuardia:
+  - "\xBFEstuviste solo mucho tiempo?"
+  - "\xBFTienes fiebre o tos?"
+  - "\xBFEstuvo en contacto con otras personas?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

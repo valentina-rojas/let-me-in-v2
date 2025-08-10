@@ -125,9 +125,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  estado: 1
+  dialogosPersonaje:
+  - "\xA1Me dijeron que el b\xFAnker ten\xEDa... calefacci\xF3n! \xA1NO PUEDO M\xC1S
+    AFUERA!"
+  - "\xA1Perd\xED mi dignidad! \xA1Y mi termo! \xA1Y no me alcanz\xF3 el QR para
+    la \xFAltima promo de empanadas! \xA1Es el fin del mundo!"
+  - "\xA1Solo me lagrimea el alma! Y a veces estornudo fuerte, pero es porque huelo
+    a la desesperanza\u2026"
+  - "\xA1Prometo llorar en silencio y no ocupar espacio emocional! Bueno... solo
+    un poquito."
+  dialogosGuardia:
+  - "\xBFPor qu\xE9 est\xE1s llorando exactamente? \xBFPerdiste a alguien?"
+  - "\xBFTen\xE9s s\xEDntomas del virus? \xBFFiebre, tos, mutaciones...?"
+  - "\xBFY qu\xE9 har\xEDas si te dejo entrar?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

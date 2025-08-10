@@ -126,8 +126,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  dialogosPersonaje:
+  - "\xA1Oh, noble guardia! \xBFNo ves acaso en mis movimientos la se\xF1al de que
+    estoy sano?"
+  - "Soy artista del cuerpo, mensajero de la est\xE9tica, sobreviviente sin manchas\u2026
+    al menos f\xEDsicas. Busco refugio, y un p\xFAblico m\xE1s receptivo."
+  - "Delirio, quiz\xE1s\u2026 pero est\xE9tico. Tos, no. Fiebre, s\xF3lo si el aplauso
+    es muy caliente."
+  - "Porque en tiempos oscuros, el andar com\xFAn no basta. Soy arte en movimiento\u2026
+    \xA1y el arte no estornuda!"
+  dialogosGuardia:
+  - "\xBFMotivo de ingreso al b\xFAnker? Por favor, en posici\xF3n neutral."
+  - "\xBFEst\xE1 presentando s\xEDntomas? \xBFTos, fiebre, delirio\u2026?"
+  - "\xBFPor qu\xE9 no camina como una persona normal?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

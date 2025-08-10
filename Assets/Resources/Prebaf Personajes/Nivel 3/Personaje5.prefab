@@ -126,8 +126,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 1
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  dialogosPersonaje:
+  - "\xA1No te preocupes! Estoy limpio por dentro y por fuera\u2026 me com\xED una
+    barra entera antes de venir \xA1No hay virus que sobreviva!"
+  - "Me llamo El\xEDas Lavanda. Vengo por refugio... y si tienen jab\xF3n l\xEDquido
+    mejor. \xA1Es m\xE1s f\xE1cil de tragar!"
+  - "\xA1Ja! Eso es lo que ellos quieren que creas, yo llevo seis meses comiendo
+    jab\xF3n y todav\xEDa no estornud\xE9 ni una sola vez. "
+  - "Improvisar, ya estoy entrenando el paladar con detergente de lim\xF3n. Es picante,
+    pero uno se acostumbra\u2026"
+  dialogosGuardia:
+  - "Nombre y motivo de ingreso al b\xFAnker."
+  - "\xBFEst\xE1 al tanto de que comer jab\xF3n no lo hace inmune al virus?"
+  - "\xBFY qu\xE9 piensa hacer si se termina el jab\xF3n ac\xE1 adentro?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}

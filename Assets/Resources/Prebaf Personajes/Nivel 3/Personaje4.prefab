@@ -126,8 +126,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  dialogosPersonaje:
+  - "\xA1Ojo con el techo, que el peinado es fr\xE1gil! \xA1Y caro!"
+  - "Claro que s\xED. Soy Mauro. Estoy ac\xE1 abajo. \xA1Siga el jopo!"
+  - "Es mi orgullo. \xBFSab\xEDa que me salv\xF3 de un murci\xE9lago volador una
+    vez? Se enred\xF3 y no pudo salir."
+  - "Altura moral y presencia est\xE9tica. Si hay que buscar cosas debajo de estanter\xEDas
+    o colarse por ductos, yo soy el hombre. Peque\xF1o, pero \xFAtil."
+  - Nada. Este jopo no se cae ni con viento viral. Estoy sano, estilizado y con movilidad
+    reducida en ascensores.
+  dialogosGuardia:
+  - "\xBFHola...? \xBFHay alguien ah\xED?"
+  - "No lo ve\xEDa... \xBFY ese peinado?"
+  - "\xBFY qu\xE9 trae para aportar al b\xFAnker?"
+  - "\xBFS\xEDntomas de virus? \xBFFiebre, sarpullido, ca\xEDda de jopo?"
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 8815244945732204834}
