@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems; 
+using UnityEngine.EventSystems;
 
 public class InteractableObjects : MonoBehaviour
 {
@@ -38,7 +38,8 @@ public class InteractableObjects : MonoBehaviour
     }
 
 
-    public void AnimarPapeles(){
+    public void AnimarPapeles()
+    {
 
         StartCoroutine(ActivarPapeles());
     }
@@ -46,7 +47,7 @@ public class InteractableObjects : MonoBehaviour
 
     public IEnumerator ActivarPapeles()
     {
-        
+
         papelesAnimator.SetTrigger("papelesFlip");
         sonidoPapel.Play();
         yield return new WaitForSeconds(2f);
@@ -56,15 +57,14 @@ public class InteractableObjects : MonoBehaviour
     }
 
 
-    public void AnimarPantalla(){
-
-
-StartCoroutine(ActivarPantalla());
+    public void AnimarPantalla()
+    {
+        StartCoroutine(ActivarPantalla());
     }
 
- public IEnumerator ActivarPantalla()
+    public IEnumerator ActivarPantalla()
     {
-        
+
         pantallaAnimator.SetTrigger("pantallaMove");
         sonidoEstatica.Play();
         yield return new WaitForSeconds(2f);
