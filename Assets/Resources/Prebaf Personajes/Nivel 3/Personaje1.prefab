@@ -125,12 +125,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje: []
-  dialogosGuardia: []
+  estado: 1
+  dialogosPersonaje:
+  - "\xA1Atenci\xF3n! Aca llega la leyenda viva y su s\xE9quito de genios. \xBFD\xF3nde
+    est\xE1 nuestro trono? O sea, el refugio VIP. "
+  - "Mis fieles compa\xF1eros de gloria. El baterista que hace temblar la tierra,
+    y el bajista que\u2026 bueno, el bajista est\xE1 por ah\xED."
+  - "Siempre juntos, como la familia disfuncional que somos. Nos mantenemos fuertes\u2026
+    y con estilo."
+  - "S\xEDntomas de grandeza, no virus. Y contagiar, solo contagiar nuestra m\xFAsica\u2026
+    aunque m\xE1s de uno termin\xF3 tap\xE1ndose los o\xEDdos."
+  dialogosGuardia:
+  - "Buen d\xEDa\u2026 \xBFY esos de atr\xE1s qui\xE9nes son?"
+  - "\xBFDurante la pandemia estuvieron juntos o se separaron?"
+  - "\xBFAlguno present\xF3 s\xEDntomas o contagi\xF3 a alguien?"
   respuestaIngreso: []
   respuestaRechazo: []
-  prefab: {fileID: 0}
+  prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
 --- !u!114 &4008901422655197504

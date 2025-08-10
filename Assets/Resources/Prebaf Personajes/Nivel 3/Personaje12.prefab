@@ -130,7 +130,7 @@ MonoBehaviour:
   dialogosGuardia: []
   respuestaIngreso: []
   respuestaRechazo: []
-  prefab: {fileID: 0}
+  prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
 --- !u!114 &4008901422655197504
