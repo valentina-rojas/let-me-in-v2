@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Services.Analytics; 
+using static EventManager;
 
 public class CheckCondition : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class CheckCondition : MonoBehaviour
     public DialogueManager dialogueManager;
     public LeverController leverController;
     public CharacterManager charactersManager;
+    public CharacterSpawn characterSpawn;
 
     [Header("Audio")]
     public AudioSource sonidoBoton;
@@ -41,6 +44,10 @@ public class CheckCondition : MonoBehaviour
 
     public void EvaluarSalud()
     {
+
+        //  MedicalScanUsed
+        RegisterScanUsedEvent();
+
         // Ya fue usado este turno o ya está en proceso
         if (enEvaluacion || dialogueManager.medicoUsado) return;
 
@@ -56,6 +63,26 @@ public class CheckCondition : MonoBehaviour
             botonMedico.interactable = false;
             dialogueManager.medicoUsado = true;  // Marcar como usado por este nivel
         }
+    }
+
+    private void RegisterScanUsedEvent()
+    {
+        // Debug para verificar
+       
+        Debug.Log($"ScanUsed - Nivel: {GameData.NivelActual}, Índice personaje: {characterSpawn.GetCurrentIndex()}");
+        
+        // Crear y configurar el evento
+        ScanUsedEvent scanUsed = new ScanUsedEvent();
+        scanUsed.level = GameData.NivelActual;
+        scanUsed.charIndex = characterSpawn.GetCurrentIndex();
+        
+        // Grabar el evento 
+        #if !UNITY_EDITOR
+            AnalyticsService.Instance.RecordEvent(scanUsed);
+        #else
+            Debug.Log("[ANALYTICS] Evento ScanUsedEvent registrado");
+        #endif
+   
     }
 
     private IEnumerator MedicoEvaluacionRoutine()

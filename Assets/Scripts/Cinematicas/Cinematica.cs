@@ -3,7 +3,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using Unity.Services.Analytics;
+using static EventManager;
 
 
 public class Cinematica : MonoBehaviour
@@ -15,13 +16,10 @@ public class Cinematica : MonoBehaviour
     public float duracionPorImagen = 2f;
     public float velocidadDeTipeo = 0.05f;
     public AudioSource musica;
-    //public float duracionFadeOut = 1f;
     public Image pantallaNegra;
-    //public float duracionFadePantalla = 1f;
 
-public float duracionFadeOut = 0.3f;
-public float duracionFadePantalla = 0.3f;
-
+    public float duracionFadeOut = 0.3f;
+    public float duracionFadePantalla = 0.3f;
 
     public AudioClip[] sonidos;
     public AudioSource audioSource;
@@ -112,7 +110,7 @@ public float duracionFadePantalla = 0.3f;
         if (cinematicaCerrada) return;
         cinematicaCerrada = true;
 
-       // RegisterEndCinEvent(true);
+       RegisterEndCinEvent(true);
         sonidoCerrar.Play();
         StartCoroutine(CerrarCinematicaCoroutine());
     }
@@ -122,10 +120,26 @@ public float duracionFadePantalla = 0.3f;
         if (cinematicaCerrada) return;
         cinematicaCerrada = true;
 
-       // RegisterEndCinEvent(false);
+       RegisterEndCinEvent(false);
         sonidoCerrar.Play();
         StartCoroutine(CerrarCinematicaCoroutine());
     }
+
+    
+    private void RegisterEndCinEvent(bool cinSkipped)
+    {
+        Debug.Log("EndCinEvent");
+
+        EndCinEvent endCin = new EndCinEvent();
+        endCin.cinSkipped = cinSkipped;
+
+    #if !UNITY_EDITOR
+            AnalyticsService.Instance.RecordEvent(endCin);
+    #else
+            Debug.Log($"[ANALYTICS] Evento EndCinEvent registrado con cinSkipped = {cinSkipped}");
+    #endif
+    }
+
 
     private IEnumerator CerrarCinematicaCoroutine()
     {

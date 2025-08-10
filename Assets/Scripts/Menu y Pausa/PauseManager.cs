@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Unity.Services.Analytics;
+using static EventManager;
 
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
 
     public OptionsManager optionsManager;
+
+    public CharacterSpawn characterSpawn;
 
     private bool isPaused = false;
 
@@ -75,12 +79,29 @@ public class PauseManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
-
+        RegisterQuitEvent();
         Time.timeScale = 1f; // Restablece el tiempo al valor normal
         GameData.NivelActual = 1; // Reinicia el nivel actual a 1
         SceneManager.LoadScene("MenuPrincipal"); // Carga la escena del menú principal
         pauseMenuUI.SetActive(false); // Desactiva el menú de pausa
     }
+
+       
+    private void RegisterQuitEvent()
+    {
+        Debug.Log($"[DEBUG] QuitEvent - Nivel: {GameData.NivelActual}, Personaje actual: {characterSpawn.GetCurrentIndex()}");
+
+        QuitEvent quitEvent = new QuitEvent();
+        quitEvent.level = GameData.NivelActual;
+        quitEvent.charIndex = characterSpawn.GetCurrentIndex();
+
+    #if !UNITY_EDITOR
+            AnalyticsService.Instance.RecordEvent(quitEvent);
+    #else
+            Debug.Log("[ANALYTICS] Evento QuitEvent registrado");
+    #endif
+    }
+
 
 
 }
