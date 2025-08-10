@@ -91,7 +91,6 @@ public int minimoAgresivos = 2;
         // Mostrar mensaje inicio día y esperar a que termine antes de iniciar spawn
         if (NivelActual - 1 < mensajesInicioDia.Length)
         {
-            uiManager.PanelInicioDesactivado += IniciarSpawnDePersonajes; // Suscribirse al evento
             uiManager.MostrarInicioDia(mensajesInicioDia[NivelActual - 1]);
         }
         else

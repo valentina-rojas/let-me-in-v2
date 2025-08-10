@@ -100,21 +100,28 @@ public class UIManager : MonoBehaviour
 
     PanelInicioDesactivado += MostrarPanelIndicaciones;
   }
-
-  public void MostrarPanelIndicaciones()
-  {
-
+public void MostrarPanelIndicaciones()
+{
     if (GameManager.instance.NivelActual == 1)
     {
-      StartCoroutine(MostrarPanelIndicacionesCoroutine());
-      PanelInicioDesactivado -= MostrarPanelIndicaciones;
+        optionsManager.AbrirAyuda();
+        StartCoroutine(MostrarIndicacionesSecuencia()); // ahora lo maneja la corrutina
     }
     else
     {
-      IniciarJuego();
-      interactableObjects.ActivarEventTriggers();
+        IniciarJuego();
+        interactableObjects.ActivarEventTriggers();
     }
-  }
+}
+
+private IEnumerator MostrarIndicacionesSecuencia()
+{
+    yield return null; // espera un frame para que el panel se active visualmente
+    yield return new WaitUntil(() => !optionsManager.panelAyuda.gameObject.activeSelf);
+
+    IniciarJuego();
+    interactableObjects.ActivarEventTriggers();
+}
 
   public IEnumerator MostrarPanelInicioDiaCoroutine(string mensaje)
   {
@@ -158,7 +165,6 @@ public class UIManager : MonoBehaviour
       yield return null; // Esperar al siguiente frame
 
     }
-
   }
 
 
@@ -182,23 +188,6 @@ public class UIManager : MonoBehaviour
     PanelInicioDesactivado?.Invoke();
   }
 
-
-  private IEnumerator MostrarPanelIndicacionesCoroutine()
-  {
-    yield return StartCoroutine(MostrarIndicacionesSecuencia());
-    PanelInicioDesactivado -= MostrarPanelIndicaciones;
-    yield break;
-  }
-
-
-  private IEnumerator MostrarIndicacionesSecuencia()
-  {
-    // Iniciar el juego después de mostrar todas las indicaciones
-    IniciarJuego();
-    interactableObjects.ActivarEventTriggers();
-
-    yield break;
-  }
 
   public void ActualizarPanelReporte(int sanosIngresados, int enfermosIngresados, int sanosRechazados, int enfermosRechazados)
   {
