@@ -139,8 +139,10 @@ MonoBehaviour:
   - "Nombre y motivo de ingreso al b\xFAnker."
   - "\xBFEst\xE1 al tanto de que comer jab\xF3n no lo hace inmune al virus?"
   - "\xBFY qu\xE9 piensa hacer si se termina el jab\xF3n ac\xE1 adentro?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - "Gracias, espero que ac\xE1 haya buenos productos de limpieza\u2026"
+  respuestaRechazo:
+  - Bueno, de todos modos estoy protegido
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

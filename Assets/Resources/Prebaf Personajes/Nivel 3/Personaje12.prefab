@@ -139,8 +139,10 @@ MonoBehaviour:
   - "\xBFS\xF3lo un martillo? \xBFNo tiene otras herramientas?"
   - "\xBFRepar\xF3 algo \xFAltimamente?"
   - "\xBFEst\xE1 en buen estado de salud? \xBFAlg\xFAn s\xEDntoma?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - Voy a dejar este lugar impecable.
+  respuestaRechazo:
+  - "Cuando necesiten un buen mec\xE1nico se van a arrepentir."
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

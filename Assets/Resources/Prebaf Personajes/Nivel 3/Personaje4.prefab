@@ -140,8 +140,10 @@ MonoBehaviour:
   - "No lo ve\xEDa... \xBFY ese peinado?"
   - "\xBFY qu\xE9 trae para aportar al b\xFAnker?"
   - "\xBFS\xEDntomas de virus? \xBFFiebre, sarpullido, ca\xEDda de jopo?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - "Gracias, como pod\xE9s ver no voy a ocupar mucho espacio."
+  respuestaRechazo:
+  - "No pasa nada, ya voy a encontrar alg\xFAn ducto por el cual ingresar."
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

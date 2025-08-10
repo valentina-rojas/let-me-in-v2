@@ -128,8 +128,10 @@ MonoBehaviour:
   estado: 1
   dialogosPersonaje: []
   dialogosGuardia: []
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - Gracias, muy amable.
+  respuestaRechazo:
+  - Entiendo, disculpe las molestias.
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

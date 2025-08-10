@@ -139,8 +139,10 @@ MonoBehaviour:
   - "\xBFMotivo de ingreso al b\xFAnker? Por favor, en posici\xF3n neutral."
   - "\xBFEst\xE1 presentando s\xEDntomas? \xBFTos, fiebre, delirio\u2026?"
   - "\xBFPor qu\xE9 no camina como una persona normal?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - No se van a arrepentir, vine a este lugar a contagiar ESTILO.
+  respuestaRechazo:
+  - "Bien, el destino decidi\xF3 \xA1soy luz, salud y BRILLO!"
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

@@ -138,8 +138,10 @@ MonoBehaviour:
   - "\xBFEstuviste solo mucho tiempo?"
   - "\xBFTienes fiebre o tos?"
   - "\xBFEstuvo en contacto con otras personas?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - Gracias guardia, prometo portarme bien.
+  respuestaRechazo:
+  - "Por favor, solo me queda mi peluche, tengo mucho fr\xEDo y hambre."
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

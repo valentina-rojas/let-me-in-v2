@@ -11669,12 +11669,15 @@ MonoBehaviour:
   mensajesInicioDia:
   - "Mantente atento a las personas con s\xEDntomas de sarpullido"
   - Mantente atento a las personas que presenten los ojos rojos
+  - "Mantente alerta a las personas con s\xEDntomas de palidez"
   sanosIngresados: 0
   enfermosIngresados: 0
   sanosRechazados: 0
   enfermosRechazados: 0
   strikes: 0
   dialogosOmitidos: 0
+  cantidadPersonajesPorNivel: 11
+  minimoAgresivos: 0
   niveles:
   - personajesDelNivel:
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
@@ -24281,7 +24284,7 @@ Transform:
   m_GameObject: {fileID: 2029316074}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.326075, y: 0.6107587, z: 82.21642}
+  m_LocalPosition: {x: 13.04, y: 0.6107587, z: 82.21642}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

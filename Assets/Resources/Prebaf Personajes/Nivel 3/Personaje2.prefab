@@ -139,8 +139,10 @@ MonoBehaviour:
   - "\xBFPor qu\xE9 est\xE1s llorando exactamente? \xBFPerdiste a alguien?"
   - "\xBFTen\xE9s s\xEDntomas del virus? \xBFFiebre, tos, mutaciones...?"
   - "\xBFY qu\xE9 har\xEDas si te dejo entrar?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - "Gracias, muchas gracias \xBFhay pa\xF1uelos dentro del refugio?"
+  respuestaRechazo:
+  - "\xA1No me sorprende! todo en mi vida es una desgracia \xFAltimamente."
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

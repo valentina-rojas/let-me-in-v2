@@ -137,8 +137,10 @@ MonoBehaviour:
   - "\xBFPor qu\xE9 viene disfrazado de payaso?"
   - "\xBFSabe a d\xF3nde va?"
   - "\xBFTiene s\xEDntomas? Tos, fiebre, o algo raro?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - "Gracias, espero que alguien me traiga algo de alegr\xEDa."
+  respuestaRechazo:
+  - "Adi\xF3s."
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

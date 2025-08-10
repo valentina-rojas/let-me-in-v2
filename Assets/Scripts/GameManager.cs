@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
 
     private GameObject personajeGOActual;
 
+    [Header("Configuración de Spawn")]
+public int cantidadPersonajesPorNivel = 6;
+public int minimoAgresivos = 2;
+
+
     [System.Serializable]
     public class Nivel
     {
@@ -129,17 +134,18 @@ public class GameManager : MonoBehaviour
 
         GameObject[] todosLosPersonajes = niveles[NivelActual - 1].personajesDelNivel;
 
-        if (todosLosPersonajes.Length < 6)
-        {
-            Debug.LogWarning("⚠ No hay suficientes personajes para seleccionar 6. Usando todos.");
-            characterSpawn.AsignarPersonajesDelNivel(todosLosPersonajes);
-            characterSpawn.ComenzarSpawn();
-            return;
-        }
+     if (todosLosPersonajes.Length < cantidadPersonajesPorNivel)
+{
+    Debug.LogWarning($"⚠ No hay suficientes personajes para seleccionar {cantidadPersonajesPorNivel}. Usando todos.");
+    characterSpawn.AsignarPersonajesDelNivel(todosLosPersonajes);
+    characterSpawn.ComenzarSpawn();
+    return;
+}
 
-        GameObject[] seleccionados = characterSelector.SeleccionarPersonajesConAgresivos(todosLosPersonajes, 6, 2);
-        characterSpawn.AsignarPersonajesDelNivel(seleccionados);
-        characterSpawn.ComenzarSpawn();
+GameObject[] seleccionados = characterSelector.SeleccionarPersonajesConAgresivos(todosLosPersonajes, cantidadPersonajesPorNivel, minimoAgresivos);
+characterSpawn.AsignarPersonajesDelNivel(seleccionados);
+characterSpawn.ComenzarSpawn();
+
     }
 
     public void EstablecerPersonajeActual(CharacterAttributes personaje)
@@ -251,6 +257,20 @@ public class GameManager : MonoBehaviour
                 enfermosRechazados++;
             }
         }
+    }
+
+    public void ReproducirAnimacionHablar (){
+           personajeActual.animator.ResetTrigger("triggerBlink");
+        personajeActual.animator.SetTrigger("triggerTalk");
+
+
+
+    }
+
+        public void ReproducirAnimacionPestañar (){
+             personajeActual.animator.ResetTrigger("triggerTalk");
+personajeActual.animator.SetTrigger("triggerBlink");
+        
     }
 
 

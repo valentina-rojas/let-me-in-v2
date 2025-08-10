@@ -136,8 +136,10 @@ MonoBehaviour:
   - "\xBFTen\xE9s s\xEDntomas del virus?"
   - "\xBFPor qu\xE9 quer\xE9s entrar al b\xFAnker?"
   - "\xBFAlguien puede dar fe de tu estado de salud?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - "\xBFQu\xE9 esperas? \xBFQue te d\xE9 las gracias?"
+  respuestaRechazo:
+  - "No esperaba menos, nuestra sociedad est\xE1 perdida."
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

@@ -137,8 +137,12 @@ MonoBehaviour:
   - "\xBFEst\xE1s bien? Parec\xE9s... un poquito descompuesto."
   - "\xBFTen\xE9s s\xEDntomas del virus?"
   - "\xBFPor qu\xE9 quer\xE9s entrar al b\xFAnker?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - "\xBFTe gustan los vampiros? Puedo pasarte un adelanto del cap\xEDtulo nuevo
+    que estoy escribiendo."
+  respuestaRechazo:
+  - "No sabes con qui\xE9n te met\xE9s, tengo m\xE1s de diez mil seguidores, te voy
+    a funar. "
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

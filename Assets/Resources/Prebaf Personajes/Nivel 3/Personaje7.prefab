@@ -139,8 +139,11 @@ MonoBehaviour:
   - "\xBFSistema exclusivo? \xBFDe qu\xE9 hablas?"
   - "\xBFY qu\xE9 pasa si no consigo m\xE1s gente?"
   - "\xBFY c\xF3mo s\xE9 que no es un fraude?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - "Gracias, voy a hacer de este lugar mi imperio\u2026 em, digo, nuestro imperio."
+  respuestaRechazo:
+  - "Entiendo, le ten\xE9s miedo al \xE9xito, eso pasa con quienes no tienen la mente
+    de ganador."
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

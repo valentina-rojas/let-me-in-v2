@@ -139,8 +139,10 @@ MonoBehaviour:
   - "Buen d\xEDa\u2026 \xBFY esos de atr\xE1s qui\xE9nes son?"
   - "\xBFDurante la pandemia estuvieron juntos o se separaron?"
   - "\xBFAlguno present\xF3 s\xEDntomas o contagi\xF3 a alguien?"
-  respuestaIngreso: []
-  respuestaRechazo: []
+  respuestaIngreso:
+  - "Este refugio tendr\xE1 el privilegio de tenernos."
+  respuestaRechazo:
+  - "Bueno\u2026 \xBFde casualidad no vi\xF3 a nuestro guitarrista?"
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

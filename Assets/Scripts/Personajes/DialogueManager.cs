@@ -49,6 +49,8 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError("UIManager no encontrado en la escena.");
         }
 
+
+
         characterAttributes = GetComponent<CharacterAttributes>();
 
         botonSiguienteGuardia.onClick.AddListener(NextDialogueLine);
@@ -157,10 +159,13 @@ public class DialogueManager : MonoBehaviour
         // Mostrar línea completa
         activeText.text = currentFullLine;
         activeButton.gameObject.SetActive(true);
-
+ 
         // 🔹 Iniciar cursor titilante incluso si se adelantó el texto
         if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
         blinkCoroutine = StartCoroutine(BlinkCursor(activeText, currentFullLine));
+
+    GameManager.instance.ReproducirAnimacionPestañar();
+  
 
         return; // No avanzar aún
     }
@@ -188,6 +193,9 @@ public class DialogueManager : MonoBehaviour
         // Determinar quién habla y qué UI usar
         if (esDialogoRespuesta)
         {
+              // activar animación de hablar
+    GameManager.instance.ReproducirAnimacionHablar();
+
             dialoguePanelGuardia.SetActive(false);
             dialoguePanelPersonaje.SetActive(true);
             dialogueTextPersonaje.text = "";
@@ -198,10 +206,14 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            
             bool hablaGuardia = lineIndex % 2 != 0;
 
             if (hablaGuardia)
             {
+                 // está hablando el guardia, entonces animación personaje debe ser pestañar
+    GameManager.instance.ReproducirAnimacionPestañar();
+
                 dialoguePanelGuardia.SetActive(true);
                 dialoguePanelPersonaje.SetActive(false);
                 dialogueTextGuardia.text = "";
@@ -212,6 +224,9 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                   // Activar triggerTalk al empezar a hablar
+ GameManager.instance.ReproducirAnimacionHablar();
+      
                 dialoguePanelPersonaje.SetActive(true);
                 dialoguePanelGuardia.SetActive(false);
                 dialogueTextPersonaje.text = "";
@@ -234,6 +249,13 @@ public class DialogueManager : MonoBehaviour
 
         // Texto final completo antes del cursor titilante
         activeText.text = currentFullLine;
+
+         // Si la línea que terminó de escribirse es del personaje, ponemos animación pestañar
+if (esDialogoRespuesta || (lineIndex % 2 == 0))
+{
+    GameManager.instance.ReproducirAnimacionPestañar();
+}
+    
 
         isTyping = false;
         activeButton.gameObject.SetActive(true);
