@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DoorController : MonoBehaviour
 {
-    public AudioSource puertaAbriendose;
     public Transform capaPuerta;
     public float alturaMovimiento = 2f;
     public float tiempoMovimiento = 1f;
@@ -11,7 +10,7 @@ public class DoorController : MonoBehaviour
 
     public IEnumerator Abrir()
     {
-        if (puertaAbriendose != null) puertaAbriendose.Play();
+        AudioManager.instance.sonidoPuerta.Play();
 
         Vector3 posicionInicial = capaPuerta.position;
         Vector3 posicionFinal = new Vector3(posicionInicial.x, posicionInicial.y + alturaMovimiento, posicionInicial.z);
@@ -40,7 +39,6 @@ public class DoorController : MonoBehaviour
         }
         capaPuerta.position = posicionInicial;
 
-        if (puertaAbriendose != null && puertaAbriendose.isPlaying)
-            puertaAbriendose.Stop();
+        AudioManager.instance.sonidoPuerta.Stop();
     }
 }

@@ -62,6 +62,7 @@ public class LeverController : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
+        AudioManager.instance.sonidoPalanca.Play();
         if (isDragged)
         {
             Vector2 currentPointerPosition = eventData.position;

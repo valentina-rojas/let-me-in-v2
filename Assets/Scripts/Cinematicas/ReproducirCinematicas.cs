@@ -36,7 +36,7 @@ public class ReproducirCinematicas : MonoBehaviour
 
     public void ReproducirCinematica(string nombreCinematica)
     {
-        desplegarpestañas.Play();
+        AudioManager.instance.sonidoDesplegarPestañas.Play();
         StartCoroutine(CerrarCinematicaCoroutine(nombreCinematica));
     }
 

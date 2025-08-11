@@ -24,12 +24,6 @@ public class CheckCondition : MonoBehaviour
     public CharacterManager charactersManager;
     public CharacterSpawn characterSpawn;
 
-    [Header("Audio")]
-    public AudioSource sonidoBoton;
-    public AudioSource brazoMecanico;
-    public AudioSource luzEscaner;
-    public AudioSource beepEscaner;
-
     [Header("Botón")]
     public Button botonMedico;
 
@@ -51,7 +45,8 @@ public class CheckCondition : MonoBehaviour
         // Ya fue usado este turno o ya está en proceso
         if (enEvaluacion || dialogueManager.medicoUsado) return;
 
-        sonidoBoton.Play();
+
+        AudioManager.instance.sonidoBotonPresionado.Play();
 
         if (medicoInstance == null)
         {
@@ -89,19 +84,21 @@ public class CheckCondition : MonoBehaviour
     {
         leverController.DesactivarPalanca();
 
-        brazoMecanico.Play();
-        yield return StartCoroutine(MoverPersonaje(medicoInstance.transform, centroPantalla.position));
-        brazoMecanico.Stop();
+        AudioManager.instance.sonidoMovimientoEscaner.Play();
 
+        yield return StartCoroutine(MoverPersonaje(medicoInstance.transform, centroPantalla.position));
+
+        AudioManager.instance.sonidoMovimientoEscaner.Stop();
+    
         yield return new WaitForSeconds(2f);
 
         EvaluarEstadoPersonaje();
 
         yield return new WaitForSeconds(7f);
 
-        brazoMecanico.Play();
+        AudioManager.instance.sonidoMovimientoEscaner.Play();
         yield return StartCoroutine(MoverPersonaje(medicoInstance.transform, puntoSalidaMedico.position));
-        brazoMecanico.Stop();
+        AudioManager.instance.sonidoMovimientoEscaner.Stop();
 
         Destroy(medicoInstance);
         medicoInstance = null;
@@ -132,10 +129,13 @@ public class CheckCondition : MonoBehaviour
     private IEnumerator MostrarLuzEscanerYCartel(CharacterAttributes personajeActual)
     {
         GameObject luzEscanerInstance = Instantiate(luzEscanerPrefab, spawnPointLuzEscaner.position, Quaternion.identity);
-        luzEscaner.Play();
+        
+        AudioManager.instance.sonidoLuzEscaner.Play();
 
         yield return new WaitForSeconds(3f);
-        luzEscaner.Stop();
+        
+        AudioManager.instance.sonidoLuzEscaner.Stop();
+
         Destroy(luzEscanerInstance);
 
         yield return new WaitForSeconds(2f);
@@ -155,7 +155,8 @@ public class CheckCondition : MonoBehaviour
     private IEnumerator MostrarCartel(GameObject cartelPrefab, Transform spawnPoint)
     {
         GameObject cartelInstance = Instantiate(cartelPrefab, spawnPoint.position, Quaternion.identity);
-        beepEscaner.Play();
+
+        AudioManager.instance.sonidoBeepEscaner.Play();
 
         yield return new WaitForSeconds(2f);
         Destroy(cartelInstance);

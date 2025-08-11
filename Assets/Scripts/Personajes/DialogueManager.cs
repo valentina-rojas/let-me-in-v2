@@ -49,8 +49,6 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError("UIManager no encontrado en la escena.");
         }
 
-
-
         characterAttributes = GetComponent<CharacterAttributes>();
 
         botonSiguienteGuardia.onClick.AddListener(NextDialogueLine);
@@ -133,6 +131,10 @@ public class DialogueManager : MonoBehaviour
         StopCoroutine(typingCoroutine);
         isTyping = false;
 
+          // Parar las voces al adelantar
+        AudioManager.instance.vozGuardia.Stop();
+        AudioManager.instance.vozPersonaje.Stop();
+
         TMP_Text activeText;
         Button activeButton;
 
@@ -164,7 +166,7 @@ public class DialogueManager : MonoBehaviour
         if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
         blinkCoroutine = StartCoroutine(BlinkCursor(activeText, currentFullLine));
 
-    GameManager.instance.ReproducirAnimacionPestañar();
+        GameManager.instance.ReproducirAnimacionPestañar();
   
 
         return; // No avanzar aún
@@ -178,6 +180,8 @@ public class DialogueManager : MonoBehaviour
     }
     else
     {
+
+
         FinalizarDialogo();
     }
 }
@@ -194,7 +198,7 @@ public class DialogueManager : MonoBehaviour
         if (esDialogoRespuesta)
         {
               // activar animación de hablar
-    GameManager.instance.ReproducirAnimacionHablar();
+            GameManager.instance.ReproducirAnimacionHablar();
 
             dialoguePanelGuardia.SetActive(false);
             dialoguePanelPersonaje.SetActive(true);
@@ -203,6 +207,10 @@ public class DialogueManager : MonoBehaviour
 
             activeText = dialogueTextPersonaje;
             activeButton = botonSiguientePersonaje;
+
+               // Reproducir voz personaje
+            AudioManager.instance.vozGuardia.Stop();
+            AudioManager.instance.vozPersonaje.Play();
         }
         else
         {
@@ -212,7 +220,7 @@ public class DialogueManager : MonoBehaviour
             if (hablaGuardia)
             {
                  // está hablando el guardia, entonces animación personaje debe ser pestañar
-    GameManager.instance.ReproducirAnimacionPestañar();
+                GameManager.instance.ReproducirAnimacionPestañar();
 
                 dialoguePanelGuardia.SetActive(true);
                 dialoguePanelPersonaje.SetActive(false);
@@ -221,11 +229,15 @@ public class DialogueManager : MonoBehaviour
 
                 activeText = dialogueTextGuardia;
                 activeButton = botonSiguienteGuardia;
+
+                  // Reproducir voz guardia
+                AudioManager.instance.vozPersonaje.Stop();
+                AudioManager.instance.vozGuardia.Play();
             }
             else
             {
                    // Activar triggerTalk al empezar a hablar
- GameManager.instance.ReproducirAnimacionHablar();
+                 GameManager.instance.ReproducirAnimacionHablar();
       
                 dialoguePanelPersonaje.SetActive(true);
                 dialoguePanelGuardia.SetActive(false);
@@ -234,6 +246,10 @@ public class DialogueManager : MonoBehaviour
 
                 activeText = dialogueTextPersonaje;
                 activeButton = botonSiguientePersonaje;
+
+                // Reproducir voz personaje
+                AudioManager.instance.vozGuardia.Stop();
+                AudioManager.instance.vozPersonaje.Play();
             }
         }
 
@@ -251,11 +267,12 @@ public class DialogueManager : MonoBehaviour
         activeText.text = currentFullLine;
 
          // Si la línea que terminó de escribirse es del personaje, ponemos animación pestañar
-if (esDialogoRespuesta || (lineIndex % 2 == 0))
-{
-    GameManager.instance.ReproducirAnimacionPestañar();
-}
-    
+        if (esDialogoRespuesta || (lineIndex % 2 == 0))
+        {
+            GameManager.instance.ReproducirAnimacionPestañar();
+        }
+               AudioManager.instance.vozGuardia.Stop();
+        AudioManager.instance.vozPersonaje.Stop();
 
         isTyping = false;
         activeButton.gameObject.SetActive(true);
@@ -268,8 +285,8 @@ if (esDialogoRespuesta || (lineIndex % 2 == 0))
 
     private void FinalizarDialogo()
     {
-        //  AudioManager.instance.vozGuardia.Stop();
-        //AudioManager.instance.vozPersonaje.Stop();
+        AudioManager.instance.vozGuardia.Stop();
+        AudioManager.instance.vozPersonaje.Stop();
 
         didDialogueStart = false;
         hasInteracted = true;
@@ -357,6 +374,12 @@ if (esDialogoRespuesta || (lineIndex % 2 == 0))
         isTyping = false;
         lineIndex = dialogueLines.Length;
 
+        // Volver a la animación de pestañar al omitir diálogo
+        GameManager.instance.ReproducirAnimacionPestañar();
+
+  // Reproducir voz personaje
+        AudioManager.instance.vozGuardia.Stop();
+        AudioManager.instance.vozPersonaje.Stop();
         FinalizarDialogo();
     }
 

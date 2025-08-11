@@ -38,11 +38,6 @@ public class GameManager : MonoBehaviour
 
     private GameObject personajeGOActual;
 
-    [Header("Configuración de Spawn")]
-public int cantidadPersonajesPorNivel = 6;
-public int minimoAgresivos = 2;
-
-
     [System.Serializable]
     public class Nivel
     {
@@ -52,14 +47,12 @@ public int minimoAgresivos = 2;
     [Header("Niveles del juego")]
     public Nivel[] niveles;
 
-
     public enum TipoDerrota
     {
         Estres,
         Despido,
         Disturbios
     }
-
 
     private void Awake()
     {
@@ -123,7 +116,7 @@ public int minimoAgresivos = 2;
     }
 
 
-    public void IniciarSpawnDePersonajes()
+  public void IniciarSpawnDePersonajes()
     {
         if (NivelActual - 1 >= niveles.Length)
         {
@@ -133,19 +126,21 @@ public int minimoAgresivos = 2;
 
         GameObject[] todosLosPersonajes = niveles[NivelActual - 1].personajesDelNivel;
 
-     if (todosLosPersonajes.Length < cantidadPersonajesPorNivel)
-{
-    Debug.LogWarning($"⚠ No hay suficientes personajes para seleccionar {cantidadPersonajesPorNivel}. Usando todos.");
-    characterSpawn.AsignarPersonajesDelNivel(todosLosPersonajes);
-    characterSpawn.ComenzarSpawn();
-    return;
-}
+        if (todosLosPersonajes.Length < characterSelector.configuracionesPorNivel.Find(c => c.nivel == NivelActual).cantidadTotalPersonajes)
+        {
+            Debug.LogWarning($"⚠ No hay suficientes personajes para seleccionar, usando todos.");
+            characterSpawn.AsignarPersonajesDelNivel(todosLosPersonajes);
+            characterSpawn.ComenzarSpawn();
+            return;
+        }
 
-GameObject[] seleccionados = characterSelector.SeleccionarPersonajesConAgresivos(todosLosPersonajes, cantidadPersonajesPorNivel, minimoAgresivos);
-characterSpawn.AsignarPersonajesDelNivel(seleccionados);
-characterSpawn.ComenzarSpawn();
+        // Obtener personajes seleccionados según la configuración del nivel
+        GameObject[] seleccionados = characterSelector.SeleccionarPersonajesPorNivel(todosLosPersonajes, NivelActual);
 
+        characterSpawn.AsignarPersonajesDelNivel(seleccionados);
+        characterSpawn.ComenzarSpawn();
     }
+
 
     public void EstablecerPersonajeActual(CharacterAttributes personaje)
     {
@@ -258,18 +253,28 @@ characterSpawn.ComenzarSpawn();
         }
     }
 
-    public void ReproducirAnimacionHablar (){
-           personajeActual.animator.ResetTrigger("triggerBlink");
+    public void ReproducirAnimacionHablar()
+    {
+        if (personajeActual == null || personajeActual.animator == null)
+        {
+            Debug.LogWarning("Animator no asignado en personajeActual.");
+            return;
+        }
+
+        personajeActual.animator.ResetTrigger("triggerBlink");
         personajeActual.animator.SetTrigger("triggerTalk");
-
-
-
     }
 
-        public void ReproducirAnimacionPestañar (){
-             personajeActual.animator.ResetTrigger("triggerTalk");
-personajeActual.animator.SetTrigger("triggerBlink");
-        
+    public void ReproducirAnimacionPestañar()
+    {
+        if (personajeActual == null || personajeActual.animator == null)
+        {
+            Debug.LogWarning("Animator no asignado en personajeActual.");
+            return;
+        }
+
+        personajeActual.animator.ResetTrigger("triggerTalk");
+        personajeActual.animator.SetTrigger("triggerBlink");
     }
 
 
@@ -280,29 +285,13 @@ personajeActual.animator.SetTrigger("triggerBlink");
         {
             uiManager.mensajeReporte.text = "¡Buen trabajo!";
 
-            if (NivelActual == 1)
-            {
-                uiManager.botonSiguienteNivel.gameObject.SetActive(true);
-            }
-
-            if (NivelActual == 2)
-            {
-                uiManager.botonGanaste.gameObject.SetActive(true);
-            }
+            uiManager.botonSiguienteNivel.gameObject.SetActive(true);
         }
         else
         {
             uiManager.mensajeReporte.text = "Más cuidado la próxima vez...";
 
-            if (NivelActual == 1)
-            {
-                uiManager.botonSiguienteNivel.gameObject.SetActive(true);
-            }
-
-            if (NivelActual == 2)
-            {
-                uiManager.botonGanaste.gameObject.SetActive(true);
-            }
+            uiManager.botonSiguienteNivel.gameObject.SetActive(true);
         }
 
     }
@@ -403,7 +392,6 @@ personajeActual.animator.SetTrigger("triggerBlink");
         if (NivelActual > niveles.Length)
         {
             Debug.Log("¡No hay más niveles! Fin del juego.");
-
             reproducirCinematicas.CinematicaGanar();
             return;
         }

@@ -4833,10 +4833,6 @@ MonoBehaviour:
   leverController: {fileID: 1043990635}
   charactersManager: {fileID: 943274573}
   characterSpawn: {fileID: 1520975433}
-  sonidoBoton: {fileID: 1897245216}
-  brazoMecanico: {fileID: 1946152776}
-  luzEscaner: {fileID: 1385868424}
-  beepEscaner: {fileID: 970531498}
   botonMedico: {fileID: 204005907}
 --- !u!1 &353038875
 GameObject:
@@ -11676,8 +11672,6 @@ MonoBehaviour:
   enfermosRechazados: 0
   strikes: 0
   dialogosOmitidos: 0
-  cantidadPersonajesPorNivel: 11
-  minimoAgresivos: 0
   niveles:
   - personajesDelNivel:
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
@@ -12020,7 +12014,6 @@ MonoBehaviour:
   isLupaVisible: 0
   panelLupa: {fileID: 1562871741}
   areaLimite: {fileID: 1519422823}
-  sonidoBoton: {fileID: 1897245216}
 --- !u!1 &958300637
 GameObject:
   m_ObjectHideFlags: 0
@@ -14477,6 +14470,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3ccb4fe8eff3b4f9585e2eee46a561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  configuracionesPorNivel:
+  - nivel: 1
+    cantidadTotalPersonajes: 6
+    cantidadAgresivos: 1
+  - nivel: 2
+    cantidadTotalPersonajes: 8
+    cantidadAgresivos: 2
+  - nivel: 3
+    cantidadTotalPersonajes: 8
+    cantidadAgresivos: 2
 --- !u!1 &1143945138
 GameObject:
   m_ObjectHideFlags: 0
@@ -19096,7 +19099,6 @@ MonoBehaviour:
   isLupaVisible: 0
   panelLupa: {fileID: 0}
   areaLimite: {fileID: 1519422823}
-  sonidoBoton: {fileID: 1897245216}
 --- !u!1 &1565297162
 GameObject:
   m_ObjectHideFlags: 0
@@ -19437,7 +19439,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609121692}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5414129167739093386, guid: d877e5208d19e2e448be4224230f5ecf, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1037a80ead44d7141b10cb8d2bbaa2a4, type: 3}

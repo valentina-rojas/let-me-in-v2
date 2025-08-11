@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource sonidoBotonPresionado;
     public AudioSource sonidoPapelesMoviendose;
     public AudioSource sonidoEstaticaRadio;
-    public AudioSource sonidoMateGirando;
+    public AudioSource sonidoMateGirando; 
     public AudioSource sonidoLoading;
     public AudioSource sonidoMovimientoEscaner;
     public AudioSource sonidoBeepEscaner;
@@ -30,17 +30,17 @@ public class AudioManager : MonoBehaviour
     public AudioSource vozPersonaje;
 
 
-    private void Awake()
+  private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            // No usar DontDestroyOnLoad acá
+            // DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-
     }
 }

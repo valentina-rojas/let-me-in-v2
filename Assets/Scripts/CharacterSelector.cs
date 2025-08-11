@@ -1,79 +1,83 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class NivelConfiguracion
+{
+    public int nivel;
+    public int cantidadTotalPersonajes;
+    public int cantidadAgresivos;
+}
+
 public class CharacterSelector : MonoBehaviour
 {
-    // Selección general aleatoria sin condiciones
-    public GameObject[] SeleccionarPersonajesAleatorios(GameObject[] personajes, int cantidad)
+    [Header("Configuraciones por nivel")]
+    public List<NivelConfiguracion> configuracionesPorNivel;
+
+    // Obtiene configuración por nivel
+    public NivelConfiguracion ObtenerConfiguracionNivel(int nivel) =>
+        configuracionesPorNivel.Find(c => c.nivel == nivel);
+
+    // Método genérico para mezclar lista (Fisher-Yates)
+    private void Shuffle<T>(List<T> list)
     {
-        GameObject[] copia = (GameObject[])personajes.Clone();
-
-        for (int i = 0; i < copia.Length; i++)
+        for (int i = 0; i < list.Count; i++)
         {
-            int randomIndex = Random.Range(i, copia.Length);
-            GameObject temp = copia[i];
-            copia[i] = copia[randomIndex];
-            copia[randomIndex] = temp;
+            int r = Random.Range(i, list.Count);
+            (list[i], list[r]) = (list[r], list[i]);
         }
-
-        GameObject[] seleccionados = new GameObject[cantidad];
-        for (int i = 0; i < cantidad; i++)
-        {
-            seleccionados[i] = copia[i];
-        }
-
-        return seleccionados;
     }
 
-    // Seleccionar con mínimo agresivos garantizados
-    public GameObject[] SeleccionarPersonajesConAgresivos(GameObject[] todos, int total, int minAgresivos)
+    // Selecciona personajes según nivel y configuración
+    public GameObject[] SeleccionarPersonajesPorNivel(GameObject[] todos, int nivel)
     {
-        List<GameObject> agresivos = new List<GameObject>();
-        List<GameObject> noAgresivos = new List<GameObject>();
-
-        foreach (GameObject go in todos)
+        var config = ObtenerConfiguracionNivel(nivel);
+        if (config == null)
         {
-            CharacterAttributes attr = go.GetComponent<CharacterAttributes>();
+            Debug.LogWarning($"No se encontró configuración para el nivel {nivel}");
+            return new GameObject[0];
+        }
+
+        // Filtrar agresivos y no agresivos
+        var agresivos = new List<GameObject>();
+        var noAgresivos = new List<GameObject>();
+
+        foreach (var go in todos)
+        {
+            var attr = go.GetComponent<CharacterAttributes>();
             if (attr != null && attr.esAgresivo)
                 agresivos.Add(go);
             else
                 noAgresivos.Add(go);
         }
 
-        if (agresivos.Count < minAgresivos)
+        // Verificar disponibilidad
+        if (agresivos.Count < config.cantidadAgresivos || noAgresivos.Count < config.cantidadTotalPersonajes - config.cantidadAgresivos)
         {
-            Debug.LogWarning($"⚠ No hay suficientes agresivos para mínimo {minAgresivos}, seleccionando aleatorio sin condición.");
-            return SeleccionarPersonajesAleatorios(todos, total);
+            Debug.LogWarning("No hay suficientes personajes para la configuración, seleccionando aleatorio simple");
+            return SeleccionarPersonajesAleatorios(todos, config.cantidadTotalPersonajes);
         }
 
-        GameObject[] seleccionados = new GameObject[total];
+        // Mezclar listas
+        Shuffle(agresivos);
+        Shuffle(noAgresivos);
 
-        // Seleccionar agresivos
-        for (int i = 0; i < minAgresivos; i++)
-        {
-            int idx = Random.Range(0, agresivos.Count);
-            seleccionados[i] = agresivos[idx];
-            agresivos.RemoveAt(idx);
-        }
+        // Seleccionar los agresivos exactos y completar con no agresivos
+        var seleccionados = new List<GameObject>();
+        seleccionados.AddRange(agresivos.GetRange(0, config.cantidadAgresivos));
+        seleccionados.AddRange(noAgresivos.GetRange(0, config.cantidadTotalPersonajes - config.cantidadAgresivos));
 
-        // Completar con no agresivos y agresivos restantes
-        List<GameObject> combinados = new List<GameObject>(noAgresivos);
-        combinados.AddRange(agresivos);
+        // Mezclar selección final
+        Shuffle(seleccionados);
 
-        for (int i = minAgresivos; i < total; i++)
-        {
-            int idx = Random.Range(0, combinados.Count);
-            seleccionados[i] = combinados[idx];
-            combinados.RemoveAt(idx);
-        }
+        return seleccionados.ToArray();
+    }
 
-        // Mezclar para no tener siempre agresivos al principio
-        for (int i = 0; i < seleccionados.Length; i++)
-        {
-            int j = Random.Range(i, seleccionados.Length);
-            (seleccionados[i], seleccionados[j]) = (seleccionados[j], seleccionados[i]);
-        }
-
-        return seleccionados;
+    // Selección aleatoria simple
+    public GameObject[] SeleccionarPersonajesAleatorios(GameObject[] personajes, int cantidad)
+    {
+        var lista = new List<GameObject>(personajes);
+        Shuffle(lista);
+        return lista.GetRange(0, cantidad).ToArray();
     }
 }

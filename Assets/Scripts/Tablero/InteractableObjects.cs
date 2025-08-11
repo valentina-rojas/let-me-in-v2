@@ -45,15 +45,16 @@ public class InteractableObjects : MonoBehaviour
     }
 
 
-    public IEnumerator ActivarPapeles()
+  public IEnumerator ActivarPapeles()
     {
-
         papelesAnimator.SetTrigger("papelesFlip");
-        sonidoPapel.Play();
+        //    sonidoPapel.Play();
+        AudioManager.instance.sonidoPapelesMoviendose.Play();
         yield return new WaitForSeconds(2f);
-        sonidoPapel.Stop();
+        // sonidoPapel.Stop();
+        AudioManager.instance.sonidoPapelesMoviendose.Stop();
+        papelesAnimator.ResetTrigger("papelesFlip");  // Resetea el trigger
         papelesAnimator.SetTrigger("papelesIdle");
-
     }
 
 
@@ -62,15 +63,17 @@ public class InteractableObjects : MonoBehaviour
         StartCoroutine(ActivarPantalla());
     }
 
-    public IEnumerator ActivarPantalla()
+   public IEnumerator ActivarPantalla()
     {
-
         pantallaAnimator.SetTrigger("pantallaMove");
-        sonidoEstatica.Play();
+    // sonidoEstatica.Play();
+    AudioManager.instance.sonidoEstaticaRadio.Play();
         yield return new WaitForSeconds(2f);
-        sonidoEstatica.Stop();
+        //sonidoEstatica.Stop();
+        AudioManager.instance.sonidoEstaticaRadio.Stop();
+        pantallaAnimator.ResetTrigger("pantallaMove");  // Resetea el trigger
         pantallaAnimator.SetTrigger("pantallaIdle");
-
     }
+
 
 }
