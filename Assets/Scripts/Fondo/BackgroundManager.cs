@@ -7,8 +7,9 @@ public class BackgroundManager : MonoBehaviour
     public float velocidadMovimiento = 0.5f; 
     private Vector3 startPosition;
 
-    public GameObject capaNivel1;
-    public GameObject capaNivel2;
+    [Header("Fondos por nivel")]
+    public GameObject[] capasPorNivel;
+
     public GameObject capaCorteDeLuz; // Capa para el efecto de corte de luz
     public float tiempoParpadeo = 0.2f; // Tiempo de parpadeo en segundos
     public float duracionCorte = 3.0f; // Duración total del corte de luz
@@ -34,25 +35,20 @@ public class BackgroundManager : MonoBehaviour
         transform.position = startPosition + Vector3.right * nuevoPosX;
     }
 
+   
     void MostrarCapaPorNivel()
     {
-        if (GameData.NivelActual == 1)
+        // Ocultar todas
+        foreach (var capa in capasPorNivel)
         {
-            capaNivel1.SetActive(true);
-            capaNivel2.SetActive(false);
-          //  capaCorteDeLuz.SetActive(false); // Asegúrate de desactivar la capa de corte de luz
+            if (capa != null) capa.SetActive(false);
         }
-        else if (GameData.NivelActual == 2)
+
+        // Mostrar la que corresponde al nivel
+        int indice = GameData.NivelActual - 1;
+        if (indice >= 0 && indice < capasPorNivel.Length)
         {
-            capaNivel1.SetActive(false);
-            capaNivel2.SetActive(true);
-          //  capaCorteDeLuz.SetActive(false); // Asegúrate de desactivar la capa de corte de luz
-        }
-        else
-        {
-             capaNivel1.SetActive(true);
-            capaNivel2.SetActive(false);
-          //  capaCorteDeLuz.SetActive(false);
+            capasPorNivel[indice].SetActive(true);
         }
     }
 

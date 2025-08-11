@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 13afbb13c5024e14c813d3c8958d6df0
+guid: 5b7f96dcc117b1747a9d91e3bbcb253c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1001099235720422623
-    second: Personaje4_0
+      213: -3695188433780384523
+    second: Personaje13_0
+  - first:
+      213: -6576552478106267695
+    second: Personaje13_1
+  - first:
+      213: -5034563435508387642
+    second: Personaje13_2
+  - first:
+      213: -5259053209300134317
+    second: Personaje13_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Personaje4_0
+      name: Personaje13_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 175
-        height: 649
+        width: 636
+        height: 681
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1e5ad1bf3edbc242af8694869d555c6
-      internalID: 396413516
+      spriteID: aa436651b3f5a5b4fb6741519cee46f8
+      internalID: -637464453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje4_1
+      name: Personaje13_1
       rect:
         serializedVersion: 2
-        x: 175
+        x: 636
         y: 0
-        width: 175
-        height: 649
+        width: 636
+        height: 681
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +146,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c30b46c098bfb44aab5b9c9f495b7c6
-      internalID: 1875497449
+      spriteID: ed42428d2d028f24498d981d2ac98fd6
+      internalID: 1808499058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Personaje13_2
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 0
+        width: 636
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f4a66e5f76d23442a13485d4677bf25
+      internalID: 1568490208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Personaje13_3
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 0
+        width: 636
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c2fc51f0cf2f047961dd04ababddc0
+      internalID: 1945880537
       vertices: []
       indices: 
       edges: []
@@ -147,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0dcfbdac0109a0d4d96521d37278d210
+    spriteID: 0a02d079d8cdeef4bab8c9e0002bb28a
     internalID: 0
     vertices: []
     indices: 
@@ -157,8 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Personaje4_0: 396413516
-      Personaje4_1: 1875497449
+      Personaje13_0: -637464453
+      Personaje13_1: 1808499058
+      Personaje13_2: 1568490208
+      Personaje13_3: 1945880537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

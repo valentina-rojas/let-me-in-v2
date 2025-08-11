@@ -28,6 +28,10 @@ public class AggressiveNPCs : MonoBehaviour
     [Header("Vidrios Rotos")]
     public GameObject[] vidriosRotos;
 
+    [Header("Tiempo de reacción por nivel")]
+    [SerializeField] private float[] tiemposPorNivel = { 4f, 3f, 2f}; 
+
+
     [Header("Shake Settings")]
     public float shakeIntensity = 0.1f;
     public float shakeDuration = 3f;
@@ -98,13 +102,18 @@ public class AggressiveNPCs : MonoBehaviour
         if (cameraTransform != null)
             originalCameraPosition = cameraTransform.position;
 
-        // Ajustar tiempo base según nivel
-        tiempoBaseTemporizador = (GameManager.instance.NivelActual == 2) ? 3f : 5f;
+        // Ajustar tiempo base según el nivel actual
+        int nivel = GameManager.instance.NivelActual - 1; // -1 porque array empieza en 0
+        if (nivel >= 0 && nivel < tiemposPorNivel.Length)
+            tiempoBaseTemporizador = tiemposPorNivel[nivel];
+        else
+            tiempoBaseTemporizador = 5f; // valor por defecto si el nivel no está en el array
 
         timerText.gameObject.SetActive(false);
         PanelTimer.SetActive(false);
         PanelSeguridad.SetActive(false);
     }
+
 
     void ActualizarTextoTemporizador()
     {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    private float typingTime = 0.05f;
+    [SerializeField] private float typingTime = 0.02f;
     private bool isMouseOver = false;
     private bool didDialogueStart;
     private int lineIndex;
