@@ -892,19 +892,19 @@ MonoBehaviour:
   imagen: {fileID: 661922263}
   texto: {fileID: 843057781}
   imagenes:
-  - {fileID: 21300000, guid: ad6f5d53c390dc54b864fd63b23db544, type: 3}
-  - {fileID: 21300000, guid: 424565212c794dd48a67cfcb9046cb74, type: 3}
-  - {fileID: 21300000, guid: 00fffaa02e97b6c4e93e900eebcf7f4e, type: 3}
-  - {fileID: 21300000, guid: a0cf25c8dfac5f645a40f8aedd0fb70f, type: 3}
-  - {fileID: 21300000, guid: b6348d7c940b77b4395854ae08060502, type: 3}
-  - {fileID: 21300000, guid: bf1c11fac3ccf1f479822febe860665a, type: 3}
-  - {fileID: 21300000, guid: e3a7d351fc9f983438a0aea69d493c6a, type: 3}
-  - {fileID: 21300000, guid: cb00e4553bdfbd24782134894cadc97e, type: 3}
-  - {fileID: 21300000, guid: ad807441110db0d41b9876e0786fd3ac, type: 3}
-  - {fileID: 21300000, guid: b8cd47e4305cb2a40a6418e3d864ae03, type: 3}
-  - {fileID: 21300000, guid: 33d52396f1901c848a366d5307bd8cd2, type: 3}
+  - {fileID: -855298285791758126, guid: 2135153c0c1f1d94f92f528f3e9e9e9d, type: 3}
+  - {fileID: -612419766989305847, guid: f32013f39caff034d8ca451e4482010e, type: 3}
+  - {fileID: -5387105148290352533, guid: 3ffe1646f2f86864fa00d1b7bb0a975a, type: 3}
+  - {fileID: 6937817954938267909, guid: 180dd4518de443c459da44051c78cd69, type: 3}
+  - {fileID: -3273501429588526397, guid: 99c86f1a31fa6a2408c0414358a7ba60, type: 3}
+  - {fileID: 7236069225472774302, guid: 2e15bbe8813ebe84aa484d30bc2e66e7, type: 3}
+  - {fileID: -6470460504253458178, guid: 99ac928f1852fd44293ccf86c7ee3d48, type: 3}
+  - {fileID: 4707438995481929883, guid: 98e3c6fc4fc057d4faccf6d571463435, type: 3}
+  - {fileID: 1708745267818088716, guid: db3a68058c559ac47a07e71d95d9ff80, type: 3}
+  - {fileID: -4178046375966092550, guid: 1bc448b2d8348e94eb88af4172e8a5ba, type: 3}
+  - {fileID: 9039734442510824647, guid: 6ecde9734f329e646b08c76494f38bc3, type: 3}
   textos: []
-  duracionPorImagen: 2
+  duracionPorImagen: 3
   velocidadDeTipeo: 0.05
   musica: {fileID: 0}
   pantallaNegra: {fileID: 0}
