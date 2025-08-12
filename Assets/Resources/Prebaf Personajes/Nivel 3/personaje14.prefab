@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -637464453, guid: 5b7f96dcc117b1747a9d91e3bbcb253c, type: 3}
+  m_Sprite: {fileID: -2012888774, guid: f1fbbb8f297ee8d4db16dbd556c45d95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,11 +126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -637464453, guid: 5b7f96dcc117b1747a9d91e3bbcb253c, type: 3}
-  - {fileID: 1808499058, guid: 5b7f96dcc117b1747a9d91e3bbcb253c, type: 3}
-  - {fileID: 1568490208, guid: 5b7f96dcc117b1747a9d91e3bbcb253c, type: 3}
-  - {fileID: 1945880537, guid: 5b7f96dcc117b1747a9d91e3bbcb253c, type: 3}
-  sonidoAtaque: {fileID: 0}
+  - {fileID: -2012888774, guid: f1fbbb8f297ee8d4db16dbd556c45d95, type: 3}
+  - {fileID: -416817416, guid: f1fbbb8f297ee8d4db16dbd556c45d95, type: 3}
+  - {fileID: 228105471, guid: f1fbbb8f297ee8d4db16dbd556c45d95, type: 3}
+  sonidoAtaque: {fileID: 8300000, guid: 2b8239a3bae3a244faf2197fbb4652b4, type: 3}
 --- !u!114 &6526351236283791051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,9 +145,8 @@ MonoBehaviour:
   nombre: 
   estado: 0
   dialogosPersonaje:
-  - 
-  dialogosGuardia:
-  - "Buenas... \xBFPor qu\xE9 no me abr\xEDs de una vez?"
+  - "No quiero problemas\u2026"
+  dialogosGuardia: []
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 2573835153199593656}
@@ -166,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typingTime: 0.02
   medicoUsado: 0
   dialogosOmitidos: 0
   aggressiveNPCs: {fileID: 0}

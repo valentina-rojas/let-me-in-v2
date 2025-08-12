@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 987144293, guid: 5483a7549c8fda54093ea962373ba9c7, type: 3}
   - {fileID: -591173372, guid: 5483a7549c8fda54093ea962373ba9c7, type: 3}
   - {fileID: 2053021008, guid: 5483a7549c8fda54093ea962373ba9c7, type: 3}
-  sonidoAtaque: {fileID: 0}
+  sonidoAtaque: {fileID: 8300000, guid: ea8f462317e337b4a9e7b452f1ac37ac, type: 3}
 --- !u!114 &6526351236283791051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typingTime: 0.02
   medicoUsado: 0
+  dialogosOmitidos: 0
   aggressiveNPCs: {fileID: 0}
   dialoguePanelPersonaje: {fileID: 0}
   dialoguePanelGuardia: {fileID: 0}

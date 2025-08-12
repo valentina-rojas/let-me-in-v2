@@ -11786,6 +11786,7 @@ MonoBehaviour:
     - {fileID: 8815244945732204834, guid: 7da945001edda46428a864dcc054bf3a, type: 3}
     - {fileID: 8815244945732204834, guid: 49961938842c6294ca083b16441cddc7, type: 3}
     - {fileID: 2573835153199593656, guid: 56ce92414f2ceb64b9d24d7bc0d7f651, type: 3}
+    - {fileID: 2573835153199593656, guid: 4c684be02cbe50746bc0384920c0079f, type: 3}
 --- !u!1 &933161978
 GameObject:
   m_ObjectHideFlags: 0
@@ -24560,7 +24561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -859.99994, y: 318.33}
+  m_AnchoredPosition: {x: -860, y: 318.33}
   m_SizeDelta: {x: -1741.51, y: -636.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2023095411

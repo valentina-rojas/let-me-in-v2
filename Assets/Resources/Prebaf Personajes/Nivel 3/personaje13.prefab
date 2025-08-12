@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 1808499058, guid: 5b7f96dcc117b1747a9d91e3bbcb253c, type: 3}
   - {fileID: 1568490208, guid: 5b7f96dcc117b1747a9d91e3bbcb253c, type: 3}
   - {fileID: 1945880537, guid: 5b7f96dcc117b1747a9d91e3bbcb253c, type: 3}
-  sonidoAtaque: {fileID: 0}
+  sonidoAtaque: {fileID: 8300000, guid: 64209f10eb4784b4ea4b23f57be655e2, type: 3}
 --- !u!114 &6526351236283791051
 MonoBehaviour:
   m_ObjectHideFlags: 0
