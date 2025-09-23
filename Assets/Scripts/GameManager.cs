@@ -392,7 +392,7 @@ public class GameManager : MonoBehaviour
         if (NivelActual > niveles.Length)
         {
             Debug.Log("¡No hay más niveles! Fin del juego.");
-            reproducirCinematicas.CinematicaGanar();
+            SceneManager.LoadScene("CinematicaGanar");
             return;
         }
 

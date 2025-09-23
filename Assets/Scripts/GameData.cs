@@ -1,6 +1,6 @@
 public static class GameData
 {
-    private static int nivelActual = 3;
+    private static int nivelActual = 1;
     private static int faltas = 0;
     private static int dialogosOmitidos = 0;
     private static float tiempoTotal = 0f; 

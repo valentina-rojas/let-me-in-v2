@@ -1248,9 +1248,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1016879611}
-        m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
-        m_MethodName: ActivarPanelAnalytics
+      - m_Target: {fileID: 16351325}
+        m_TargetAssemblyTypeName: Services, Assembly-CSharp
+        m_MethodName: StartDataCollection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

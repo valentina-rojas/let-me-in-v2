@@ -124,9 +124,9 @@ MonoBehaviour:
   estado: 0
   dialogosPersonaje:
   - Abrime la puerta...
-  - "No puedo dejarlo pasar as\xED nom\xE1s, primero debo evaluar su estado."
-  dialogosGuardia:
   - "\xA1ABRIME LA PUERTA!"
+  dialogosGuardia:
+  - "No puedo dejarlo pasar as\xED nom\xE1s, primero debo evaluar su estado."
   respuestaIngreso: []
   respuestaRechazo: []
   prefab: {fileID: 1526593497047026833}
