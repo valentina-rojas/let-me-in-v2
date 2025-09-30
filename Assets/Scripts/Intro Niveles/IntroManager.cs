@@ -13,6 +13,12 @@ public class IntroManager : MonoBehaviour
     public GameObject controlPanel; // Panel del control remoto
     public GameObject tvPanel;      // Panel de la tele donde se muestran las noticias
 
+    [Header("TV Noticiero")]
+   [Header("Noticiero Animado")]
+public NoticieroAnim noticieroAnim; // script de la animación
+public AudioSource noticieroAudio;  // sonido del noticiero
+
+
     [Header("Overlay Día")]
     public GameObject overlayPanel;     // Panel negro que cubre todo
     public Image overlayBackground;     // Fondo negro del overlay
@@ -117,6 +123,14 @@ public class IntroManager : MonoBehaviour
         controlPanel.SetActive(false);
         isControlPanelActive = false;
 
+        // ▶️ Arrancar animación del noticiero
+        if (noticieroAnim != null)
+            noticieroAnim.PlayAnim();
+
+        // 🔊 Reproducir sonido del noticiero
+        if (noticieroAudio != null)
+            noticieroAudio.Play();
+
         string[] noticias = GetNoticiasPorDia(GameData.NivelActual);
         if (noticias != null && noticias.Length > 0)
         {
@@ -128,6 +142,8 @@ public class IntroManager : MonoBehaviour
             OnNoticiasTerminadas();
         }
     }
+
+
 
     private string[] GetNoticiasPorDia(int dia)
     {
@@ -142,6 +158,8 @@ public class IntroManager : MonoBehaviour
 
     private void OnNoticiasTerminadas()
     {
+          if (noticieroAudio != null)
+            noticieroAudio.Stop();
         tvPanel.SetActive(false);
         if (botonContinuar != null)
         {
