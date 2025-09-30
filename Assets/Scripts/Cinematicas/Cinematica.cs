@@ -145,7 +145,7 @@ public class Cinematica : MonoBehaviour
     {
         yield return StartCoroutine(FadeOutMusica());
         yield return StartCoroutine(FadeOutPantalla());
-        ChangeScene("Gameplay");
+        ChangeScene("IntroGameplay");
     }
 
 
