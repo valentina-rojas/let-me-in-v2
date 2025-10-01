@@ -1,35 +1,30 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class CharacterAttributes : MonoBehaviour
 {
-    public enum CharacterState
-    {
-        Sano,
-        Enfermo
-    }
+    public enum CharacterState { Sano, Enfermo }
 
     public string nombre;
     public CharacterState estado;
 
-    public List<string> dialogosPersonaje;
-    public List<string> dialogosGuardia;
+    [Header("Ink")]
+    public TextAsset inkJSON; // Archivo exportado a JSON desde Ink
 
-    public string[] respuestaIngreso;
-    public string[] respuestaRechazo;
+    [Header("Diálogos Ink")]
+    public string respuestaIngreso = "respuestaIngreso";  // Nodo Ink que se activa si lo aceptás
+    public string respuestaRechazo = "respuestaRechazo";  // Nodo Ink que se activa si lo rechazás
 
     public GameObject prefab;
     public bool esAgresivo;
 
     [HideInInspector] public Animator animator;
-    
-        void Awake()
+
+    void Awake()
     {
         animator = GetComponent<Animator>();
-        if(animator == null)
+        if (animator == null)
         {
             Debug.LogError($"Animator no encontrado en {gameObject.name}");
         }
     }
-
 }

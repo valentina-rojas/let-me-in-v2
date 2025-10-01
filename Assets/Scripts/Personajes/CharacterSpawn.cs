@@ -59,15 +59,21 @@ public class CharacterSpawn : MonoBehaviour
 
             CharacterAttributes atributos = currentCharacter.GetComponent<CharacterAttributes>();
             DialogueManager dialogueManager = currentCharacter.GetComponent<DialogueManager>();
+if (atributos != null && dialogueManager != null)
+{
+    // Asignar Ink JSON
+    dialogueManager.inkJSON = atributos.inkJSON;
+    dialogueManager.InicializarHistoria();
 
-            if (atributos != null)
-            {
-                GameManager.instance.EstablecerPersonajeActual(atributos);
-            }
-            else
-            {
-                Debug.LogError("El personaje instanciado no tiene CharacterAttributes.");
-            }
+    // Asignar referencias de UI desde UIManager
+    dialogueManager.dialoguePanel = GameManager.instance.uiManager.GetDialoguePanelPersonaje();
+    dialogueManager.dialogueText = GameManager.instance.uiManager.GetDialogueTextPersonaje();
+    dialogueManager.botonSiguiente = GameManager.instance.uiManager.GetBotonSiguientePersonaje();
+
+    // 🔥 Asignar los botones de opciones desde el UIManager
+    dialogueManager.optionButtons = GameManager.instance.uiManager.GetOptionButtons();
+}
+
 
             personajesRestantes--;
             GameManager.instance.uiManager.ActualizarContadorPersonas(personajesRestantes);

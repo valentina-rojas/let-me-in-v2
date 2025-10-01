@@ -1,390 +1,238 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
+using Ink.Runtime;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private float typingTime = 0.02f;
-    private bool isMouseOver = false;
-    private bool didDialogueStart;
-    private int lineIndex;
-    private bool hasInteracted = false;
-    private bool esDialogoRespuesta = false;
-    public bool medicoUsado = false;
+    [Header("Ink Story")]
+    public TextAsset inkJSON; // Story Ink
+    public Story currentStory;
 
-    public int dialogosOmitidos = 0;
+    [Header("UI")]
+    public GameObject dialoguePanel; // Panel principal
+    public TMP_Text dialogueText;    // Texto del diálogo
 
-    private string[] dialogueLines;
-    private string currentFullLine = ""; // NUEVO
-    private CharacterAttributes characterAttributes;
-    public AggressiveNPCs aggressiveNPCs;
-
+    [Header("Typing")]
+    public float typingTime = 0.02f;
     private Coroutine typingCoroutine;
-    private Coroutine blinkCoroutine;
     private bool isTyping = false;
+    private string currentFullLine = "";
 
-    [SerializeField] private GameObject dialoguePanelPersonaje;
-    [SerializeField] private GameObject dialoguePanelGuardia;
-    [SerializeField] private TMP_Text dialogueTextPersonaje;
-    [SerializeField] private TMP_Text dialogueTextGuardia;
-    [SerializeField] private Button botonSiguientePersonaje;
-    [SerializeField] private Button botonSiguienteGuardia;
+    [Header("Estado")]
+    public bool medicoUsado = false;  // Para CheckCondition.cs
+    private bool didDialogueStart = false;
+
+  
+    [Header("Opciones (Canvas)")]
+public List<Button> optionButtons; // Arrastrás los botones desde el Canvas
+
+
+    [Header("Botón Continuar")]
+    public Button botonSiguiente;
+
+    #region Singleton
+    public static DialogueManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Hay más de un DialogueManager en la escena");
+        }
+        instance = this;
+    }
+
+    public static DialogueManager GetInstance()
+    {
+        return instance;
+    }
+    #endregion
 
     private void Start()
     {
-        UIManager uiManager = FindFirstObjectByType<UIManager>();
+        dialoguePanel.SetActive(false);
 
-        if (uiManager != null)
+        if (botonSiguiente != null)
         {
-            dialoguePanelPersonaje = uiManager.GetDialoguePanelPersonaje();
-            dialoguePanelGuardia = uiManager.GetDialoguePanelGuardia();
-            dialogueTextPersonaje = uiManager.GetDialogueTextPersonaje();
-            dialogueTextGuardia = uiManager.GetDialogueTextGuardia();
-            botonSiguientePersonaje = uiManager.GetBotonSiguientePersonaje();
-            botonSiguienteGuardia = uiManager.GetBotonSiguienteGuardia();
+            botonSiguiente.onClick.AddListener(NextDialogueLine);
+            botonSiguiente.gameObject.SetActive(false);
         }
+    }
+
+    public void InicializarHistoria()
+    {
+        if (inkJSON != null)
+            currentStory = new Story(inkJSON.text);
         else
-        {
-            Debug.LogError("UIManager no encontrado en la escena.");
-        }
-
-        characterAttributes = GetComponent<CharacterAttributes>();
-
-        botonSiguienteGuardia.onClick.AddListener(NextDialogueLine);
-        botonSiguientePersonaje.onClick.AddListener(NextDialogueLine);
+            Debug.LogError("No se asignó Ink JSON al DialogueManager.");
     }
-
-    private void StartDialogue()
-    {
-        esDialogoRespuesta = false;
-        if (characterAttributes == null) return;
-
-        int cantidadGuardia = characterAttributes.dialogosGuardia.Count;
-        int cantidadPersonaje = characterAttributes.dialogosPersonaje.Count;
-
-        // Validar: el personaje debe tener exactamente una línea más
-        if (cantidadPersonaje != cantidadGuardia + 1)
-        {
-            Debug.LogError($"Cantidad incorrecta de líneas: Personaje = {cantidadPersonaje}, Guardia = {cantidadGuardia}. El personaje debe tener exactamente UNA más.");
-            return;
-        }
-
-        int totalLineas = cantidadPersonaje + cantidadGuardia; // Ej: 3 + 2 = 5
-        dialogueLines = new string[totalLineas];
-
-        int index = 0;
-        for (int i = 0; i < cantidadGuardia; i++)
-        {
-            dialogueLines[index++] = characterAttributes.dialogosPersonaje[i]; // personaje
-            dialogueLines[index++] = characterAttributes.dialogosGuardia[i];   // guardia
-        }
-
-        // Última línea del personaje (extra)
-        dialogueLines[index] = characterAttributes.dialogosPersonaje[cantidadPersonaje - 1];
-
-        didDialogueStart = true;
-        lineIndex = 0;
-
-        dialoguePanelGuardia.SetActive(false);
-        dialoguePanelPersonaje.SetActive(false);
-        botonSiguienteGuardia.gameObject.SetActive(false);
-        botonSiguientePersonaje.gameObject.SetActive(false);
-
-        typingCoroutine = StartCoroutine(ShowLine());
-    }
-
-
-    public void ComenzarDialogoRespuesta(string[] lineasRespuesta)
-    {
-        dialogueLines = lineasRespuesta;
-        lineIndex = 0;
-        didDialogueStart = true;
-        esDialogoRespuesta = true;
-
-        dialoguePanelGuardia.SetActive(false);
-        dialoguePanelPersonaje.SetActive(true); // El personaje habla
-        typingCoroutine = StartCoroutine(ShowLine());
-    }
-
-    private void Update()
-    {
-        if (didDialogueStart)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                NextDialogueLine();
-            }
-            else if (Input.GetKeyDown(KeyCode.Return))
-            {
-                OmitirDialogo();
-            }
-        }
-    }
-
-  public void NextDialogueLine()
-{
-    if (!didDialogueStart || dialogueLines == null) return;
-
-    if (isTyping)
-    {
-        StopCoroutine(typingCoroutine);
-        isTyping = false;
-
-          // Parar las voces al adelantar
-        AudioManager.instance.vozGuardia.Stop();
-        AudioManager.instance.vozPersonaje.Stop();
-
-        TMP_Text activeText;
-        Button activeButton;
-
-        if (esDialogoRespuesta)
-        {
-            activeText = dialogueTextPersonaje;
-            activeButton = botonSiguientePersonaje;
-        }
-        else
-        {
-            bool hablaGuardia = lineIndex % 2 != 0; // IMPAR = guardia
-            if (hablaGuardia)
-            {
-                activeText = dialogueTextGuardia;
-                activeButton = botonSiguienteGuardia;
-            }
-            else
-            {
-                activeText = dialogueTextPersonaje;
-                activeButton = botonSiguientePersonaje;
-            }
-        }
-
-        // Mostrar línea completa
-        activeText.text = currentFullLine;
-        activeButton.gameObject.SetActive(true);
- 
-        // 🔹 Iniciar cursor titilante incluso si se adelantó el texto
-        if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
-        blinkCoroutine = StartCoroutine(BlinkCursor(activeText, currentFullLine));
-
-        GameManager.instance.ReproducirAnimacionPestañar();
-  
-
-        return; // No avanzar aún
-    }
-
-    lineIndex++;
-
-    if (lineIndex < dialogueLines.Length)
-    {
-        typingCoroutine = StartCoroutine(ShowLine());
-    }
-    else
-    {
-
-
-        FinalizarDialogo();
-    }
-}
-
-    private IEnumerator ShowLine()
-    {
-        isTyping = true;
-        currentFullLine = dialogueLines[lineIndex];
-
-        TMP_Text activeText;
-        Button activeButton;
-
-        // Determinar quién habla y qué UI usar
-        if (esDialogoRespuesta)
-        {
-              // activar animación de hablar
-            GameManager.instance.ReproducirAnimacionHablar();
-
-            dialoguePanelGuardia.SetActive(false);
-            dialoguePanelPersonaje.SetActive(true);
-            dialogueTextPersonaje.text = "";
-            botonSiguientePersonaje.gameObject.SetActive(false);
-
-            activeText = dialogueTextPersonaje;
-            activeButton = botonSiguientePersonaje;
-
-               // Reproducir voz personaje
-            AudioManager.instance.vozGuardia.Stop();
-            AudioManager.instance.vozPersonaje.Play();
-        }
-        else
-        {
-            
-            bool hablaGuardia = lineIndex % 2 != 0;
-
-            if (hablaGuardia)
-            {
-                 // está hablando el guardia, entonces animación personaje debe ser pestañar
-                GameManager.instance.ReproducirAnimacionPestañar();
-
-                dialoguePanelGuardia.SetActive(true);
-                dialoguePanelPersonaje.SetActive(false);
-                dialogueTextGuardia.text = "";
-                botonSiguienteGuardia.gameObject.SetActive(false);
-
-                activeText = dialogueTextGuardia;
-                activeButton = botonSiguienteGuardia;
-
-                  // Reproducir voz guardia
-                AudioManager.instance.vozPersonaje.Stop();
-                AudioManager.instance.vozGuardia.Play();
-            }
-            else
-            {
-                   // Activar triggerTalk al empezar a hablar
-                 GameManager.instance.ReproducirAnimacionHablar();
-      
-                dialoguePanelPersonaje.SetActive(true);
-                dialoguePanelGuardia.SetActive(false);
-                dialogueTextPersonaje.text = "";
-                botonSiguientePersonaje.gameObject.SetActive(false);
-
-                activeText = dialogueTextPersonaje;
-                activeButton = botonSiguientePersonaje;
-
-                // Reproducir voz personaje
-                AudioManager.instance.vozGuardia.Stop();
-                AudioManager.instance.vozPersonaje.Play();
-            }
-        }
-
-        // 🔹 Mostrar texto letra por letra con cursor fijo "_"
-        foreach (char ch in currentFullLine)
-        {
-            activeText.text += ch + "_"; // agregar letra + cursor
-            yield return new WaitForSeconds(typingTime);
-
-            // quitar cursor antes de siguiente letra
-            activeText.text = activeText.text.TrimEnd('_');
-        }
-
-        // Texto final completo antes del cursor titilante
-        activeText.text = currentFullLine;
-
-         // Si la línea que terminó de escribirse es del personaje, ponemos animación pestañar
-        if (esDialogoRespuesta || (lineIndex % 2 == 0))
-        {
-            GameManager.instance.ReproducirAnimacionPestañar();
-        }
-               AudioManager.instance.vozGuardia.Stop();
-        AudioManager.instance.vozPersonaje.Stop();
-
-        isTyping = false;
-        activeButton.gameObject.SetActive(true);
-
-
-        // Iniciar parpadeo
-        if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
-        blinkCoroutine = StartCoroutine(BlinkCursor(activeText, currentFullLine));
-    }
-
-    private void FinalizarDialogo()
-    {
-        AudioManager.instance.vozGuardia.Stop();
-        AudioManager.instance.vozPersonaje.Stop();
-
-        didDialogueStart = false;
-        hasInteracted = true;
-
-        CharacterManager characterManager = FindObjectsByType<CharacterManager>(FindObjectsSortMode.None)[0];
-        if (characterManager != null && characterAttributes != null)
-        {
-            characterManager.AtenderPersonaje(characterAttributes);
-        }
-
-        if (!esDialogoRespuesta)
-        {
-            if (characterAttributes.esAgresivo)
-            {
-                AggressiveNPCs.instance.MostrarComportamientoAgresivo();
-            }
-            else
-            {
-                if (LeverController.instance != null)
-                {
-                    LeverController.instance.ActivarPalanca();
-
-                    if (!medicoUsado)
-                    {
-                        CheckCondition checkCondition = FindFirstObjectByType<CheckCondition>();
-                        if (checkCondition != null)
-                        {
-                            checkCondition.botonMedico.interactable = true;
-                        }
-                    }
-                }
-                else
-                {
-                    Debug.LogError("❌ LeverController.instance es null al finalizar diálogo");
-                }
-            }
-        }
-
-        dialoguePanelPersonaje.SetActive(false);
-        dialoguePanelGuardia.SetActive(false);
-    }
-
-
-
-    private IEnumerator BlinkCursor(TMP_Text activeText, string fullLine)
-    {
-        bool cursorVisible = true;
-        float lastTime = Time.time;
-
-        while (didDialogueStart && lineIndex < dialogueLines.Length && !isTyping)
-        {
-            if (Time.time - lastTime >= 0.5f)
-            {
-                cursorVisible = !cursorVisible;
-                lastTime = Time.time;
-            }
-
-            activeText.text = fullLine + (cursorVisible ? "_" : "");
-            yield return null;
-        }
-    }
-
 
     public void EnableDialogue()
     {
-        if (!hasInteracted)
-        {
-            isMouseOver = true;
-            StartDialogue();
-        }
+        if (currentStory == null) InicializarHistoria();
+        didDialogueStart = true;
+        ShowNextLine();
     }
 
-    public void OmitirDialogo()
+    public void ComenzarDialogoRespuesta(string nombreNodo)
     {
-        if (!didDialogueStart || dialogueLines == null) return;
+        if (currentStory == null) InicializarHistoria();
+        currentStory.ChoosePathString(nombreNodo);
+        didDialogueStart = true;
+        ShowNextLine();
+    }
 
-        if (!esDialogoRespuesta)
+    private void ShowNextLine()
+    {
+        ClearOptions();
+
+        if (botonSiguiente != null)
+            botonSiguiente.gameObject.SetActive(false);
+
+        // Si ya no queda texto, mostrar opciones o terminar diálogo
+        if (!currentStory.canContinue)
         {
-            dialogosOmitidos++;
-            GameManager.instance.dialogosOmitidos++;
-            Debug.Log("Diálogo inicial omitido");
+            ShowChoices();
+
+            if (currentStory.currentChoices.Count == 0)
+                FinalizarDialogo();
+
+            return;
         }
 
-        StopAllCoroutines();
+        // Mostrar la próxima línea
+        currentFullLine = currentStory.Continue().Trim();
+        dialoguePanel.SetActive(true);
+
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        typingCoroutine = StartCoroutine(TypeLine(currentFullLine));
+    }
+
+    private IEnumerator TypeLine(string line)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+
+        if (string.IsNullOrEmpty(line))
+        {
+            dialogueText.text = "";
+            isTyping = false;
+            if (botonSiguiente != null)
+                botonSiguiente.gameObject.SetActive(true);
+            yield break;
+        }
+
+        foreach (char c in line)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(typingTime);
+        }
+
         isTyping = false;
-        lineIndex = dialogueLines.Length;
 
-        // Volver a la animación de pestañar al omitir diálogo
-        GameManager.instance.ReproducirAnimacionPestañar();
+        if (botonSiguiente != null)
+            botonSiguiente.gameObject.SetActive(true);
+    }
 
-  // Reproducir voz personaje
-        AudioManager.instance.vozGuardia.Stop();
-        AudioManager.instance.vozPersonaje.Stop();
-        FinalizarDialogo();
+    public void NextDialogueLine()
+    {
+        if (isTyping)
+        {
+            dialogueText.text = currentFullLine;
+            isTyping = false;
+            if (botonSiguiente != null)
+                botonSiguiente.gameObject.SetActive(true);
+            return;
+        }
+
+        ShowNextLine();
     }
 
     public bool HaTerminadoElDialogo()
     {
         return !didDialogueStart;
     }
+
+    private void FinalizarDialogo()
+    {
+        didDialogueStart = false;
+        dialoguePanel.SetActive(false);
+        ClearOptions();
+    }
+
+    #region Opciones Ink
+ private void ShowChoices()
+{
+    Debug.Log("Entrando a ShowChoices");
+Debug.Log("optionButtons.Count = " + optionButtons.Count);
+for (int i = 0; i < optionButtons.Count; i++)
+{
+    Debug.Log("Botón en lista: " + optionButtons[i].name);
+}
+Debug.Log("currentStory.currentChoices.Count = " + currentStory.currentChoices.Count);
+
+    Debug.Log("Choices disponibles: " + currentStory.currentChoices.Count);
+
+    dialoguePanel.SetActive(true);
+
+    // Primero desactivo todos los botones
+    foreach (var btn in optionButtons)
+    {
+        btn.gameObject.SetActive(false);
+        btn.onClick.RemoveAllListeners();
+    }
+
+    // Activar solo los botones necesarios
+    for (int i = 0; i < currentStory.currentChoices.Count; i++)
+    {
+        if (i >= optionButtons.Count)
+        {
+            Debug.LogWarning("Más opciones que botones disponibles. Necesitas más botones en el Canvas.");
+            break; // evita ArgumentOutOfRangeException
+        }
+
+        Choice choice = currentStory.currentChoices[i];
+        Button btn = optionButtons[i];
+
+        btn.gameObject.SetActive(true);
+
+     TMP_Text txt = btn.GetComponentInChildren<TMP_Text>();
+if (txt != null)
+{
+    txt.text = choice.text;
+    Debug.Log($"Botón {btn.name} texto asignado: {txt.text}");
+}
+else
+{
+    Debug.LogWarning("No hay TMP_Text en el botón " + btn.name);
+}
+
+        Choice capturedChoice = choice;
+        btn.onClick.AddListener(() => OnClickChoice(capturedChoice));
+    }
+}
+
+
+
+    private void OnClickChoice(Choice choice)
+    {
+        currentStory.ChooseChoiceIndex(choice.index);
+        ShowNextLine();
+    }
+
+  private void ClearOptions()
+{
+    foreach (var btn in optionButtons)
+    {
+        btn.gameObject.SetActive(false);
+        btn.onClick.RemoveAllListeners();
+    }
+}
+
+    #endregion
 }

@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+
 using System;
 
 public class UIManager : MonoBehaviour
@@ -14,6 +16,14 @@ public class UIManager : MonoBehaviour
   [SerializeField] private TMP_Text dialogueTextGuardia;
   [SerializeField] private Button botonSiguientePersonaje;
   [SerializeField] private Button botonSiguienteGuardia;
+  [SerializeField] private Transform optionButtonParent;
+public Transform GetOptionButtonParent() => optionButtonParent;
+[SerializeField] private GameObject optionButtonPrefab;
+public GameObject GetOptionButtonPrefab() => optionButtonPrefab;
+
+[Header("Diálogo Opciones")]
+[SerializeField] private List<Button> optionButtons; 
+public List<Button> GetOptionButtons() => optionButtons;
 
   public GameObject GetDialoguePanelPersonaje() => dialoguePanelPersonaje;
   public GameObject GetDialoguePanelGuardia() => dialoguePanelGuardia;
