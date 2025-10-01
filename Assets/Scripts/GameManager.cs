@@ -397,7 +397,10 @@ public class GameManager : MonoBehaviour
         }
 
         // Si hay niveles, recargamos la escena para cargar el nuevo nivel
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Si hay niveles, primero pasamos por la escena de introducción
+        SceneTransition.instance.LoadScene("IntroGameplay");
+
+
     }
 
 
