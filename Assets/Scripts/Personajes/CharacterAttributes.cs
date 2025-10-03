@@ -7,24 +7,31 @@ public class CharacterAttributes : MonoBehaviour
     public string nombre;
     public CharacterState estado;
 
-    [Header("Ink")]
-    public TextAsset inkJSON; // Archivo exportado a JSON desde Ink
 
     [Header("Diálogos Ink")]
-    public string respuestaIngreso = "respuestaIngreso";  // Nodo Ink que se activa si lo aceptás
-    public string respuestaRechazo = "respuestaRechazo";  // Nodo Ink que se activa si lo rechazás
+    public string nodoInicial = "introduccion";        
+    public string respuestaIngreso = "respuestaIngreso";   
+    public string respuestaRechazo = "respuestaRechazo";   
+    public TextAsset inkJSON; // tu archivo Ink
 
     public GameObject prefab;
     public bool esAgresivo;
 
     [HideInInspector] public Animator animator;
 
-    void Awake()
-    {
-        animator = GetComponent<Animator>();
-        if (animator == null)
-        {
-            Debug.LogError($"Animator no encontrado en {gameObject.name}");
-        }
-    }
+   void Awake()
+{
+    animator = GetComponent<Animator>();
+    if (animator == null)
+        Debug.LogError($"Animator no encontrado en {gameObject.name}");
+
+    if (string.IsNullOrEmpty(nodoInicial))
+        nodoInicial = "introduccion";
+    if (string.IsNullOrEmpty(respuestaIngreso))
+        respuestaIngreso = "respuestaIngreso";
+    if (string.IsNullOrEmpty(respuestaRechazo))
+        respuestaRechazo = "respuestaRechazo";
+}
+
+    
 }

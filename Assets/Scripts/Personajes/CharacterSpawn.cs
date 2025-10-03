@@ -20,7 +20,6 @@ public class CharacterSpawn : MonoBehaviour
 
     public void AsignarPersonajesDelNivel(GameObject[] personajesDelNivel)
     {
-        // Clonamos la lista de prefabs para asegurarnos que no son objetos modificados
         characters = new GameObject[personajesDelNivel.Length];
         for (int i = 0; i < personajesDelNivel.Length; i++)
         {
@@ -45,11 +44,8 @@ public class CharacterSpawn : MonoBehaviour
         {
             GameObject candidate = characters[currentIndex];
 
-            // ⚠️ Asegurarse de que no haya otro personaje vivo
             if (personajeActualEnEscena != null)
-            {
                 Destroy(personajeActualEnEscena);
-            }
 
             GameObject currentCharacter = Instantiate(candidate, spawnPoint.position, Quaternion.identity);
             personajeActualEnEscena = currentCharacter;
@@ -58,35 +54,21 @@ public class CharacterSpawn : MonoBehaviour
             CharacterManager.instance.ResetearAtencion();
 
             CharacterAttributes atributos = currentCharacter.GetComponent<CharacterAttributes>();
-            DialogueManager dialogueManager = currentCharacter.GetComponent<DialogueManager>();
-if (atributos != null && dialogueManager != null)
-{
-    // Asignar Ink JSON
-    dialogueManager.inkJSON = atributos.inkJSON;
-    dialogueManager.InicializarHistoria();
 
-    // Asignar referencias de UI desde UIManager
-    dialogueManager.dialoguePanel = GameManager.instance.uiManager.GetDialoguePanelPersonaje();
-    dialogueManager.dialogueText = GameManager.instance.uiManager.GetDialogueTextPersonaje();
-    dialogueManager.botonSiguiente = GameManager.instance.uiManager.GetBotonSiguientePersonaje();
-
-    // 🔥 Asignar los botones de opciones desde el UIManager
-    dialogueManager.optionButtons = GameManager.instance.uiManager.GetOptionButtons();
-}
-
+            if (atributos != null)
+                GameManager.instance.EstablecerPersonajeActual(atributos);
 
             personajesRestantes--;
             GameManager.instance.uiManager.ActualizarContadorPersonas(personajesRestantes);
 
+            // Mover personaje hacia destino
             yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
 
+            // Esperar a que termine la interacción
             yield return new WaitUntil(() => interactionFinished);
 
             Destroy(currentCharacter);
-
-
             personajeActualEnEscena = null;
-
             currentIndex++;
 
             yield return new WaitForSeconds(2f);
@@ -98,7 +80,6 @@ if (atributos != null && dialogueManager != null)
             GameManager.instance.FinDeNivel();
         }
     }
-
 
     IEnumerator MoveCharacter(GameObject character, Vector3 targetPosition)
     {
@@ -115,24 +96,22 @@ if (atributos != null && dialogueManager != null)
 
         character.transform.position = targetPosition;
 
-        HabilitarDialogo();
+        // Mostrar diálogo inicial
+        HabilitarDialogoInicial();
     }
 
     public void EndInteraction()
     {
         if (!interactionFinished)
-        {
             StartCoroutine(MostrarDialogoDeResultado());
-        }
     }
 
     private IEnumerator MostrarDialogoDeResultado()
     {
-        DialogueManager dialogueManager = FindObjectOfType<CharacterAttributes>()?.gameObject.GetComponent<DialogueManager>();
+        DialogueManager dialogueManager = DialogueManager.instance;
 
         if (dialogueManager != null)
         {
-            //  dialogueManager.EmpezarDialogoResultado();
             yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
         }
         else
@@ -148,21 +127,31 @@ if (atributos != null && dialogueManager != null)
         interactionFinished = true;
     }
 
-    private void HabilitarDialogo()
+    // 🔹 Diálogo inicial
+private void HabilitarDialogoInicial()
+{
+    if (personajeActualEnEscena == null) return;
+
+    CharacterAttributes atributos = personajeActualEnEscena.GetComponent<CharacterAttributes>();
+    if (atributos == null) return;
+
+    // ⚠ Indicar que es diálogo inicial
+
+    DialogueManager.instance.IniciarDialogoDePersonaje(atributos, atributos.nodoInicial, false);
+}
+
+    // 🔹 Diálogo de respuesta (ingreso o rechazo)
+    public void HabilitarDialogoRespuesta(bool ingreso)
     {
-        DialogueManager dialogueManager = FindFirstObjectByType<DialogueManager>();
-        if (dialogueManager != null)
-        {
-            dialogueManager.EnableDialogue();
-            Debug.Log("Dialogue habilitado.");
+       if (personajeActualEnEscena == null) return;
 
-        }
-        else
-        {
-            Debug.LogError("DialogueManager no encontrado al habilitar diálogo.");
-        }
+    CharacterAttributes atributos = personajeActualEnEscena.GetComponent<CharacterAttributes>();
+    if (atributos == null) return;
+
+    string nodo = ingreso ? atributos.respuestaIngreso : atributos.respuestaRechazo;
+
+    DialogueManager.instance.IniciarDialogoDePersonaje(atributos, nodo, true);
     }
-
 
     public IEnumerator MoverPersonaje(GameObject personaje, Vector3 destino)
     {
@@ -189,7 +178,6 @@ if (atributos != null && dialogueManager != null)
         spawnActivo = false;
     }
 
-
     public GameObject GetCharacterActual()
     {
         return personajeActualEnEscena;
@@ -197,10 +185,6 @@ if (atributos != null && dialogueManager != null)
 
     public int GetCurrentIndex()
     {
-        return currentIndex + 1; // Devuelve el índice del personaje que actualmente está siendo evaluado
+        return currentIndex + 1; // Devuelve el índice del personaje actual
     }
-
-
-
 }
-

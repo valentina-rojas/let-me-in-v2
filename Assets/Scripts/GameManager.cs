@@ -149,6 +149,12 @@ public class GameManager : MonoBehaviour
         personajeGOActual = personaje.gameObject;
     }
 
+public void OnDialogoInicialTerminado()
+{
+    Debug.Log("✅ Diálogo inicial terminado, activando palanca");
+    LeverController.instance.ActivarPalanca();
+}
+
 
     public void OnBotonIngresoClick()
     {
@@ -160,59 +166,49 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ProcesoRechazo());
     }
 
-    private IEnumerator ProcesoIngreso()
-    {
-        checkCondition.DesactivarBotonMedico();
+ private IEnumerator ProcesoIngreso()
+{
+    checkCondition.DesactivarBotonMedico();
+    VerificarEstadoPersonaje(true);
+    personajeActual.animator.SetTrigger("reaccionIngreso");
 
-        VerificarEstadoPersonaje(true);
-        personajeActual.animator.SetTrigger("reaccionIngreso");
+    // DialogueManager global
+    DialogueManager dm = DialogueManager.instance;
+    dm.IniciarDialogoDePersonaje(personajeActual, personajeActual.respuestaIngreso, true);
 
-        DialogueManager dialogueManager = personajeActual.GetComponent<DialogueManager>();
-        dialogueManager.ComenzarDialogoRespuesta(personajeActual.respuestaIngreso);
+    yield return new WaitUntil(() => dm.HaTerminadoElDialogo());
 
-        yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
+    // Abrir puerta y mover personaje
+    yield return StartCoroutine(doorController.Abrir());
+    yield return StartCoroutine(characterSpawn.MoverPersonaje(personajeActual.gameObject, characterSpawn.exitPoint.position));
+    yield return StartCoroutine(doorController.Cerrar());
 
-        // Abrir puerta
-        yield return StartCoroutine(doorController.Abrir());
-
-        // Mover personaje adentro mientras la puerta está abierta
-        yield return StartCoroutine(characterSpawn.MoverPersonaje(personajeGOActual, characterSpawn.exitPoint.position));
-
-        // Cerrar puerta después de que el personaje terminó de entrar
-        yield return StartCoroutine(doorController.Cerrar());
-
-        if (personajeActual.estado == CharacterAttributes.CharacterState.Enfermo)
-        {
-            radioManager.ActivarDisturbios();
-        }
-        else
-        {
-            characterSpawn.FinalizarInteraccion();
-        }
-
-        stressBar.ActualizarEstres(1f);
-    }
-
-
-    private IEnumerator ProcesoRechazo()
-    {
-        checkCondition.DesactivarBotonMedico();
-
-        VerificarEstadoPersonaje(false);
-
-        personajeActual.animator.SetTrigger("reaccionRechazo");
-
-        DialogueManager dialogueManager = personajeActual.GetComponent<DialogueManager>();
-        dialogueManager.ComenzarDialogoRespuesta(personajeActual.respuestaRechazo);
-
-        yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
-
-        // Mover personaje de vuelta al punto de origen
-        yield return StartCoroutine(characterSpawn.MoverPersonaje(personajeGOActual, characterSpawn.spawnPoint.position));
-
+    if (personajeActual.estado == CharacterAttributes.CharacterState.Enfermo)
+        radioManager.ActivarDisturbios();
+    else
         characterSpawn.FinalizarInteraccion();
-        stressBar.ActualizarEstres(1f);
-    }
+
+    stressBar.ActualizarEstres(1f);
+}
+
+private IEnumerator ProcesoRechazo()
+{
+    checkCondition.DesactivarBotonMedico();
+    personajeActual.animator.SetTrigger("reaccionRechazo");
+
+    // DialogueManager global
+    DialogueManager dm = DialogueManager.instance;
+    dm.IniciarDialogoDePersonaje(personajeActual, personajeActual.respuestaRechazo, true);
+
+    yield return new WaitUntil(() => dm.HaTerminadoElDialogo());
+
+    VerificarEstadoPersonaje(false);
+    yield return StartCoroutine(characterSpawn.MoverPersonaje(personajeGOActual, characterSpawn.spawnPoint.position));
+    characterSpawn.FinalizarInteraccion();
+
+    stressBar.ActualizarEstres(1f);
+}
+
 
 
     public void VerificarEstadoPersonaje(bool esIngreso)

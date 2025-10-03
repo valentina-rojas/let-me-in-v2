@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5924786301812912919}
   - component: {fileID: 3318578525625107075}
   - component: {fileID: -5608050021660367087}
-  - component: {fileID: 8836428209215585862}
   m_Layer: 0
   m_Name: personaje1
   m_TagString: Untagged
@@ -126,31 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: chica tierra
   estado: 0
-  inkJSON: {fileID: 4900000, guid: 4faa461f842411341827faed9d1caf90, type: 3}
+  nodoInicial: 
   respuestaIngreso: 
   respuestaRechazo: 
+  inkJSON: {fileID: 4900000, guid: 4faa461f842411341827faed9d1caf90, type: 3}
   prefab: {fileID: 818472440953356866}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &8836428209215585862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818472440953356866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 4faa461f842411341827faed9d1caf90, type: 3}
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  typingTime: 0.02
-  medicoUsado: 0
-  optionButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  botonSiguiente: {fileID: 0}

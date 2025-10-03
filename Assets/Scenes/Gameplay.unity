@@ -12164,7 +12164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.935, y: -280.38}
+  m_AnchoredPosition: {x: 11.935, y: -335}
   m_SizeDelta: {x: 656.56, y: 64.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954014055
@@ -12418,7 +12418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.935, y: -364}
+  m_AnchoredPosition: {x: 11.935, y: -418.62}
   m_SizeDelta: {x: 656.56, y: 64.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &958372961
@@ -25391,7 +25391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.935, y: -440}
+  m_AnchoredPosition: {x: 11.935, y: -494.62}
   m_SizeDelta: {x: 656.56, y: 64.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973611204
@@ -26853,16 +26853,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 0}
   dialoguePanel: {fileID: 699868701}
   dialogueText: {fileID: 1687713437}
-  typingTime: 0.05
-  medicoUsado: 0
+  botonSiguiente: {fileID: 181519034}
   optionButtons:
   - {fileID: 954014055}
-  - {fileID: 0}
-  - {fileID: 0}
-  botonSiguiente: {fileID: 0}
+  - {fileID: 958372961}
+  - {fileID: 1973611204}
+  typingTime: 0.05
+  medicoUsado: 0
+  esDialogoRespuesta: 0
 --- !u!1 &2115129265
 GameObject:
   m_ObjectHideFlags: 0
