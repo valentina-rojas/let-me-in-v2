@@ -173,4 +173,9 @@ public class CheckCondition : MonoBehaviour
     {
         botonMedico.interactable = false;
     }
+
+        public void ActivarBotonMedico()
+    {
+        botonMedico.interactable = true;
+    }
 }

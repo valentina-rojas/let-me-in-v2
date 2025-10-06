@@ -23,8 +23,7 @@ public class DialogueManager : MonoBehaviour
     private bool didDialogueStart = false;
 
     [Header("Estado Médico")]
-public bool medicoUsado = false;
-
+    public bool medicoUsado = false;
 
     [Header("Personaje")]
     private CharacterAttributes personajeActual;
@@ -46,132 +45,102 @@ public bool medicoUsado = false;
     }
     #endregion
 
-  private void Start()
-{
-    if (dialoguePanel == null)
-        dialoguePanel = GameManager.instance.uiManager.GetDialoguePanelPersonaje();
+    private void Start()
+    {
+        if (dialoguePanel == null)
+            dialoguePanel = GameManager.instance.uiManager.GetDialoguePanelPersonaje();
 
-    if (dialogueText == null)
-        dialogueText = GameManager.instance.uiManager.GetDialogueTextPersonaje();
+        if (dialogueText == null)
+            dialogueText = GameManager.instance.uiManager.GetDialogueTextPersonaje();
 
-    if (botonSiguiente == null)
-        botonSiguiente = GameManager.instance.uiManager.GetBotonSiguientePersonaje();
+        if (botonSiguiente == null)
+            botonSiguiente = GameManager.instance.uiManager.GetBotonSiguientePersonaje();
 
-    optionButtons = GameManager.instance.uiManager.GetOptionButtons();
+        optionButtons = GameManager.instance.uiManager.GetOptionButtons();
 
-    dialoguePanel.SetActive(false);
-    if (botonSiguiente != null)
-        botonSiguiente.onClick.AddListener(NextDialogueLine);
-}
+        dialoguePanel.SetActive(false);
+        if (botonSiguiente != null)
+            botonSiguiente.onClick.AddListener(NextDialogueLine);
+    }
 
 
+    private void Update()
+    {
+        // Si hay un diálogo activo
+        if (didDialogueStart && Input.GetKeyDown(KeyCode.Return))
+        {
+            NextDialogueLine();
+        }
+    }
+    
     /// <summary>
     /// Inicia un diálogo de un personaje específico
     /// </summary>
-    /// 
- public void IniciarDialogoDePersonaje(CharacterAttributes personaje, string nodo, bool esRespuesta)
-{
-    Debug.Log("----- IniciarDialogoDePersonaje -----");
-
-    if (personaje == null)
+    public void IniciarDialogoDePersonaje(CharacterAttributes personaje, string nodo, bool esRespuesta)
     {
-        Debug.LogError("Personaje es null!");
-        return;
-    }
+        Debug.Log("----- IniciarDialogoDePersonaje -----");
 
-    if (personaje.inkJSON == null)
-    {
-        Debug.LogError($"Ink JSON no asignado en el personaje {personaje.nombre}");
-        return;
-    }
+        if (personaje == null)
+        {
+            Debug.LogError("Personaje es null!");
+            return;
+        }
 
-    personajeActual = personaje;
+        if (personaje.inkJSON == null)
+        {
+            Debug.LogError($"Ink JSON no asignado en el personaje {personaje.nombre}");
+            return;
+        }
+
+        personajeActual = personaje;
         esDialogoRespuesta = esRespuesta;
 
-    Debug.Log($"Personaje: {personaje.nombre}, nodo solicitado: {nodo}");
-    Debug.Log($"Longitud del JSON: {personaje.inkJSON.text.Length}");
-
-    try
-    {
-        currentStory = new Story(personaje.inkJSON.text);
-        Debug.Log("Story creado correctamente");
-    }
-    catch (System.Exception e)
-    {
-        Debug.LogError($"Error al crear Story: {e.Message}");
-        return;
-    }
-
-    // Intentar saltar al nodo deseado
-    try
-    {
-        currentStory.ChoosePathString(nodo);
-        Debug.Log($"Nodo '{nodo}' seleccionado correctamente");
-    }
-    catch (System.Exception e)
-    {
-        Debug.LogError($"No se pudo elegir el nodo '{nodo}' en {personaje.nombre}: {e.Message}");
-        return;
-    }
-
-    Debug.Log($"Puede continuar: {currentStory.canContinue}, Cantidad de opciones: {currentStory.currentChoices.Count}");
-
-    didDialogueStart = true;
-
-    // Asegurarse de que la UI esté asignada
-    if (dialoguePanel == null || dialogueText == null || botonSiguiente == null)
-    {
-        Debug.LogWarning("Alguna referencia de UI es null. Revisar asignaciones:");
-        Debug.Log($"dialoguePanel: {dialoguePanel}");
-        Debug.Log($"dialogueText: {dialogueText}");
-        Debug.Log($"botonSiguiente: {botonSiguiente}");
-    }
-
-    ShowNextLine();
-}
-
-private void ShowNextLine()
-{
-    if (currentStory == null)
-    {
-        Debug.LogError("currentStory es null en ShowNextLine");
-        return;
-    }
-
-    Debug.Log("----- ShowNextLine -----");
-    Debug.Log($"currentStory.canContinue: {currentStory.canContinue}, opciones: {currentStory.currentChoices.Count}");
-
-    ClearOptions();
-
-    if (botonSiguiente != null)
-        botonSiguiente.gameObject.SetActive(false);
-
-    if (!currentStory.canContinue)
-    {
-        Debug.Log("No hay más líneas, mostrando opciones si existen");
-        ShowChoices();
-
-        if (currentStory.currentChoices.Count == 0)
+        try
         {
-            Debug.Log("No hay opciones, finalizando diálogo");
-            FinalizarDialogo();
+            currentStory = new Story(personaje.inkJSON.text);
+            currentStory.ChoosePathString(nodo);
         }
-        return;
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error al crear o elegir nodo en Story: {e.Message}");
+            return;
+        }
+
+        didDialogueStart = true;
+        ShowNextLine();
     }
 
-    currentFullLine = currentStory.Continue().Trim();
-    Debug.Log($"Texto a mostrar: {currentFullLine}");
+    private void ShowNextLine()
+    {
+        if (currentStory == null)
+        {
+            Debug.LogError("currentStory es null en ShowNextLine");
+            return;
+        }
 
-    if (dialoguePanel != null)
+        ClearOptions();
+
+        if (botonSiguiente != null)
+            botonSiguiente.gameObject.SetActive(false);
+
+        if (!currentStory.canContinue)
+        {
+            ShowChoices();
+
+            if (currentStory.currentChoices.Count == 0)
+                FinalizarDialogo();
+
+            return;
+        }
+
+        currentFullLine = currentStory.Continue().Trim();
         dialoguePanel.SetActive(true);
-    else
-        Debug.LogWarning("dialoguePanel es null, no se mostrará texto");
 
-    if (typingCoroutine != null)
-        StopCoroutine(typingCoroutine);
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
 
-    typingCoroutine = StartCoroutine(TypeLine(currentFullLine));
-}
+        typingCoroutine = StartCoroutine(TypeLine(currentFullLine));
+    }
 
     private IEnumerator TypeLine(string line)
     {
@@ -250,33 +219,51 @@ private void ShowNextLine()
         }
     }
 
-  private void FinalizarDialogo()
-{
-    didDialogueStart = false;
-    dialoguePanel.SetActive(false);
-    ClearOptions();
-
-    if (!esDialogoRespuesta)
+    private void FinalizarDialogo()
     {
-          Debug.Log("dialogo inicial termiando");
-        // Esto significa que terminó el diálogo inicial
-        GameManager.instance.OnDialogoInicialTerminado();
-    }
-    else
-    {
-        // Diálogo de respuesta de personaje
-        CharacterManager.instance?.AtenderPersonaje(personajeActual);
-    }
+        didDialogueStart = false;
+        dialoguePanel.SetActive(false);
+        ClearOptions();
 
-    esDialogoRespuesta = false;
-}
+        // 🟢 Si es el diálogo inicial (no respuesta)
+        if (!esDialogoRespuesta)
+        {
+            Debug.Log("Diálogo inicial terminado");
 
+            // Si el personaje es agresivo → comportamiento agresivo
+            if (personajeActual != null && personajeActual.esAgresivo)
+            {
+                Debug.Log($"Personaje {personajeActual.nombre} es agresivo → ejecutando comportamiento.");
+                AggressiveNPCs.instance?.MostrarComportamientoAgresivo();
+            }
+            else
+            {
+                // Si no es agresivo, se habilita la palanca
+                GameManager.instance.OnDialogoInicialTerminado();
+
+                // Habilitar botón médico si no fue usado
+                if (!medicoUsado)
+                {
+                    CheckCondition checkCondition = FindFirstObjectByType<CheckCondition>();
+                    if (checkCondition != null && checkCondition.botonMedico != null)
+                    {
+                        checkCondition.botonMedico.interactable = true;
+                        Debug.Log("Botón médico habilitado (no fue usado aún)");
+                    }
+                }
+            }
+        }
+        else
+        {
+            // Diálogo de respuesta de personaje
+            CharacterManager.instance?.AtenderPersonaje(personajeActual);
+        }
+
+        esDialogoRespuesta = false;
+    }
 
     public bool HaTerminadoElDialogo()
     {
         return !didDialogueStart;
     }
-
-
-    
 }
