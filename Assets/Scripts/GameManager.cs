@@ -388,14 +388,17 @@ private IEnumerator ProcesoRechazo()
         if (NivelActual > niveles.Length)
         {
             Debug.Log("¡No hay más niveles! Fin del juego.");
+
+            // Reiniciamos el nivel
+        NivelActual = 1;
+            GameData.NivelActual = NivelActual;
+
             SceneManager.LoadScene("CinematicaGanar");
             return;
         }
 
-        // Si hay niveles, recargamos la escena para cargar el nuevo nivel
         // Si hay niveles, primero pasamos por la escena de introducción
         SceneTransition.instance.LoadScene("IntroGameplay");
-
 
     }
 
