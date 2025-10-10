@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 749390993056989860}
   - component: {fileID: -8974165852856268888}
   - component: {fileID: -7179072897936286710}
-  - component: {fileID: 4008901422655197504}
   m_Layer: 0
   m_Name: Personaje5
   m_TagString: Untagged
@@ -126,44 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 1
-  dialogosPersonaje:
-  - "\xA1No te preocupes! Estoy limpio por dentro y por fuera\u2026 me com\xED una
-    barra entera antes de venir \xA1No hay virus que sobreviva!"
-  - "Me llamo El\xEDas Lavanda. Vengo por refugio... y si tienen jab\xF3n l\xEDquido
-    mejor. \xA1Es m\xE1s f\xE1cil de tragar!"
-  - "\xA1Ja! Eso es lo que ellos quieren que creas, yo llevo seis meses comiendo
-    jab\xF3n y todav\xEDa no estornud\xE9 ni una sola vez. "
-  - "Improvisar, ya estoy entrenando el paladar con detergente de lim\xF3n. Es picante,
-    pero uno se acostumbra\u2026"
-  dialogosGuardia:
-  - "Nombre y motivo de ingreso al b\xFAnker."
-  - "\xBFEst\xE1 al tanto de que comer jab\xF3n no lo hace inmune al virus?"
-  - "\xBFY qu\xE9 piensa hacer si se termina el jab\xF3n ac\xE1 adentro?"
-  respuestaIngreso:
-  - "Gracias, espero que ac\xE1 haya buenos productos de limpieza\u2026"
-  respuestaRechazo:
-  - Bueno, de todos modos estoy protegido
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 4900000, guid: 4b02060bce199264a90a887ebe64afea, type: 3}
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &4008901422655197504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  dialogosOmitidos: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

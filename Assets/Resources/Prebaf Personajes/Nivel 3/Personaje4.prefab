@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 749390993056989860}
   - component: {fileID: -8974165852856268888}
   - component: {fileID: -7179072897936286710}
-  - component: {fileID: 4008901422655197504}
   m_Layer: 0
   m_Name: Personaje4
   m_TagString: Untagged
@@ -126,45 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje:
-  - "\xA1Ojo con el techo, que el peinado es fr\xE1gil! \xA1Y caro!"
-  - "Claro que s\xED. Soy Mauro. Estoy ac\xE1 abajo. \xA1Siga el jopo!"
-  - "Es mi orgullo. \xBFSab\xEDa que me salv\xF3 de un murci\xE9lago volador una
-    vez? Se enred\xF3 y no pudo salir."
-  - "Altura moral y presencia est\xE9tica. Si hay que buscar cosas debajo de estanter\xEDas
-    o colarse por ductos, yo soy el hombre. Peque\xF1o, pero \xFAtil."
-  - Nada. Este jopo no se cae ni con viento viral. Estoy sano, estilizado y con movilidad
-    reducida en ascensores.
-  dialogosGuardia:
-  - "\xBFHola...? \xBFHay alguien ah\xED?"
-  - "No lo ve\xEDa... \xBFY ese peinado?"
-  - "\xBFY qu\xE9 trae para aportar al b\xFAnker?"
-  - "\xBFS\xEDntomas de virus? \xBFFiebre, sarpullido, ca\xEDda de jopo?"
-  respuestaIngreso:
-  - "Gracias, como pod\xE9s ver no voy a ocupar mucho espacio."
-  respuestaRechazo:
-  - "No pasa nada, ya voy a encontrar alg\xFAn ducto por el cual ingresar."
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 4900000, guid: 6e92989202bdebe48abb3767adbed7e5, type: 3}
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &4008901422655197504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  dialogosOmitidos: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

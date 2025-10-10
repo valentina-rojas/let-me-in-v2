@@ -63,19 +63,19 @@ public class DialogueManager : MonoBehaviour
             botonSiguiente.onClick.AddListener(NextDialogueLine);
     }
 
-
     private void Update()
     {
-        // Si hay un diálogo activo
-        if (didDialogueStart && Input.GetKeyDown(KeyCode.Return))
+        // 🔹 Omitir diálogo completo con ENTER
+        if (didDialogueStart && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
-            NextDialogueLine();
+            Debug.Log("Omitiendo diálogo con Enter...");
+            if (typingCoroutine != null)
+                StopCoroutine(typingCoroutine); // Detener el tipeo si está activo
+
+            FinalizarDialogo();
         }
     }
-    
-    /// <summary>
-    /// Inicia un diálogo de un personaje específico
-    /// </summary>
+
     public void IniciarDialogoDePersonaje(CharacterAttributes personaje, string nodo, bool esRespuesta)
     {
         Debug.Log("----- IniciarDialogoDePersonaje -----");
@@ -225,12 +225,10 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         ClearOptions();
 
-        // 🟢 Si es el diálogo inicial (no respuesta)
         if (!esDialogoRespuesta)
         {
             Debug.Log("Diálogo inicial terminado");
 
-            // Si el personaje es agresivo → comportamiento agresivo
             if (personajeActual != null && personajeActual.esAgresivo)
             {
                 Debug.Log($"Personaje {personajeActual.nombre} es agresivo → ejecutando comportamiento.");
@@ -238,10 +236,8 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                // Si no es agresivo, se habilita la palanca
                 GameManager.instance.OnDialogoInicialTerminado();
 
-                // Habilitar botón médico si no fue usado
                 if (!medicoUsado)
                 {
                     CheckCondition checkCondition = FindFirstObjectByType<CheckCondition>();
@@ -255,7 +251,6 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // Diálogo de respuesta de personaje
             CharacterManager.instance?.AtenderPersonaje(personajeActual);
         }
 

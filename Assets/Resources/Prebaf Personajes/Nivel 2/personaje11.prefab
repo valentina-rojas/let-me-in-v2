@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -3546844803121751816}
   - component: {fileID: -1877018726829793190}
   - component: {fileID: -5228572090515400796}
-  - component: {fileID: 454158835361200238}
   m_Layer: 0
   m_Name: personaje11
   m_TagString: Untagged
@@ -126,42 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje:
-  - Hola, necesito entrar ya mismo.
-  - Si no te enteraste estamos en medio de una pandemia, estoy tomando las precauciones
-    necesarias.
-  - Para que el gobierno no me lave el cerebro con las ondas que emiten.
-  - "Yo no me lo pienso quitar \xBFacaso quiere que me contagie? Seguro est\xE1 trabajando
-    para ellos\u2026"
-  dialogosGuardia:
-  - "\xBFDe d\xF3nde viene disfrazado as\xED?"
-  - "\xBFPuede explicarme por qu\xE9 los ajos y el colador?"
-  - "No puedo dejarlo ingresar con todos esos elementos\u2026 Adem\xE1s no puedo
-    ver si presenta alg\xFAn s\xEDntoma."
-  respuestaIngreso:
-  - Gracias pero no me pienso sacar nada...
-  respuestaRechazo:
-  - "\xBFY ahora donde voy a conseguir mas ajos?"
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 4900000, guid: 86e1f8d398ffec64fb792cb1fe9ae272, type: 3}
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &454158835361200238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573835153199593656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -4738251190505921109}
   - component: {fileID: 4200140164961324582}
   - component: {fileID: 5882285405581584187}
-  - component: {fileID: 107467877607290448}
   m_Layer: 0
   m_Name: personaje17
   m_TagString: Untagged
@@ -126,41 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje:
-  - "Hola, \xBFc\xF3mo est\xE1s?"
-  - Ah, esto, traigo algo de comida casera para ofrecerle a todos, no se si tienen
-    alimentos en el bunker.
-  - "\xA1Por supuesto! utilice guantes, barbijo y desinfecte todo."
-  - "Porque vivo sola y no se como va a avanzar esto, prefiero estar en un lugar
-    donde haya atenci\xF3n m\xE9dica."
-  dialogosGuardia:
-  - "\xBFDe d\xF3nde viene con esa bandeja?"
-  - "\xBFTom\xF3 las precauciones necesarias en su cocina?"
-  - "\xBFPor qu\xE9 decidi\xF3 venir en lugar de quedarse en su casa?"
-  respuestaIngreso:
-  - "\xA1Que Dios lo bendiga!"
-  respuestaRechazo:
-  - "Una verguenza esta atenci\xF3n... ustedes se pierden de mis tartas"
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 4900000, guid: ee35541492f703643b5cd299d1a99685, type: 3}
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &107467877607290448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573835153199593656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}
