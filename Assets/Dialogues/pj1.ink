@@ -1,28 +1,28 @@
 -> introduccion
 
 === introduccion ===
-Hola guardia... llevo horas esperando.
+Hola... llevo horas esperando.
 + [¿Estuvo en contacto con otras personas?]
     -> contactoPersonas
-+ [¿Qué pasó en el camino?]
++ [¿Por qué está cubierta de tierra?]
     -> lluviaCamino
 
 === contactoPersonas ===
 No, no me crucé con nadie en el camino.
 + [¿Seguro que nadie más estuvo cerca?]
-    —Sí, estoy segura, no vi a nadie.
+    Sí, estoy segura, no vi a nadie.
     -> END
 + [¿Se siente bien de salud?]
-    —Sí, solo estoy cansada y hambrienta.
+    Sí, solo estoy cansada y hambrienta.
     -> END
 
 === lluviaCamino ===
-Me agarró la lluvia y me perdí entre los caminos de tierra.
-+ [Vaya, eso suena agotador.]
-    —Sí, solo quiero un lugar para limpiar y descansar.
+Me agarró la lluvia en el camino y me perdí.
++ [¿Cómo puedo saber que no me está mintiendo?]
+    Mire mi piel, no tengo ningún síntoma solo necesito una ducha.
     -> END
-+ [No puedo ayudarle ahora.]
-    —De acuerdo, seguiré caminando.
++ [No puedo realizar un diagnóstico por el estado en que se encuentra.]
+    Mire mi piel, no tengo ningún síntoma solo necesito una ducha.
     -> END
 
 === respuestaIngreso ===

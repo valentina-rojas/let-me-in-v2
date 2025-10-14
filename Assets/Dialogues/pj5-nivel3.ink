@@ -18,10 +18,10 @@
 Me llamo Elías Lavanda. Vengo por refugio... y si tienen jabón líquido mejor. ¡Es más fácil de tragar!
 
 + [Gracias por la información, pero debo verificar su estado de salud.]
-    —No hay problema, estoy sano y limpio como una patena.
+    No hay problema, estoy sano y limpio como una patena.
     -> END
 + [Solo podemos dejar ingresar a quienes sigan las normas del búnker.]
-    —¡Normas aburridas! Pero lo entiendo, igual quiero entrar.
+    ¡Normas aburridas! Pero lo entiendo, igual quiero entrar.
     -> END
 -> END
 
@@ -30,10 +30,10 @@ Me llamo Elías Lavanda. Vengo por refugio... y si tienen jabón líquido mejor.
 ¡Ja! Eso es lo que ellos quieren que creas, yo llevo seis meses comiendo jabón y todavía no estornudé ni una sola vez.
 
 + [Eso no garantiza nada, podría estar enfermo.]
-    —No estoy enfermo, lo juro. Mis ojos rojos son por alergia al detergente, no virus.
+    No estoy enfermo, lo juro. Mis ojos rojos son por alergia al detergente, no virus.
     -> END
 + [Debo negar el ingreso hasta que se haga un chequeo.]
-    —Ugh, siempre arruinando la diversión. Bueno, igual quiero entrar.
+    Ugh, siempre arruinando la diversión. Bueno, igual quiero entrar.
     -> END
 -> END
 
@@ -42,10 +42,10 @@ Me llamo Elías Lavanda. Vengo por refugio... y si tienen jabón líquido mejor.
 Improvisar, ya estoy entrenando el paladar con detergente de limón. Es picante, pero uno se acostumbra…
 
 + [No podemos permitir que consuma productos peligrosos dentro del búnker.]
-    —Tranquilo, solo planeo sobrevivir con estilo.
+    Tranquilo, solo planeo sobrevivir con estilo.
     -> END
 + [Entonces no puedo dejarlo entrar sin supervisión.]
-    —Bah, siempre tan estrictos. Está bien, pero igual voy a entrar.
+    Bah, siempre tan estrictos. Está bien, pero igual voy a entrar.
     -> END
 -> END
 
