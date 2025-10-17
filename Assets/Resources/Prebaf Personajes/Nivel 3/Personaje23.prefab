@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 749390993056989860}
   - component: {fileID: -8974165852856268888}
   - component: {fileID: -7179072897936286710}
-  - component: {fileID: 4008901422655197504}
   m_Layer: 0
-  m_Name: Personaje11
+  m_Name: Personaje23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 124313034, guid: 4223e79d29bb72840a233c3883678294, type: 3}
+  m_Sprite: {fileID: -426622682, guid: 2edf4151e304fa041b9f721cc0a8d581, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.46, y: 5.76}
+  m_Size: {x: 2.77, y: 6.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 8815244945732204834}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4fc79d427abd8024b8d5ad1a2f0719fc, type: 2}
+  m_Controller: {fileID: 9100000, guid: de22a617b4bd0ab4d8a310b6629b1da9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -126,33 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 1
-  dialogosPersonaje: []
-  dialogosGuardia: []
-  respuestaIngreso:
-  - Gracias, muy amable.
-  respuestaRechazo:
-  - Entiendo, disculpe las molestias.
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 0}
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &4008901422655197504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  dialogosOmitidos: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

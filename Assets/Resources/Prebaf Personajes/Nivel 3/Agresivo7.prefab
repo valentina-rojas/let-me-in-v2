@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8815244945732204834
+--- !u!1 &2573835153199593656
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 968385620184321854}
-  - component: {fileID: 749390993056989860}
-  - component: {fileID: -8974165852856268888}
-  - component: {fileID: -7179072897936286710}
-  - component: {fileID: 4008901422655197504}
+  - component: {fileID: 4317224641792226605}
+  - component: {fileID: 3855188853794756804}
+  - component: {fileID: 8615239520480928263}
+  - component: {fileID: 8284677401596660594}
+  - component: {fileID: 6526351236283791051}
   m_Layer: 0
-  m_Name: Personaje1
+  m_Name: Agresivo7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &968385620184321854
+--- !u!4 &4317224641792226605
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
+  m_GameObject: {fileID: 2573835153199593656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5941708, y: -0.24748436, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &749390993056989860
+--- !u!212 &3855188853794756804
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
+  m_GameObject: {fileID: 2573835153199593656}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,28 +79,28 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1811163231, guid: e1879ee34f08dd347af8cf3c992a7b16, type: 3}
+  m_Sprite: {fileID: -2012888774, guid: f1fbbb8f297ee8d4db16dbd556c45d95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.86, y: 6.55415}
+  m_Size: {x: 10.990933, y: 6.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &-8974165852856268888
+--- !u!95 &8615239520480928263
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
+  m_GameObject: {fileID: 2573835153199593656}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7712f0ae426edf4439838c8d779e29ba, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -112,58 +112,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7179072897936286710
+--- !u!114 &8284677401596660594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
+  m_GameObject: {fileID: 2573835153199593656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f721f2114bb15f042b8878a5fd291cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -2012888774, guid: f1fbbb8f297ee8d4db16dbd556c45d95, type: 3}
+  - {fileID: -416817416, guid: f1fbbb8f297ee8d4db16dbd556c45d95, type: 3}
+  - {fileID: 228105471, guid: f1fbbb8f297ee8d4db16dbd556c45d95, type: 3}
+  sonidoAtaque: {fileID: 8300000, guid: 2b8239a3bae3a244faf2197fbb4652b4, type: 3}
+--- !u!114 &6526351236283791051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573835153199593656}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b22f950f1f4cc641b6d516b6f2a5f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 1
-  dialogosPersonaje:
-  - "\xA1Atenci\xF3n! Aca llega la leyenda viva y su s\xE9quito de genios. \xBFD\xF3nde
-    est\xE1 nuestro trono? O sea, el refugio VIP. "
-  - "Mis fieles compa\xF1eros de gloria. El baterista que hace temblar la tierra,
-    y el bajista que\u2026 bueno, el bajista est\xE1 por ah\xED."
-  - "Siempre juntos, como la familia disfuncional que somos. Nos mantenemos fuertes\u2026
-    y con estilo."
-  - "S\xEDntomas de grandeza, no virus. Y contagiar, solo contagiar nuestra m\xFAsica\u2026
-    aunque m\xE1s de uno termin\xF3 tap\xE1ndose los o\xEDdos."
-  dialogosGuardia:
-  - "Buen d\xEDa\u2026 \xBFY esos de atr\xE1s qui\xE9nes son?"
-  - "\xBFDurante la pandemia estuvieron juntos o se separaron?"
-  - "\xBFAlguno present\xF3 s\xEDntomas o contagi\xF3 a alguien?"
-  respuestaIngreso:
-  - "Este refugio tendr\xE1 el privilegio de tenernos."
-  respuestaRechazo:
-  - "Bueno\u2026 \xBFde casualidad no vi\xF3 a nuestro guitarrista?"
-  prefab: {fileID: 8815244945732204834}
-  esAgresivo: 0
+  estado: 0
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 0}
+  prefab: {fileID: 2573835153199593656}
+  esAgresivo: 1
   animator: {fileID: 0}
---- !u!114 &4008901422655197504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  dialogosOmitidos: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

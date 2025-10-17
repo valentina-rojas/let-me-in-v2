@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 749390993056989860}
   - component: {fileID: -8974165852856268888}
   - component: {fileID: -7179072897936286710}
-  - component: {fileID: 4008901422655197504}
   m_Layer: 0
-  m_Name: Personaje10
+  m_Name: Personaje27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -118670830, guid: 406e4e24d77561f45b219ff603a525c7, type: 3}
+  m_Sprite: {fileID: -28754802, guid: 0f7d645c35b396040a6e5a9cb9a4a6ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.95, y: 5.95}
+  m_Size: {x: 3.99, y: 5.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 8815244945732204834}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 76bb587c2ea42ca4cb3d4506d687d59e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 48304cca2133fc44d9f0977530c02035, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -126,41 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje:
-  - "Dale, hac\xE9 lo tuyo. Preguntame. Total, ya s\xE9 que me vas a dejar afuera."
-  - "Tengo s\xEDntomas de vivir en esta sociedad podrida, \xBFeso cuenta?"
-  - "Porque afuera hay gente. Y adentro tambi\xE9n, lamentablemente. Pero al menos
-    adentro hay paredes. Y menos optimismo."
-  - "No hablo con nadie desde 2009. As\xED me mantengo sano. Y l\xFAcido."
-  dialogosGuardia:
-  - "\xBFTen\xE9s s\xEDntomas del virus?"
-  - "\xBFPor qu\xE9 quer\xE9s entrar al b\xFAnker?"
-  - "\xBFAlguien puede dar fe de tu estado de salud?"
-  respuestaIngreso:
-  - "\xBFQu\xE9 esperas? \xBFQue te d\xE9 las gracias?"
-  respuestaRechazo:
-  - "No esperaba menos, nuestra sociedad est\xE1 perdida."
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 0}
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &4008901422655197504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  dialogosOmitidos: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

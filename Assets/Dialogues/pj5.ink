@@ -1,4 +1,5 @@
 -> introduccion
+
 === introduccion ===
 Hola, ¡buen día!
 + [¿De dónde viene?]
@@ -38,8 +39,10 @@ Es mi alergia, estos cambios de clima me están matando…
     -> END
 
 === gatos ===
-Los dejé con mi tía… sí, eso.
--> END
+¿Eh? ¿Qué gatos...? Ah, sí, eso... los dejé con mi tía.
++ [Pensé que vivía sola.]
+    Eh... sí, sola, pero... a veces mi tía me da una mano. Cuando no está enferma.
+    -> END
 
 === respuestaIngreso ===
 ¡Muchas gracias!
@@ -48,5 +51,3 @@ Los dejé con mi tía… sí, eso.
 === respuestaRechazo ===
 Si me enfermo y me muero, bancate el cargo de conciencia...
 -> END
-
-

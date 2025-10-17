@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -364765984888436376}
   - component: {fileID: 8362106567351246128}
   - component: {fileID: -4481418055834775596}
-  - component: {fileID: -8653164359913991610}
   m_Layer: 0
   m_Name: personaje18
   m_TagString: Untagged
@@ -126,41 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje:
-  - "Hola hermano\u2026"
-  - "Estuve en el campo haciendo meditaciones, cuando volv\xED me encontr\xE9 con
-    que hab\xEDa una pandemia."
-  - Solo mis amigos de la comunidad en el campo, estuve meditando con ellos.
-  - Ellos siguieron viajando porque no creen en el virus pero yo me asuste y me acerque
-    al primer refugio que vi.
-  dialogosGuardia:
-  - "\xBFD\xF3nde estuvo estos \xFAltimos d\xEDas?"
-  - "\xBFSe cruz\xF3 con otras personas en el camino?"
-  - "\xBFD\xF3nde est\xE1n sus amigos en este momento?"
-  respuestaIngreso:
-  - Gracias hermano... te envio buenas vibras...
-  respuestaRechazo:
-  - Bueno.. quizas es un reto del universo...
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 0}
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &-8653164359913991610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573835153199593656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

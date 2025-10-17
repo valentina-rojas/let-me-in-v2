@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8974165852856268888}
   - component: {fileID: -7179072897936286710}
   m_Layer: 0
-  m_Name: Personaje4
+  m_Name: Personaje30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 396413516, guid: 13afbb13c5024e14c813d3c8958d6df0, type: 3}
+  m_Sprite: {fileID: -118670830, guid: 406e4e24d77561f45b219ff603a525c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.75, y: 6.49}
+  m_Size: {x: 3.95, y: 5.95}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 8815244945732204834}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b7500f5fa01f19344a4ca52f95ad9daa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 76bb587c2ea42ca4cb3d4506d687d59e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   nodoInicial: introduccion
   respuestaIngreso: 
   respuestaRechazo: 
-  inkJSON: {fileID: 4900000, guid: 6e92989202bdebe48abb3767adbed7e5, type: 3}
+  inkJSON: {fileID: 0}
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}

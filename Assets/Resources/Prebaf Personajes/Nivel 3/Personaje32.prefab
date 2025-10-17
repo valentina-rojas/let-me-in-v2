@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 749390993056989860}
   - component: {fileID: -8974165852856268888}
   - component: {fileID: -7179072897936286710}
-  - component: {fileID: 4008901422655197504}
   m_Layer: 0
-  m_Name: Personaje9
+  m_Name: Personaje32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1944088826, guid: d98b9a7122537254eaef2c92e29f3aa0, type: 3}
+  m_Sprite: {fileID: -955829377, guid: 27b6e956cc3ea494c8ffa0da9805851e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.92, y: 4.74}
+  m_Size: {x: 7, y: 6.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 8815244945732204834}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 98ece3a80bf1e4f47a0f32a964c7f9b3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 415c67b1bb2cb6445972e1559e9c4608, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -126,44 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
-  dialogosPersonaje:
-  - Hey... eh... vine porque dijeron que... era obligatorio o algo...
-  - "No, estoy as\xED siempre. Es mi tono de piel. Me da alergia la luz natural...
-    y la interacci\xF3n humana."
-  - No... creo Estornudo solo cuando me obligan a salir de mi cuarto.
-  - "No quiero. Pero se cay\xF3 Internet en casa. Y tipo... si no entro, no puedo
-    terminar mi fanfic sobre vampiros."
-  dialogosGuardia:
-  - "\xBFEst\xE1s bien? Parec\xE9s... un poquito descompuesto."
-  - "\xBFTen\xE9s s\xEDntomas del virus?"
-  - "\xBFPor qu\xE9 quer\xE9s entrar al b\xFAnker?"
-  respuestaIngreso:
-  - "\xBFTe gustan los vampiros? Puedo pasarte un adelanto del cap\xEDtulo nuevo
-    que estoy escribiendo."
-  respuestaRechazo:
-  - "No sabes con qui\xE9n te met\xE9s, tengo m\xE1s de diez mil seguidores, te voy
-    a funar. "
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 0}
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &4008901422655197504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  dialogosOmitidos: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

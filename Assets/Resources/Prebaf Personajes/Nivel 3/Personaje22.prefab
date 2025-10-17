@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 749390993056989860}
   - component: {fileID: -8974165852856268888}
   - component: {fileID: -7179072897936286710}
-  - component: {fileID: 4008901422655197504}
   m_Layer: 0
-  m_Name: Personaje3
+  m_Name: Personaje22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -426622682, guid: 2edf4151e304fa041b9f721cc0a8d581, type: 3}
+  m_Sprite: {fileID: -50931207, guid: 8c4585180d95f6d46906e57c5ce49dda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.77, y: 6.7}
+  m_Size: {x: 3.45, y: 6.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 8815244945732204834}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: de22a617b4bd0ab4d8a310b6629b1da9, type: 2}
+  m_Controller: {fileID: 9100000, guid: e437cdc44c4bed749b58583b419a74b6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -126,43 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 1
-  dialogosPersonaje:
-  - "Hola\u2026 me llamo Mateo. Busco un lugar para descansar. Mi mami est\xE1 enferma
-    y no est\xE1 aca\u2026"
-  - "S\xED\u2026 pero no estoy asustado. Mi peluche me cuida, dice que soy valiente."
-  - "Un poquito de tos\u2026 pero mi peluche dice que no es contagiosa. Tambi\xE9n
-    me duele la panza a veces."
-  - "No\u2026 solo con el perro del vecino. Pero \xE9l no se enferm\xF3, dice mi
-    peluche que es fuerte como un superh\xE9roe."
-  dialogosGuardia:
-  - "\xBFEstuviste solo mucho tiempo?"
-  - "\xBFTienes fiebre o tos?"
-  - "\xBFEstuvo en contacto con otras personas?"
-  respuestaIngreso:
-  - Gracias guardia, prometo portarme bien.
-  respuestaRechazo:
-  - "Por favor, solo me queda mi peluche, tengo mucho fr\xEDo y hambre."
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 0}
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &4008901422655197504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  dialogosOmitidos: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

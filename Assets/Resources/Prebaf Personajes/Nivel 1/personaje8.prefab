@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -7999235277004019517}
   - component: {fileID: 673217065591606473}
   - component: {fileID: 7067977713102289759}
-  - component: {fileID: 5364876087710194974}
   m_Layer: 0
   m_Name: personaje8
   m_TagString: Untagged
@@ -126,45 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 1
-  dialogosPersonaje:
-  - Hola.
-  - "Desde mi casa, desde que empez\xF3 la pandemia estoy trabajando desde ah\xED."
-  - "No en persona, solo a trav\xE9s de mis compa\xF1eros por videollamada."
-  - "Nada de eso, solo tos y cansancio, debe ser por el estr\xE9s."
-  - "Una vez, para retirar unos documentos, pero entr\xE9 y sal\xED r\xE1pidamente
-    para no cruzarme con nadie."
-  - "Si, el \xFAnico que me enferma es mi jefe, no tengo ning\xFAn s\xEDntoma del
-    virus."
-  dialogosGuardia:
-  - "\xBFDe d\xF3nde viene?"
-  - "\xBFEstuvo en contacto con otra gente?"
-  - "\xBFPresent\xF3 s\xEDntomas como picaz\xF3n o sarpullido?"
-  - "\xBFTuvo que ir a la oficina recientemente?"
-  - "\xBFEst\xE1 segura que su malestar se debe al estr\xE9s?"
-  respuestaIngreso:
-  - Por fin voy a tener una excusa para dejar de trabajar un rato...
-  respuestaRechazo:
-  - No me hagas volver a trabajar...
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 0}
   prefab: {fileID: 4534030318338212612}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &5364876087710194974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4534030318338212612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

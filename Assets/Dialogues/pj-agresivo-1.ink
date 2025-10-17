@@ -30,12 +30,3 @@
     ...Tsk... ya me las vas a pagar.
     -> END
 -> END
-
-
-=== respuestaIngreso ===
-Por fin... era hora.
--> END
-
-=== respuestaRechazo ===
-¡Esto no va a quedar así!
--> END

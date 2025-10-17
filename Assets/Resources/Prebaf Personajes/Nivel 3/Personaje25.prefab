@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 749390993056989860}
   - component: {fileID: -8974165852856268888}
   - component: {fileID: -7179072897936286710}
-  - component: {fileID: 4008901422655197504}
   m_Layer: 0
-  m_Name: Personaje6
+  m_Name: Personaje25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 856942781, guid: 9e9139fe6099f0545bd1e3045a2707c0, type: 3}
+  m_Sprite: {fileID: 1238869966, guid: 48e3c88f365fdaa49b20a7589fb13d62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.77, y: 6.87}
+  m_Size: {x: 5.6919146, y: 6.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 8815244945732204834}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 87e15b3174c15b9418a4bf7af6b4128a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 116286e07c0950d46ba13800af61acc2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -125,45 +124,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: 
-  estado: 0
-  dialogosPersonaje:
-  - "\xA1Oh, noble guardia! \xBFNo ves acaso en mis movimientos la se\xF1al de que
-    estoy sano?"
-  - "Soy artista del cuerpo, mensajero de la est\xE9tica, sobreviviente sin manchas\u2026
-    al menos f\xEDsicas. Busco refugio, y un p\xFAblico m\xE1s receptivo."
-  - "Delirio, quiz\xE1s\u2026 pero est\xE9tico. Tos, no. Fiebre, s\xF3lo si el aplauso
-    es muy caliente."
-  - "Porque en tiempos oscuros, el andar com\xFAn no basta. Soy arte en movimiento\u2026
-    \xA1y el arte no estornuda!"
-  dialogosGuardia:
-  - "\xBFMotivo de ingreso al b\xFAnker? Por favor, en posici\xF3n neutral."
-  - "\xBFEst\xE1 presentando s\xEDntomas? \xBFTos, fiebre, delirio\u2026?"
-  - "\xBFPor qu\xE9 no camina como una persona normal?"
-  respuestaIngreso:
-  - No se van a arrepentir, vine a este lugar a contagiar ESTILO.
-  respuestaRechazo:
-  - "Bien, el destino decidi\xF3 \xA1soy luz, salud y BRILLO!"
+  estado: 1
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 4900000, guid: 4b02060bce199264a90a887ebe64afea, type: 3}
   prefab: {fileID: 8815244945732204834}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &4008901422655197504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815244945732204834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  dialogosOmitidos: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}

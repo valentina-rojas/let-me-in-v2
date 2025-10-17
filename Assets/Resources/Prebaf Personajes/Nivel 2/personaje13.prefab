@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3364204569135443719}
   - component: {fileID: -2838985015713041746}
   - component: {fileID: 979100119707909433}
-  - component: {fileID: 5873258809139073602}
   m_Layer: 0
   m_Name: personaje13
   m_TagString: Untagged
@@ -126,41 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 1
-  dialogosPersonaje:
-  - Buenas, vengo con mi hijo.
-  - De mi casa, estamos preocupados por el virus.
-  - "Yo tuve que salir para buscar comida y mi hijo se qued\xF3 en casa jugando en
-    la compu, solo tuve contacto con el kiosquero."
-  - "Mi hijo est\xE1 sano, por favor, d\xE9jenos entrar, no puedo dejarlo solo."
-  dialogosGuardia:
-  - "\xBFDe d\xF3nde vienen?"
-  - "\xBFAlguno de los dos sali\xF3 de casa o se reuni\xF3 con otras personas?"
-  - "Usted presenta todos los s\xEDntomas visibles de un infectado, no voy a poder
-    dejarlos pasar."
-  respuestaIngreso:
-  - Gracias por darnos una oportunidad
-  respuestaRechazo:
-  - "Nadie piensa en el bienestar de los ni\xF1os..."
+  nodoInicial: introduccion
+  respuestaIngreso: 
+  respuestaRechazo: 
+  inkJSON: {fileID: 0}
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}
---- !u!114 &5873258809139073602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573835153199593656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8b613401539034bb043181f75c9354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicoUsado: 0
-  aggressiveNPCs: {fileID: 0}
-  dialoguePanelPersonaje: {fileID: 0}
-  dialoguePanelGuardia: {fileID: 0}
-  dialogueTextPersonaje: {fileID: 0}
-  dialogueTextGuardia: {fileID: 0}
-  botonSiguientePersonaje: {fileID: 0}
-  botonSiguienteGuardia: {fileID: 0}
