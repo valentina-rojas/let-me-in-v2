@@ -11,7 +11,7 @@ public class CinematicaInteractiva : MonoBehaviour
     public GameObject panelMailExpandido;
     public GameObject scrollViewMail;
     public GameObject panelTextoMinisterio;
-    public CanvasGroup panelFade; 
+    public CanvasGroup panelFade;
 
     [Header("Botones")]
     [SerializeField] private Button botonPopup;
@@ -19,15 +19,15 @@ public class CinematicaInteractiva : MonoBehaviour
     [SerializeField] private Button botonResponder;
     [SerializeField] private Button botonOpcion1;
     [SerializeField] private Button botonOpcion2;
-    [SerializeField] private Button botonFinal; 
+    [SerializeField] private Button botonFinal;
 
     [Header("Textos")]
     public TMP_Text textoJugador;
     public TMP_Text textoMinisterio;
 
     [Header("Configuración")]
-    public float typingSpeed = 0.03f;
-    public string proximaEscena = "EscenaSiguiente"; 
+    public float typingSpeed = 0.003f;
+    public string proximaEscena = "EscenaSiguiente";
     public float fadeDuration = 1.5f;
 
     private int etapaActual = 1;
@@ -37,7 +37,7 @@ public class CinematicaInteractiva : MonoBehaviour
         botonPopup.onClick.AddListener(AbrirPopUps);
         botonExpandirMail.onClick.AddListener(ExpandirMails);
         botonResponder.onClick.AddListener(MostrarOpciones);
-        botonFinal.onClick.AddListener(FinalizarCinematica); 
+        botonFinal.onClick.AddListener(FinalizarCinematica);
 
         botonOpcion1.onClick.AddListener(() => SeleccionarRespuesta(1));
         botonOpcion2.onClick.AddListener(() => SeleccionarRespuesta(2));
@@ -72,7 +72,7 @@ public class CinematicaInteractiva : MonoBehaviour
         {
             case 1:
                 ActivarBotones(
-                    "Hola, buenas noches. No tengo conocimiento de ningún familiar con ese apellido...",
+                    "Buenas noches. No tengo conocimiento de ningún familiar con ese apellido...",
                     "¿Podrían darme más información?"
                 );
                 break;
@@ -130,32 +130,30 @@ public class CinematicaInteractiva : MonoBehaviour
         string[] jugador = ObtenerLineasJugador(etapa, opcion);
         string[] ministerio = ObtenerLineasMinisterio(etapa, opcion);
 
+        // Mostrar instantáneamente las líneas del jugador
         foreach (string linea in jugador)
         {
-            yield return StartCoroutine(TipearLinea(textoJugador, linea));
-            yield return new WaitForSeconds(0.2f);
+            textoJugador.text += linea + "\n";
         }
 
+        // Pequeña pausa para naturalidad
         yield return new WaitForSeconds(0.4f);
 
+        // Tipear respuesta del ministerio
         foreach (string linea in ministerio)
         {
             yield return StartCoroutine(TipearLinea(textoMinisterio, linea));
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
-
-        yield return new WaitForSeconds(0.4f);
 
         etapaActual++;
 
-        // Si hay más etapas → mostrar opciones
         if (etapaActual <= 4)
         {
             MostrarOpciones();
         }
         else
         {
-            // 👇 Si terminó el diálogo final del ministerio
             botonFinal.gameObject.SetActive(true);
         }
     }
@@ -170,7 +168,6 @@ public class CinematicaInteractiva : MonoBehaviour
         campoTexto.text += "\n";
     }
 
-    // ========= FINAL ========= //
     private void FinalizarCinematica()
     {
         botonFinal.gameObject.SetActive(false);
@@ -179,7 +176,6 @@ public class CinematicaInteractiva : MonoBehaviour
 
     private IEnumerator FadeOutYCambiarEscena()
     {
-        // Cerrar panel del mail expandido
         panelMailExpandido.SetActive(false);
 
         if (panelFade != null)
@@ -205,7 +201,7 @@ public class CinematicaInteractiva : MonoBehaviour
                 if (opcion == 1)
                     return new string[]
                     {
-                        "Jugador: Hola, buenas noches. No tengo conocimiento de ningún familiar con ese apellido...",
+                        "Jugador: Buenas noches. No tengo conocimiento de ningún familiar con ese apellido...",
                         "Jugador: ¿Podrían darme más información?"
                     };
                 else

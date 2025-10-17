@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay.unity
     guid: 6ed379769ca54cc42bccac41eab364fe
   - enabled: 1
+    path: Assets/Scenes/CinInteractiva.unity
+    guid: 71956c828659b16409456a57c4dc9c93
+  - enabled: 1
     path: Assets/Scenes/Cinematica.unity
     guid: a885f3216732ca44e9c73af6eaa24250
   - enabled: 1

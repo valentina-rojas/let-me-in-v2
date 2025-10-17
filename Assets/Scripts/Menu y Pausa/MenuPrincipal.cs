@@ -59,7 +59,7 @@ public class MenuPrincipal : MonoBehaviour
     public void IniciarJuego()
     {
         sonidoCerrar.Play();
-        ChangeScene("Cinematica");
+        ChangeScene("CinInteractiva");
     }
 
     public void ChangeScene(string name)
