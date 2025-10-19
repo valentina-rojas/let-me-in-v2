@@ -125,6 +125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: chica tierra
   estado: 0
+  lupaDefault: {fileID: 4757337107568733868, guid: 1a1e6226e4bc40648a19cf7828a3a885, type: 3}
+  lupaOjos: {fileID: -2891514447592173815, guid: 4ab989eb0de61524a8b7219b40aeb96e, type: 3}
+  lupaBoca: {fileID: -2574999018637723787, guid: dc0d1d415cb02df48abf20d9d30c16de, type: 3}
+  lupaCuello: {fileID: -5383858975649504105, guid: f94c60543bba6bf4cbae0fb96c4f712b, type: 3}
+  lupaEspalda: {fileID: -5117307608052877151, guid: 488f205db468b2e408cc7e65efb932ba, type: 3}
   nodoInicial: 
   respuestaIngreso: 
   respuestaRechazo: 

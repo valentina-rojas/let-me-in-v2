@@ -247,8 +247,16 @@ public class DialogueManager : MonoBehaviour
                         Debug.Log("Botón médico habilitado (no fue usado aún)");
                     }
                 }
+
+                // Habilitar el botón de la lupa
+                LupaInteractiva lupaInteractiva = FindFirstObjectByType<LupaInteractiva>();
+                if (lupaInteractiva != null && lupaInteractiva.botonAbrirLupa != null)
+                {
+                    lupaInteractiva.botonAbrirLupa.interactable = true;
+                    Debug.Log("Botón de la lupa habilitado al finalizar el diálogo.");
+                }
+                }
             }
-        }
         else
         {
             CharacterManager.instance?.AtenderPersonaje(personajeActual);

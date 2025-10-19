@@ -7,6 +7,12 @@ public class CharacterAttributes : MonoBehaviour
     public string nombre;
     public CharacterState estado;
 
+    [Header("Sprites Lupa")]
+    public Sprite lupaDefault;   
+    public Sprite lupaOjos;
+    public Sprite lupaBoca;
+    public Sprite lupaCuello;
+    public Sprite lupaEspalda;
 
     [Header("Diálogos Ink")]
     public string nodoInicial = "introduccion";        

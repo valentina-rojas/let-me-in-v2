@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public DoorController doorController;
     public RadioManager radioManager;
     public CheckCondition checkCondition;
+    public LupaInteractiva lupaInteractiva;
     public CharacterSelector characterSelector;
     public ReproducirCinematicas reproducirCinematicas;
 
@@ -169,6 +170,7 @@ public void OnDialogoInicialTerminado()
  private IEnumerator ProcesoIngreso()
 {
     checkCondition.DesactivarBotonMedico();
+    lupaInteractiva.DesactivarBotonLupa();
     VerificarEstadoPersonaje(true);
     personajeActual.animator.SetTrigger("reaccionIngreso");
 
@@ -194,6 +196,8 @@ public void OnDialogoInicialTerminado()
 private IEnumerator ProcesoRechazo()
 {
     checkCondition.DesactivarBotonMedico();
+    lupaInteractiva.DesactivarBotonLupa();
+    
     personajeActual.animator.SetTrigger("reaccionRechazo");
 
     // DialogueManager global
