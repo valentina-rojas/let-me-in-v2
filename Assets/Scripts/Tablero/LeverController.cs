@@ -10,6 +10,8 @@ public class LeverController : MonoBehaviour, IPointerDownHandler, IDragHandler,
     public Sprite palancaNeutral;
     public Sprite palancaDerecha;
     public Sprite palancaIzquierda;
+    public Sprite palancaDeshabilitada;  
+
 
     private Vector2 startPointerPosition;
     private bool isDragged = false;
@@ -47,6 +49,8 @@ public class LeverController : MonoBehaviour, IPointerDownHandler, IDragHandler,
             Debug.LogError("❌ palancaSprite no asignado en el Inspector.");
             return;
         }
+
+        palancaSprite.sprite = palancaNeutral;
 
         palancaSprite.raycastTarget = true;
         Debug.Log("✅ Palanca activada (raycastTarget = true)");
@@ -97,8 +101,9 @@ public class LeverController : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     public void OnPointerUp(PointerEventData eventData)
     {
+
         isDragged = false;
-        palancaSprite.sprite = palancaNeutral; // Regresar la palanca a su sprite neutral
+        palancaSprite.sprite = palancaDeshabilitada; // Regresar la palanca a su sprite neutral
         decisionMade = false; // Resetea la decisión al soltar la palanca
     }
 }

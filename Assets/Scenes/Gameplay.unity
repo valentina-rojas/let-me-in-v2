@@ -9570,7 +9570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 841604515, guid: d4152610d8ec1024baf6947a17c0643c, type: 3}
+  m_Sprite: {fileID: 1528601247, guid: 0e7a429ec0a70304ebb0e2e3f1f310d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9633,8 +9633,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   palancaSprite: {fileID: 762865231}
   palancaNeutral: {fileID: 841604515, guid: d4152610d8ec1024baf6947a17c0643c, type: 3}
-  palancaDerecha: {fileID: 2023165513, guid: d4152610d8ec1024baf6947a17c0643c, type: 3}
-  palancaIzquierda: {fileID: -207845232, guid: d4152610d8ec1024baf6947a17c0643c, type: 3}
+  palancaDerecha: {fileID: -78828802, guid: 0e7a429ec0a70304ebb0e2e3f1f310d7, type: 3}
+  palancaIzquierda: {fileID: 1185189565, guid: 0e7a429ec0a70304ebb0e2e3f1f310d7, type: 3}
+  palancaDeshabilitada: {fileID: 1528601247, guid: 0e7a429ec0a70304ebb0e2e3f1f310d7, type: 3}
 --- !u!1 &779819319
 GameObject:
   m_ObjectHideFlags: 0
@@ -13235,9 +13236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   palancaSprite: {fileID: 762865231}
-  palancaNeutral: {fileID: -658453586, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
-  palancaDerecha: {fileID: 1437710906, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
-  palancaIzquierda: {fileID: 619707018, guid: 799a0b3b5cb23d24182fa7351251c4d6, type: 3}
+  palancaNeutral: {fileID: 841604515, guid: d4152610d8ec1024baf6947a17c0643c, type: 3}
+  palancaDerecha: {fileID: -78828802, guid: 0e7a429ec0a70304ebb0e2e3f1f310d7, type: 3}
+  palancaIzquierda: {fileID: 1185189565, guid: 0e7a429ec0a70304ebb0e2e3f1f310d7, type: 3}
+  palancaDeshabilitada: {fileID: 1528601247, guid: 0e7a429ec0a70304ebb0e2e3f1f310d7, type: 3}
 --- !u!1 &1049359670
 GameObject:
   m_ObjectHideFlags: 0
