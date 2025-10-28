@@ -15,12 +15,8 @@
 === saludo ===
 Claro que sí. Soy Mauro. Estoy acá abajo. ¡Siga el jopo!
 
-+ [Encantado, Mauro. Vamos a verificar su estado.]
-    —No se preocupe, estoy sano y listo para colaborar.
-    -> END
-+ [Está bien, pero necesito hacer unas preguntas.]
-    —Adelante, dispará. Pero cuidado con el jopo.
-    -> END
++ [¿Qué hace peinado así?]
+     -> peinado
 -> END
 
 
@@ -28,10 +24,10 @@ Claro que sí. Soy Mauro. Estoy acá abajo. ¡Siga el jopo!
 Es mi orgullo. ¿Sabía que me salvó de un murciélago volador una vez? Se enredó y no pudo salir.
 
 + [Vaya, impresionante...]
-    —Gracias, no todos los días un peinado salva vidas.
+    Gracias, no todos los días un peinado salva vidas.
     -> END
 + [Deberíamos revisar su salud antes de dejarlo entrar.]
-    —No hace falta, estoy sano y estilizado.
+    No hace falta, estoy sano y estilizado.
     -> END
 -> END
 
@@ -39,14 +35,8 @@ Es mi orgullo. ¿Sabía que me salvó de un murciélago volador una vez? Se enre
 === aporte ===
 Altura moral y presencia estética. Si hay que buscar cosas debajo de estanterías o colarse por ductos, yo soy el hombre. Pequeño, pero útil.
 
-+ [Perfecto, necesitamos gente así.]
-    —Me alegra ser de ayuda, aunque no ocupo mucho espacio.
-    -> END
 + [Solo puedo dejar entrar a quienes cumplan las normas de seguridad.]
-    —Tranquilo, igual voy a encontrar algún ducto por el cual ingresar.
-    -> END
-+ [Está bien, pero vigilemos que no dañe nada.]
-    —No se preocupe, tengo cuidado.
+    De todas maneras siempre encuentro la forma de entrar...
     -> END
 -> END
 
@@ -54,11 +44,8 @@ Altura moral y presencia estética. Si hay que buscar cosas debajo de estanterí
 === sintomas ===
 Nada. Este jopo no se cae ni con viento viral. Estoy sano, estilizado y con movilidad reducida en ascensores.
 
-+ [Bien, entonces puede entrar.]
-    —Gracias, como puede ver no voy a ocupar mucho espacio.
-    -> END
 + [Aún así necesito verificar su salud.]
-    —No pasa nada, ya voy a encontrar algún ducto por el cual ingresar.
+   Esta bien, de todas maneras siempre encuentro la forma de entrar...
     -> END
 -> END
 

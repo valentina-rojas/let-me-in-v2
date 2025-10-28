@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ventana-mail-maximizada_0: 3979238099743473347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

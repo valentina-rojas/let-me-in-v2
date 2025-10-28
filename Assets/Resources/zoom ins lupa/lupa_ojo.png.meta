@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lupa_ojo_0: -2891514447592173815
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

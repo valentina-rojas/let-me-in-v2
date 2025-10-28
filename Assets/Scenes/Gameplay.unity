@@ -4517,7 +4517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -65, y: -25}
+  m_AnchoredPosition: {x: -64.99994, y: -25}
   m_SizeDelta: {x: -1294.12, y: -464.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313696623
@@ -9647,6 +9647,8 @@ GameObject:
   - component: {fileID: 779819322}
   - component: {fileID: 779819321}
   - component: {fileID: 779819320}
+  - component: {fileID: 779819324}
+  - component: {fileID: 779819323}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9728,6 +9730,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779819323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779819319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86b5cde5e4260294a9b73dc525fceca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspectWidth: 16
+  targetAspectHeight: 9
+--- !u!114 &779819324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779819319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &781141995
 GameObject:
   m_ObjectHideFlags: 0
@@ -11801,6 +11861,9 @@ MonoBehaviour:
     - {fileID: 818472440953356866, guid: 3ca1d4bf8f02a6749a5cf75e353ccb3d, type: 3}
     - {fileID: 4471038150240660831, guid: 10b28ac8c6b89414fb3bb9b99b2da64f, type: 3}
     - {fileID: 2573835153199593656, guid: 0e2d77ba5fb3fab47bbefc4da5d96d79, type: 3}
+    - {fileID: 4534030318338212612, guid: 65ba1a6c5e42cbc4cbc0efac8b3cee5a, type: 3}
+    - {fileID: 4534030318338212612, guid: 2158820591ed44b4e9d5edf3156379c0, type: 3}
+    - {fileID: 4534030318338212612, guid: ff8449d53c377fd41a6c4d2f229fd278, type: 3}
   - personajesDelNivel:
     - {fileID: 2573835153199593656, guid: 656587532b53f0f4595ef3a24ddb57ef, type: 3}
     - {fileID: 2573835153199593656, guid: 18c28f3523fa5e84c90f569167b88aff, type: 3}

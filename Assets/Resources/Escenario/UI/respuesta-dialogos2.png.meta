@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      respuesta-dialogos2_0: 641599164336146898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

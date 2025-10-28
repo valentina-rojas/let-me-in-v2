@@ -185,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boton-lupa-4_0: 2130130796804275584
+      boton-lupa-4_1: -8648857782500598474
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

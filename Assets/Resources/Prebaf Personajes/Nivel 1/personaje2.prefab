@@ -125,9 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: chica acne
   estado: 1
-  lupaDefault: {fileID: 4757337107568733868, guid: 1a1e6226e4bc40648a19cf7828a3a885, type: 3}
-  lupaOjos: {fileID: -2891514447592173815, guid: 4ab989eb0de61524a8b7219b40aeb96e, type: 3}
-  lupaBoca: {fileID: -2574999018637723787, guid: dc0d1d415cb02df48abf20d9d30c16de, type: 3}
+  lupaDefault: {fileID: 810901898499765626, guid: b5f4c6430630b3347b29250b9756e267, type: 3}
+  lupaOjos: {fileID: -5109447828675947009, guid: 5af8f0f3db3c7cc46a356ab54bacaed3, type: 3}
+  lupaBoca: {fileID: -934105714061036219, guid: f73dc48e9cd5f7c4a931e52f2bef0a48, type: 3}
   lupaCuello: {fileID: -5383858975649504105, guid: f94c60543bba6bf4cbae0fb96c4f712b, type: 3}
   lupaEspalda: {fileID: -5117307608052877151, guid: 488f205db468b2e408cc7e65efb932ba, type: 3}
   nodoInicial: introduccion

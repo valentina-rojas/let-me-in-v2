@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lupa_cara_0: 4757337107568733868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

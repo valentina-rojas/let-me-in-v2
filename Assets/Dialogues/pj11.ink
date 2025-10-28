@@ -1,4 +1,5 @@
 -> introduccion
+-> introduccion
 
 === introduccion ===
 Hola, necesito entrar ya mismo.
@@ -13,13 +14,23 @@ Hola, necesito entrar ya mismo.
 
 
 === origenDisfraz ===
-Si no te enteraste estamos en medio de una pandemia, estoy tomando las precauciones necesarias.
+Si no te enteraste estamos en medio de una pandemia, estoy tomando precauciones.
 
 + [¿Qué precauciones exactamente?]
-    —Me cubro con lo que puedo y uso el colador para filtrar las ondas.
+    -> precauciones
++ [Entiendo... pero debo verificar su estado de salud.]
+    ¿Verificar? No tengo nada, estoy sano.
     -> END
-+ [Entiendo, pero igual debo verificar su estado de salud.]
-    —¿Verificar? No tengo nada, estoy sano.
+-> END
+
+
+=== precauciones ===
+Me cubro con lo que puedo y uso el colador para filtrar las ondas.
+
++ [¿Las ondas?]
+    -> motivoAjos
++ [¿Eso no es peligroso?]
+    No, para nada. Me siento seguro así.
     -> END
 -> END
 
@@ -28,10 +39,10 @@ Si no te enteraste estamos en medio de una pandemia, estoy tomando las precaucio
 Para que el gobierno no me lave el cerebro con las ondas que emiten.
 
 + [¿En serio cree eso?]
-    —Sí, los ajos y el colador protegen, no es mi culpa si no entendés.
+    Sí, los ajos y el colador protegen.
     -> END
-+ [Lo siento, eso suena poco fiable; necesito pruebas de que está sano.]
-    —No voy a mostrarle nada, con eso tengo suficiente.
++ [Suena poco fiable; necesito pruebas de que está sano.]
+    No voy a mostrarle nada, con esto es suficiente.
     -> END
 -> END
 
@@ -40,10 +51,10 @@ Para que el gobierno no me lave el cerebro con las ondas que emiten.
 No voy a quitármelos. ¿Acaso quiere que me contagie? Seguro está trabajando para ellos...
 
 + [Si no coopera, no puedo dejarlo entrar.]
-    —Entonces busque otra entrada, yo no me voy a quitar esto.
+    Entonces buscaré otra entrada; yo no me voy a sacar esto.
     -> END
-+ [Tranquilo, solo quiero asegurarme de que no representa riesgo para otros.]
-    —¿Riesgo? Estoy sano, no me ponga en esa.
++ [Tranquilo, solo quiero asegurarme de que no representa un riesgo.]
+    ¿Riesgo? Estoy sano, no me ponga en esa.
     -> END
 -> END
 
@@ -53,5 +64,5 @@ Gracias pero no me pienso sacar nada...
 -> END
 
 === respuestaRechazo ===
-¿Y ahora donde voy a conseguir mas ajos?
+¿Y ahora dónde voy a conseguir más ajos?
 -> END
