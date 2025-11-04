@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
         strikes = 0;
         tiempoNivel = 0f;
         dialogosOmitidos = GameData.DialogosOmitidos;
+        lupaInteractiva.ReiniciarEnergia(); 
+
 
         NivelActual = GameData.NivelActual;
 
@@ -125,6 +127,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+            
         GameObject[] todosLosPersonajes = niveles[NivelActual - 1].personajesDelNivel;
 
         if (todosLosPersonajes.Length < characterSelector.configuracionesPorNivel.Find(c => c.nivel == NivelActual).cantidadTotalPersonajes)

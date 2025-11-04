@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Collections.Generic;
 
 public class LupaInteractiva : MonoBehaviour
 {
@@ -18,21 +20,39 @@ public class LupaInteractiva : MonoBehaviour
     public Button botonCuello;
     public Button botonEspalda;
 
+    [Header("Energía de lupa")]
+    public List<Image> unidadesEnergia; // imágenes de energía
+    private int energiaActual;
+
+    [Header("UI Sin Energía / Confirmación")]
+    public GameObject panelSinEnergia;
+    public GameObject panelConfirmacion;
+    public TMP_Text textoConfirmacion;
+    public Button botonConfirmar;
+    public Button botonCancelar;
+
     private CharacterAttributes personajeActual;
+    private string zonaSeleccionadaPendiente;
+    private System.Action accionPendiente;
 
     void Start()
     {
         panelLupa.SetActive(false);
+        panelSinEnergia.SetActive(false);
+        panelConfirmacion.SetActive(false);
         botonAbrirLupa.interactable = false;
 
-        // Botón de abrir/cerrar
+        energiaActual = unidadesEnergia.Count;
+
         botonAbrirLupa.onClick.AddListener(AbrirCerrarLupa);
 
-        // Botones de zonas
-        botonOjos.onClick.AddListener(() => MostrarZona(personajeActual?.lupaOjos));
-        botonBoca.onClick.AddListener(() => MostrarZona(personajeActual?.lupaBoca));
-        botonCuello.onClick.AddListener(() => MostrarZona(personajeActual?.lupaCuello));
-        botonEspalda.onClick.AddListener(() => MostrarZona(personajeActual?.lupaEspalda));
+        botonOjos.onClick.AddListener(() => SolicitarConfirmacion("los ojos", personajeActual?.lupaOjos));
+        botonBoca.onClick.AddListener(() => SolicitarConfirmacion("la boca", personajeActual?.lupaBoca));
+        botonCuello.onClick.AddListener(() => SolicitarConfirmacion("el cuello", personajeActual?.lupaCuello));
+        botonEspalda.onClick.AddListener(() => SolicitarConfirmacion("la espalda", personajeActual?.lupaEspalda));
+
+        botonConfirmar.onClick.AddListener(ConfirmarAccion);
+        botonCancelar.onClick.AddListener(CancelarAccion);
     }
 
     void AbrirCerrarLupa()
@@ -43,12 +63,38 @@ public class LupaInteractiva : MonoBehaviour
         {
             personajeActual = GameManager.instance.personajeActual;
 
-            // Mostrar la imagen por defecto al abrir
             if (personajeActual != null && personajeActual.lupaDefault != null)
-            {
                 imagenZona.sprite = personajeActual.lupaDefault;
-            }
+
+            ActualizarEstadoBotones();
         }
+    }
+
+    // Muestra ventana de confirmación antes de usar energía
+    void SolicitarConfirmacion(string nombreZona, Sprite zonaSprite)
+    {
+        zonaSeleccionadaPendiente = nombreZona;
+        accionPendiente = () => MostrarZona(zonaSprite);
+
+        textoConfirmacion.text = $"¿Está seguro que desea examinar {nombreZona}? Consumirá una unidad de energía.";
+        panelConfirmacion.SetActive(true);
+    }
+
+    void ConfirmarAccion()
+    {
+        panelConfirmacion.SetActive(false);
+        if (accionPendiente != null)
+        {
+            accionPendiente.Invoke();
+            ConsumirEnergia();
+            accionPendiente = null;
+        }
+    }
+
+    void CancelarAccion()
+    {
+        panelConfirmacion.SetActive(false);
+        accionPendiente = null;
     }
 
     void MostrarZona(Sprite zona)
@@ -63,14 +109,54 @@ public class LupaInteractiva : MonoBehaviour
         }
     }
 
+    void ConsumirEnergia()
+    {
+        if (energiaActual > 0)
+        {
+            energiaActual--;
+            unidadesEnergia[energiaActual].enabled = false;
 
-    public void DesactivarBotonLupa(){
+            if (energiaActual <= 0)
+                ActualizarEstadoBotones();
+        }
+    }
 
+    void ActualizarEstadoBotones()
+    {
+        bool tieneEnergia = energiaActual > 0;
+
+        botonOjos.interactable = tieneEnergia;
+        botonBoca.interactable = tieneEnergia;
+        botonCuello.interactable = tieneEnergia;
+        botonEspalda.interactable = tieneEnergia;
+
+        if (!tieneEnergia)
+            MostrarPanelSinEnergia(true); // mostrar solo el botón, no el panel completo
+    }
+
+    void MostrarPanelSinEnergia(bool mostrarMensaje = true)
+    {
+
+            panelSinEnergia.SetActive(true);
+    }
+
+    public void DesactivarBotonLupa()
+    {
         botonAbrirLupa.interactable = false;
     }
 
-      public void ActivarBotonLupa(){
-        
-        botonAbrirLupa.interactable = false;
+    public void ActivarBotonLupa()
+    {
+        botonAbrirLupa.interactable = true;
+    }
+
+    public void ReiniciarEnergia()
+    {
+        energiaActual = unidadesEnergia.Count;
+        foreach (var unidad in unidadesEnergia)
+            unidad.enabled = true;
+
+        panelSinEnergia.SetActive(false);
+        panelConfirmacion.SetActive(false);
     }
 }
