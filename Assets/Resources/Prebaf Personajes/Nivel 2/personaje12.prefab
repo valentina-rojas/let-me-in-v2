@@ -125,11 +125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 1
-  lupaDefault: {fileID: 0}
-  lupaOjos: {fileID: 0}
-  lupaBoca: {fileID: 0}
-  lupaCuello: {fileID: 0}
-  lupaEspalda: {fileID: 0}
+  lupaDefault: {fileID: 2239673647209687384, guid: 4aa90a6d3e8e727448d2c50fb5535fb8, type: 3}
+  lupaOjos: {fileID: 5865546378583223420, guid: ddf808b0f7a900e49ad437dd9ac82875, type: 3}
+  lupaBoca: {fileID: 9184943824382498418, guid: b245a0e4bd0e4b34599cb98b6479d36d, type: 3}
+  lupaCuello: {fileID: -966167308690345905, guid: 96612fc9c94ea8445958c989ef595428, type: 3}
+  lupaEspalda: {fileID: 7922524747879300698, guid: bf1b86cea23ad044eb9057f8d57b99dd, type: 3}
   nodoInicial: introduccion
   respuestaIngreso: 
   respuestaRechazo: 

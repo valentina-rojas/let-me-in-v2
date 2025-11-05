@@ -128,8 +128,8 @@ MonoBehaviour:
   lupaDefault: {fileID: 810901898499765626, guid: b5f4c6430630b3347b29250b9756e267, type: 3}
   lupaOjos: {fileID: -5109447828675947009, guid: 5af8f0f3db3c7cc46a356ab54bacaed3, type: 3}
   lupaBoca: {fileID: -934105714061036219, guid: f73dc48e9cd5f7c4a931e52f2bef0a48, type: 3}
-  lupaCuello: {fileID: -5383858975649504105, guid: f94c60543bba6bf4cbae0fb96c4f712b, type: 3}
-  lupaEspalda: {fileID: -5117307608052877151, guid: 488f205db468b2e408cc7e65efb932ba, type: 3}
+  lupaCuello: {fileID: -5925403967473611504, guid: f58b2449744cb3047b20d4dabcfc6a9a, type: 3}
+  lupaEspalda: {fileID: -6113815715448302147, guid: 213062874a3fcca439ae01cdf5b86d4a, type: 3}
   nodoInicial: introduccion
   respuestaIngreso: 
   respuestaRechazo: 

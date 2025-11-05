@@ -18,7 +18,7 @@ public class LupaInteractiva : MonoBehaviour
     public Button botonOjos;
     public Button botonBoca;
     public Button botonCuello;
-    public Button botonEspalda;
+    public Button botonManos;
 
     [Header("Energía de lupa")]
     public List<Image> unidadesEnergia; // imágenes de energía
@@ -49,7 +49,7 @@ public class LupaInteractiva : MonoBehaviour
         botonOjos.onClick.AddListener(() => SolicitarConfirmacion("los ojos", personajeActual?.lupaOjos));
         botonBoca.onClick.AddListener(() => SolicitarConfirmacion("la boca", personajeActual?.lupaBoca));
         botonCuello.onClick.AddListener(() => SolicitarConfirmacion("el cuello", personajeActual?.lupaCuello));
-        botonEspalda.onClick.AddListener(() => SolicitarConfirmacion("la espalda", personajeActual?.lupaEspalda));
+        botonManos.onClick.AddListener(() => SolicitarConfirmacion("las manos", personajeActual?.lupaEspalda));
 
         botonConfirmar.onClick.AddListener(ConfirmarAccion);
         botonCancelar.onClick.AddListener(CancelarAccion);
@@ -128,7 +128,7 @@ public class LupaInteractiva : MonoBehaviour
         botonOjos.interactable = tieneEnergia;
         botonBoca.interactable = tieneEnergia;
         botonCuello.interactable = tieneEnergia;
-        botonEspalda.interactable = tieneEnergia;
+        botonManos.interactable = tieneEnergia;
 
         if (!tieneEnergia)
             MostrarPanelSinEnergia(true); // mostrar solo el botón, no el panel completo

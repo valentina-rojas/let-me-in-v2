@@ -125,10 +125,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
+  lupaDefault: {fileID: 6890696553270706249, guid: 0bc4a10dcdaf70d42ae6e07094e5a6ba, type: 3}
+  lupaOjos: {fileID: 4866001139738217781, guid: 6a0fc611bcb119741a8af6da3a19853d, type: 3}
+  lupaBoca: {fileID: 4978053474036552961, guid: 3460452adc9ce414e8caf345ff3d2572, type: 3}
+  lupaCuello: {fileID: -3186573466985946802, guid: 7e7a449c6f71f3c4aba1a99f0a57c262, type: 3}
+  lupaEspalda: {fileID: 1312120777975226221, guid: eb66deda4d828ed4cbedcd0df2c32920, type: 3}
   nodoInicial: introduccion
   respuestaIngreso: 
   respuestaRechazo: 
-  inkJSON: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: 617dbcd5015e81a418ed12bf65e8eecf, type: 3}
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 0
   animator: {fileID: 0}
