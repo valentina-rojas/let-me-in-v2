@@ -12504,12 +12504,6 @@ MonoBehaviour:
     - {fileID: 8815244945732204834, guid: 9720f29aa7bf9f44fb6d8a4f5749bc8f, type: 3}
     - {fileID: 2573835153199593656, guid: 4c684be02cbe50746bc0384920c0079f, type: 3}
     - {fileID: 2573835153199593656, guid: 56ce92414f2ceb64b9d24d7bc0d7f651, type: 3}
-  - personajesDelNivel:
-    - {fileID: 8815244945732204834, guid: 6e0e32fc333a53045b9a0bb15c79b740, type: 3}
-    - {fileID: 8815244945732204834, guid: b4c2128220bfd554085b2b3a70829add, type: 3}
-    - {fileID: 2573835153199593656, guid: 56ce92414f2ceb64b9d24d7bc0d7f651, type: 3}
-    - {fileID: 2573835153199593656, guid: 4c684be02cbe50746bc0384920c0079f, type: 3}
-    - {fileID: 8815244945732204834, guid: 0a8b73a03dd566341a4ba202ed51c5c4, type: 3}
 --- !u!1 &933161978
 GameObject:
   m_ObjectHideFlags: 0

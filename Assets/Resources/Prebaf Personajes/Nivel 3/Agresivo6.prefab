@@ -144,10 +144,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   estado: 0
+  lupaDefault: {fileID: 0}
+  lupaOjos: {fileID: 0}
+  lupaBoca: {fileID: 0}
+  lupaCuello: {fileID: 0}
+  lupaEspalda: {fileID: 0}
   nodoInicial: introduccion
   respuestaIngreso: 
   respuestaRechazo: 
-  inkJSON: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: 76dbf891e538df04fbf494a5287e0e45, type: 3}
   prefab: {fileID: 2573835153199593656}
   esAgresivo: 1
   animator: {fileID: 0}
