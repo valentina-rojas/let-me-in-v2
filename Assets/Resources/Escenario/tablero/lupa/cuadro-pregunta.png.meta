@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5d31a7ea9259ae94ba2418db5cd97a3e
+guid: 14f33cb2363e83b48901cc0fe2ab9b0b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8839286100637395625
-    second: boton-lupa-130x57_0
+      213: 5028953372927266121
+    second: cuadro-pregunta_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,67 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boton-lupa-130x57_0
+      name: cuadro-pregunta_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 130
-        height: 57
+        width: 596
+        height: 321
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 728c9e333ded6394f940c212c343a9c1
-      internalID: 1498732951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boton-lupa-130x57_1
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 0
-        width: 130
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16b63dee0003e134f9ac9afddbfceaee
-      internalID: 1289484067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boton-lupa-130x57_2
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 0
-        width: 130
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c220b72189534a54bace6097a0d7af70
-      internalID: 207054201
+      spriteID: 94d0559b27e6ac540800000000000000
+      internalID: 5028953372927266121
       vertices: []
       indices: 
       edges: []
@@ -195,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e3882b43dd93f0d4bb3b63c337631560
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -204,10 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      boton-lupa-130x57_0: 1498732951
-      boton-lupa-130x57_1: 1289484067
-      boton-lupa-130x57_2: 207054201
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
